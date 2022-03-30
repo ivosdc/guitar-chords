@@ -1,21 +1,26 @@
 <script>
-    import {onMount} from 'svelte';
-    import CHORDS from './all-chords-chart';
+    import {onMount, afterUpdate} from 'svelte';
     import {ChordBox} from 'vexchords';
 
-    let chordElement;
     export let tuning = ["E", "A", "D", "G", "B", "E"];
+    $: tuning = typeof tuning === 'string' ? JSON.parse(tuning) : tuning;
     export let fingering = ['X', '3', '2', 'X', '1', 'X'];
-    export let frets = ['X', '3', '2', '0', '1', '0'];
+    $: fingering = typeof fingering === 'string' ? JSON.parse(fingering) : fingering;
+    export let strings = ['X', '3', '2', '0', '1', '0'];
+    $: strings = typeof strings === 'string' ? JSON.parse(strings) : strings;
     export let position = 0;
     export let scale = '50%';
 
+    let chordElement;
+
 
     onMount(drawChord)
+    afterUpdate(drawChord)
 
     function drawChord() {
-        const calculatedPosition = position || getPositionFromFrets(frets);
-        const adjustedFrets = adjustFrets(frets, calculatedPosition);
+        chordElement.innerHTML = '';
+        const calculatedPosition = position || getPositionFromFrets(strings);
+        const adjustedFrets = adjustFrets(strings, calculatedPosition);
         let chordbox = new ChordBox(chordElement, {
             defaultColor: '#666',
             bgColor: '#1A1A1A',
@@ -54,17 +59,6 @@
         const filteredFrets = frets.map((string) => Number(string)).filter(Boolean);
         return filteredFrets.length ? Math.min(...filteredFrets) : 0;
     }
-
-    function displayName(chordDataName) {
-        return chordDataName.split(',').join('');
-    }
-
-    function getChords(note) {
-        note = note.substring(0, 1);
-        let chords = CHORDS[note];
-        return chords;
-    }
-
 </script>
 
 <div bind:this={chordElement}></div>

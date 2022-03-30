@@ -52,6 +52,9 @@ var GuitarChord = (function () {
     function onMount(fn) {
         get_current_component().$$.on_mount.push(fn);
     }
+    function afterUpdate(fn) {
+        get_current_component().$$.after_update.push(fn);
+    }
 
     const dirty_components = [];
     const binding_callbacks = [];
@@ -8030,30 +8033,25 @@ var GuitarChord = (function () {
     	});
     }
 
-    function getChord(fingering, frets) {
-    	return frets.map((fret, i) => {
-    		const fingerFormatted = fingering[i] === "X" || fret === 0 ? null : fingering[i];
-    		return [frets.length - i, fret, fingerFormatted];
-    	});
-    }
-
     function getPositionFromFrets(frets) {
     	const filteredFrets = frets.map(string => Number(string)).filter(Boolean);
     	return filteredFrets.length ? Math.min(...filteredFrets) : 0;
     }
 
     function instance($$self, $$props, $$invalidate) {
-    	let chordElement;
     	let { tuning = ["E", "A", "D", "G", "B", "E"] } = $$props;
     	let { fingering = ['X', '3', '2', 'X', '1', 'X'] } = $$props;
-    	let { frets = ['X', '3', '2', '0', '1', '0'] } = $$props;
+    	let { strings = ['X', '3', '2', '0', '1', '0'] } = $$props;
     	let { position = 0 } = $$props;
     	let { scale = '50%' } = $$props;
+    	let chordElement;
     	onMount(drawChord);
+    	afterUpdate(drawChord);
 
     	function drawChord() {
-    		const calculatedPosition = position || getPositionFromFrets(frets);
-    		const adjustedFrets = adjustFrets(frets, calculatedPosition);
+    		$$invalidate(0, chordElement.innerHTML = '', chordElement);
+    		const calculatedPosition = position || getPositionFromFrets(strings);
+    		const adjustedFrets = adjustFrets(strings, calculatedPosition);
 
     		let chordbox = new ChordBox(chordElement,
     		{
@@ -8076,6 +8074,13 @@ var GuitarChord = (function () {
     		svgElement.setAttribute("height", scale);
     	}
 
+    	function getChord(fingering, frets) {
+    		return frets.map((fret, i) => {
+    			const fingerFormatted = fingering[i] === "X" || fret === 0 ? null : fingering[i];
+    			return [frets.length - i, fret, fingerFormatted];
+    		});
+    	}
+
     	function div_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			chordElement = $$value;
@@ -8086,12 +8091,30 @@ var GuitarChord = (function () {
     	$$self.$$set = $$props => {
     		if ('tuning' in $$props) $$invalidate(1, tuning = $$props.tuning);
     		if ('fingering' in $$props) $$invalidate(2, fingering = $$props.fingering);
-    		if ('frets' in $$props) $$invalidate(3, frets = $$props.frets);
+    		if ('strings' in $$props) $$invalidate(3, strings = $$props.strings);
     		if ('position' in $$props) $$invalidate(4, position = $$props.position);
     		if ('scale' in $$props) $$invalidate(5, scale = $$props.scale);
     	};
 
-    	return [chordElement, tuning, fingering, frets, position, scale, div_binding];
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*tuning*/ 2) {
+    			 $$invalidate(1, tuning = typeof tuning === 'string' ? JSON.parse(tuning) : tuning);
+    		}
+
+    		if ($$self.$$.dirty & /*fingering*/ 4) {
+    			 $$invalidate(2, fingering = typeof fingering === 'string'
+    			? JSON.parse(fingering)
+    			: fingering);
+    		}
+
+    		if ($$self.$$.dirty & /*strings*/ 8) {
+    			 $$invalidate(3, strings = typeof strings === 'string'
+    			? JSON.parse(strings)
+    			: strings);
+    		}
+    	};
+
+    	return [chordElement, tuning, fingering, strings, position, scale, div_binding];
     }
 
     class GuitarChord extends SvelteElement {
@@ -8111,7 +8134,7 @@ var GuitarChord = (function () {
     			{
     				tuning: 1,
     				fingering: 2,
-    				frets: 3,
+    				strings: 3,
     				position: 4,
     				scale: 5
     			},
@@ -8131,7 +8154,7 @@ var GuitarChord = (function () {
     	}
 
     	static get observedAttributes() {
-    		return ["tuning", "fingering", "frets", "position", "scale"];
+    		return ["tuning", "fingering", "strings", "position", "scale"];
     	}
 
     	get tuning() {
@@ -8152,12 +8175,12 @@ var GuitarChord = (function () {
     		flush();
     	}
 
-    	get frets() {
+    	get strings() {
     		return this.$$.ctx[3];
     	}
 
-    	set frets(frets) {
-    		this.$$set({ frets });
+    	set strings(strings) {
+    		this.$$set({ strings });
     		flush();
     	}
 
