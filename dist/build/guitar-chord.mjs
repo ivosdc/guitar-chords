@@ -8014,14 +8014,14 @@ var GuitarChord = (function () {
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
-    			/*div_binding*/ ctx[6](div);
+    			/*div_binding*/ ctx[5](div);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d(detaching) {
     			if (detaching) detach(div);
-    			/*div_binding*/ ctx[6](null);
+    			/*div_binding*/ ctx[5](null);
     		}
     	};
     }
@@ -8043,7 +8043,6 @@ var GuitarChord = (function () {
     	let { fingering = ['X', '3', '2', 'X', '1', 'X'] } = $$props;
     	let { strings = ['X', '3', '2', '0', '1', '0'] } = $$props;
     	let { position = 0 } = $$props;
-    	let { scale = '50%' } = $$props;
     	let chordElement;
     	onMount(drawChord);
     	afterUpdate(drawChord);
@@ -8071,8 +8070,8 @@ var GuitarChord = (function () {
 
     		const svgElement = chordElement.querySelector(`svg`);
     		svgElement.setAttribute("viewBox", "0 10 100 100");
-    		svgElement.setAttribute("width", scale);
-    		svgElement.setAttribute("height", scale);
+    		svgElement.setAttribute("width", "100%");
+    		svgElement.setAttribute("height", "100%");
     	}
 
     	function getChord(fingering, frets) {
@@ -8094,7 +8093,6 @@ var GuitarChord = (function () {
     		if ('fingering' in $$props) $$invalidate(2, fingering = $$props.fingering);
     		if ('strings' in $$props) $$invalidate(3, strings = $$props.strings);
     		if ('position' in $$props) $$invalidate(4, position = $$props.position);
-    		if ('scale' in $$props) $$invalidate(5, scale = $$props.scale);
     	};
 
     	$$self.$$.update = () => {
@@ -8115,7 +8113,7 @@ var GuitarChord = (function () {
     		}
     	};
 
-    	return [chordElement, tuning, fingering, strings, position, scale, div_binding];
+    	return [chordElement, tuning, fingering, strings, position, div_binding];
     }
 
     class GuitarChord extends SvelteElement {
@@ -8136,8 +8134,7 @@ var GuitarChord = (function () {
     				tuning: 1,
     				fingering: 2,
     				strings: 3,
-    				position: 4,
-    				scale: 5
+    				position: 4
     			},
     			null
     		);
@@ -8155,7 +8152,7 @@ var GuitarChord = (function () {
     	}
 
     	static get observedAttributes() {
-    		return ["tuning", "fingering", "strings", "position", "scale"];
+    		return ["tuning", "fingering", "strings", "position"];
     	}
 
     	get tuning() {
@@ -8191,15 +8188,6 @@ var GuitarChord = (function () {
 
     	set position(position) {
     		this.$$set({ position });
-    		flush();
-    	}
-
-    	get scale() {
-    		return this.$$.ctx[5];
-    	}
-
-    	set scale(scale) {
-    		this.$$set({ scale });
     		flush();
     	}
     }

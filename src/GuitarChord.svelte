@@ -9,7 +9,6 @@
     export let strings = ['X', '3', '2', '0', '1', '0'];
     $: strings = typeof strings === 'string' ? JSON.parse(strings) : strings;
     export let position = 0;
-    export let scale = '50%';
 
     let chordElement;
 
@@ -36,8 +35,8 @@
         });
         const svgElement = chordElement.querySelector(`svg`);
         svgElement.setAttribute("viewBox", "0 10 100 100");
-        svgElement.setAttribute("width", scale);
-        svgElement.setAttribute("height", scale);
+        svgElement.setAttribute("width", "100%");
+        svgElement.setAttribute("height", "100%");
     }
 
 

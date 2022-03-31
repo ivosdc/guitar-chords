@@ -1,6 +1,6 @@
 {
   "name": "guitar-chord",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "<guitar-chord> Web-component or svelte component",
   "svelte": "src/index.js",
   "module": "dist/build/guitar-chord.mjs",
