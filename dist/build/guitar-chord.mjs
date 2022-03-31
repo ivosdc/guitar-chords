@@ -8056,8 +8056,9 @@ var GuitarChord = (function () {
     		let chordbox = new ChordBox(chordElement,
     		{
     				defaultColor: '#666',
-    				bgColor: '#1A1A1A',
+    				bgColor: '#666',
     				labelColor: '#1A1A1A',
+    				fontFamily: 'Verdana, Arial, Helvetica, sans-serif',
     				fontWeight: 'lighter',
     				labelWeight: 'lighter'
     			});
