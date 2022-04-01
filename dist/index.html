@@ -13,6 +13,7 @@
     <p>
         <span id="Cm" class="button">Cm</span>
         <span id="D7" class="button">D7</span>
+        <span id="Em" class="button">Em</span>
     </p>
 </div>
 <script>
@@ -23,13 +24,17 @@
     let Cm = document.getElementById('Cm');
     Cm.onclick = setCm;
     let D7 = document.getElementById('D7');
-    D7.addEventListener("click", () => {
-        setD7()
-    });
+    D7.onclick = setD7;
+    let Em = document.getElementById('Em');
+    Em.onclick = setEm;
 
     function setChord(strings, fingering) {
         guitarChord.setAttribute('strings', JSON.stringify(strings.split(' ')));
         guitarChord.setAttribute('fingering', JSON.stringify(fingering.split(' ')));
+    }
+
+    function setEm() {
+        setChord('0 2 2 0 0 0', 'X 2 3 X X X')
     }
 
     function setCm() {

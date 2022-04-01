@@ -49,9 +49,6 @@ var GuitarChord = (function () {
             throw new Error('Function called outside component initialization');
         return current_component;
     }
-    function onMount(fn) {
-        get_current_component().$$.on_mount.push(fn);
-    }
     function afterUpdate(fn) {
         get_current_component().$$.after_update.push(fn);
     }
@@ -8029,27 +8026,39 @@ var GuitarChord = (function () {
     function adjustFrets(frets, position) {
     	return frets.map(fret => {
     		const fretInt = Number(fret);
-    		return fret ? fretInt - position + 1 : fret;
+    		let first_fred = 0;
+
+    		if (position > 0) {
+    			first_fred = 1;
+    		}
+
+    		return fret !== 'X' ? fretInt - position + first_fred : fret;
     	});
     }
 
     function getPositionFromFrets(frets) {
-    	const filteredFrets = frets.map(string => Number(string)).filter(Boolean);
-    	return filteredFrets.length ? Math.min(...filteredFrets) : 0;
+    	const filteredFrets = frets.map(string => {
+    		if (string !== 'X') {
+    			return string;
+    		}
+    	}).filter(Boolean);
+
+    	return Math.min(...filteredFrets) === Infinity
+    	? 0
+    	: Math.min(...filteredFrets);
     }
 
     function instance($$self, $$props, $$invalidate) {
     	let { tuning = ["E", "A", "D", "G", "B", "E"] } = $$props;
-    	let { fingering = ['X', '3', '2', 'X', '1', 'X'] } = $$props;
-    	let { strings = ['X', '3', '2', '0', '1', '0'] } = $$props;
+    	let { fingering = ['X', 'X', 'X', 'X', 'X', 'X'] } = $$props;
+    	let { strings = ['X', 'X', 'X', 'X', 'X', 'X'] } = $$props;
     	let { position = 0 } = $$props;
     	let chordElement;
-    	onMount(drawChord);
     	afterUpdate(drawChord);
 
     	function drawChord() {
     		$$invalidate(0, chordElement.innerHTML = '', chordElement);
-    		const calculatedPosition = position || getPositionFromFrets(strings);
+    		let calculatedPosition = position || getPositionFromFrets(strings);
     		const adjustedFrets = adjustFrets(strings, calculatedPosition);
 
     		let chordbox = new ChordBox(chordElement,
@@ -8076,7 +8085,7 @@ var GuitarChord = (function () {
 
     	function getChord(fingering, frets) {
     		return frets.map((fret, i) => {
-    			const fingerFormatted = fingering[i] === "X" || fret === 0 ? null : fingering[i];
+    			const fingerFormatted = isNaN(fingering[i]) || fret === 0 ? 'X' : fingering[i];
     			return [frets.length - i, fret, fingerFormatted];
     		});
     	}
