@@ -1,17 +1,21 @@
 Made with Svelte.
 
-# <guitar-chords-db />
-- Web-component: `<guitar-chords-db></guitar-chords-db>`
+# <guitar-chords></guitar-chords>
+- Web-component: `<guitar-chords></guitar-chords>`
 
 
-[Try out live example](https://ivosdc.github.io/guitar-chords-db/dist "Guitar tuner Example")
+...made with Svelte
+
+
+
+[Try out live example](https://ivosdc.github.io/guitar-chords/dist "Guitar tuner Example")
 
 or include into your website.
 ```html
 <head>
     ...
-    <script defer src='https://ivosdc.github.io/guitar-chords-db/dist/build/guitar-chord.js'></script>
+    <script defer src='https://ivosdc.github.io/guitar-chords/dist/build/guitar-chords.js'></script>
 </head>
 <body>
-<guitar-chords-db></guitar-chords-db>
+<guitar-chords></guitar-chords>
 ```
