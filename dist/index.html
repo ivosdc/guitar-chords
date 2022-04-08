@@ -3,74 +3,13 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width,initial-scale=1'>
-    <title>Guitar chord</title>
-    <script defer src='build/guitar-chord.js'></script>
+    <title>Guitar chords</title>
+    <script defer src='build/guitar-chords.mjs'></script>
 </head>
 
 <body>
 <div class="my-chord">
-    <guitar-chord id="guitar-chord"></guitar-chord>
-    <p>
-        <span id="Cm" class="button">Cm</span>
-        <span id="D7" class="button">D7</span>
-        <span id="Em" class="button">Em</span>
-    </p>
+    <guitar-chords id="guitar-chords"></guitar-chords>
 </div>
-<script>
-    let guitarChord = document.getElementById('guitar-chord');
-    guitarChord.setAttribute('shadowed', 'true');
-    guitarChord.setAttribute('scale', "75%");
-
-    let Cm = document.getElementById('Cm');
-    Cm.onclick = setCm;
-    let D7 = document.getElementById('D7');
-    D7.onclick = setD7;
-    let Em = document.getElementById('Em');
-    Em.onclick = setEm;
-
-    function setChord(strings, fingering) {
-        guitarChord.setAttribute('strings', JSON.stringify(strings.split(' ')));
-        guitarChord.setAttribute('fingering', JSON.stringify(fingering.split(' ')));
-    }
-
-    function setEm() {
-        setChord('0 2 2 0 0 0', 'X 2 3 X X X')
-    }
-
-    function setCm() {
-        setChord('X 3 5 5 4 3', 'X 1 3 4 2 1')
-    }
-
-    function setD7() {
-        setChord('X X 0 2 1 2', 'X X X 2 1 3')
-    }
-</script>
 </body>
 </html>
-
-<style>
-    .button {
-        border: 1px solid whitesmoke;
-        border-radius: 10%;
-        padding: 5px;
-        cursor: pointer;
-    }
-
-    body {
-        background-color: #1A1A1A;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #6e6e6e;
-    }
-
-    .my-chord {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-</style>

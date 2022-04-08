@@ -1,3 +1,3 @@
-import GuitarChord from './GuitarChord.svelte';
+import GuitarChordsDb from './GuitarChords.svelte';
 
-export default GuitarChord;
+export default GuitarChordsDb;

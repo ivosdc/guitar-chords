@@ -8,16 +8,16 @@ export default {
         'src/index.js'
     ],
     output: [
-        {file: pkg.module, format: 'iife', name: 'GuitarChord'},
-        {file: pkg.main, format: 'iife', name: 'GuitarChord'},
+        {file: pkg.module, format: 'iife', name: 'GuitarChords'},
+        {file: pkg.main, format: 'iife', name: 'GuitarChords'},
     ],
     plugins: [
         svelte({
             customElement: true,
-            tag: 'guitar-chord',
+            tag: 'guitar-chords',
             emitCss: true,
             css: (css) => {
-                css.write('dist/build/guitar-chord.css');
+                css.write('dist/build/guitar-chords.css');
             }
         }),
         resolve({

@@ -1,17 +1,17 @@
 {
-  "name": "guitar-chord",
-  "version": "0.0.4",
-  "description": "<guitar-chord> Web-component or svelte component",
+  "name": "guitar-chords",
+  "version": "0.0.1",
+  "description": "<guitar-chords> Web-component or svelte component",
   "svelte": "src/index.js",
-  "module": "dist/build/guitar-chord.mjs",
-  "main": "dist/build/guitar-chord.js",
+  "module": "dist/build/guitar-chords.mjs",
+  "main": "dist/build/guitar-chords.js",
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
     "ivolution.one",
-    "<guitar-chord/>"
+    "<guitar-chords />"
   ],
   "author": "Ivo Bozic",
   "license": "MIT",
@@ -25,11 +25,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^6.0.0",
+    "guitar-chord": "^0.0.4",
     "rollup": "^1.20.0",
     "rollup-plugin-svelte": "^6.1.1",
-    "svelte": "^3.37.0",
-    "vexchords": "^1.2.0",
-    "@svgdotjs/svg.js": "^3.1.2"
+    "svelte": "^3.37.0"  },
+  "dependencies": {
+    "vexchords": "^1.2.0"
   },
   "files": [
     "src",
