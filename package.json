@@ -1,5 +1,5 @@
 {
-  "name": "guitar-chords",
+  "name": "guitar-chords-viewer",
   "version": "0.0.1",
   "description": "<guitar-chords> Web-component or svelte component",
   "svelte": "src/index.js",
