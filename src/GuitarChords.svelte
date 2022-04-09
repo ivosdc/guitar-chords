@@ -177,11 +177,11 @@
     .notes-row {
         display: flex;
         flex-wrap: nowrap;
-        align-items: center;
+        justify-content: center;
         overflow: hidden;
         overflow-scrolling: auto;
         border: none;
-        width: calc(100vw - 6rem);
+        width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
     }
