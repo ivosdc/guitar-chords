@@ -182,7 +182,7 @@
         border: none;
         width: calc(100vw - 6rem);
         gap: 0.2rem;
-        padding:0 3rem 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .chords-row {
