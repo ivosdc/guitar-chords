@@ -178,9 +178,8 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: hidden;
-        scroll-behavior: auto;
         border: none;
-        width: available;
+        max-width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
     }
