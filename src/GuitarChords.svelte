@@ -171,7 +171,7 @@
     .tones {
         font-family: Verdana, Arial, Helvetica, sans-serif;
         font-size: large;
-        color: #333;
+        color: #999;
     }
 
     .notes-row {
@@ -181,7 +181,7 @@
         border: none;
         width: 100vw;
         gap: 0.2rem;
-        margin-bottom: 0.5rem;
+        margin:0 3rem 0.5rem;
     }
 
     .chords-row {
