@@ -179,7 +179,7 @@
         flex-wrap: nowrap;
         overflow-x: auto;
         border: none;
-        width: 100%;
+        width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
     }
