@@ -131,6 +131,7 @@
 
 <div class="notes-menu">
     <div class="notes-row">
+        <div class="dummy"></div>
         {#each NOTES as base_note}
             <div class="note-button"
                  class:button-selected={base_note === note}
@@ -138,6 +139,7 @@
                 {getBaseNoteName(base_note)}
             </div>
         {/each}
+        <div class="dummy"></div>
     </div>
     <div class="chords-row">
         {#if getChordName(note_chords[0]) !== ''}
@@ -160,6 +162,10 @@
     <span class="tones">{chord.tones}</span>
 </div>
 <style>
+    .dummy {
+        width: 5rem;
+    }
+
     .notes-menu {
         display: flex;
         align-items: center;
@@ -178,13 +184,11 @@
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
-        overflow: hidden;
-        overflow-scrolling: auto;
+        overflow: auto;
         border: none;
         width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
-        padding: 0 5rem;
     }
 
     .chords-row {
