@@ -2,8 +2,10 @@ import CHORDS from './GuitarChordsJson';
 
 export let empty_chord = [{
     chordName: '',
+    enharmonicChordName: '',
     fingering: 'X X X X X X',
-    strings: 'X X X X X X'
+    strings: 'X X X X X X',
+    tones: ''
 }];
 
 export function getChords(note) {

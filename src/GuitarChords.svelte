@@ -42,10 +42,10 @@
         let fret = JSON.parse(JSON.stringify(frets));
         fret.reverse();
         let barres = [];
-        fingering.forEach((finger, index)=>{
+        fingering.forEach((finger, index) => {
             let sibling = getSibling(finger, index, fingering);
             if (sibling !== -1) {
-                barres.push({ fromString: sibling, toString: index + 1, fret: fret[index] });
+                barres.push({fromString: sibling, toString: index + 1, fret: fret[index]});
             }
         })
 
@@ -84,7 +84,6 @@
     }
 
 
-
     export let note = '';
     let note_chords;
     let chord = empty_chord[0];
@@ -96,14 +95,16 @@
         return chords;
     }
 
-    let NOTES = ["C", "Db","D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+    let NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
     let fingering;
     $: fingering = setFingering(chord);
     let strings;
     $: strings = setStrings(chord);
 
     function getChordName(chord) {
-        return chord.chordName.split(',').join('');
+        let enharmonicChordName = chord.enharmonicChordName.split(',').join('');
+        let chordName = chord.chordName.split(',').join('');
+        return enharmonicChordName === chordName ? chordName : enharmonicChordName + ' ' + chordName;
     }
 
     function setFingering(chord) {
@@ -122,6 +123,10 @@
         chord = selected_chord;
     }
 
+    function getBaseNoteName(base_note) {
+        let chords = getChords(base_note);
+        return getChordName(chords[0]);
+    }
 </script>
 
 <div class="notes-menu">
@@ -130,24 +135,29 @@
             <div class="note-button"
                  class:button-selected={base_note === note}
                  on:click={()=>{setBaseNote(base_note)}}>
-                {base_note}
+                {getBaseNoteName(base_note)}
             </div>
         {/each}
     </div>
-    {#if getChordName(note_chords[0]) !== ''}
-        <div class="chords-row">
+    <div class="chords-row">
+        {#if getChordName(note_chords[0]) !== ''}
             {#each note_chords as note_chord}
                 <div class="chord-button"
                      class:button-selected={getChordName(note_chord) === getChordName(chord)}
                      on:click={()=>{setChord(note_chord)}}>
-                    {getChordName(note_chord)}
+                    {getChordName(note_chord).split(' ')[0]}
+                    {#if getChordName(note_chord).split(' ')[1] !== undefined}
+                        <br/>
+                        {getChordName(note_chord).split(' ')[1]}
+                    {/if}
                 </div>
             {/each}
-        </div>
-    {/if}
+        {/if}
+    </div>
     <div class="chord">
         <div bind:this={chordElement}></div>
     </div>
+    <p class="tones">{chord.tones}</p>
 </div>
 <style>
     .notes-menu {
@@ -158,12 +168,16 @@
         height: 100%;
     }
 
+    .tones {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
     .notes-row {
         display: flex;
         flex-wrap: wrap;
         border: none;
         width: fit-content;
-        gap: 0.1rem;
+        gap: 0.2rem;
         margin-bottom: 1rem;
     }
 
@@ -172,6 +186,7 @@
         grid-template-columns: auto auto auto auto auto;
         border: none;
         width: fit-content;
+        height: 81px;
         gap: 0.2rem;
     }
 
@@ -190,20 +205,26 @@
         font-weight: normal;
         font-size: small;
         cursor: pointer;
-        padding: 0.2rem 0.3rem;
+        padding: 0.2rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: min-content;
     }
 
     .chord-button {
         border: 1px solid #999;
         border-radius: 5px;
         color: #999;
-        width: available;
         text-align: center;
         font-family: Verdana, Arial, Helvetica, sans-serif;
         font-weight: normal;
         font-size: small;
         cursor: pointer;
         padding: 0.2rem 0.3rem;
+        width: available;
+        margin-bottom: auto;
+        margin-top: auto;
     }
 
     .button-selected {
