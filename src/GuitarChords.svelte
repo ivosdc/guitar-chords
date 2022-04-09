@@ -180,7 +180,7 @@
         overflow-x: hidden;
         scroll-behavior: auto;
         border: none;
-        width: 100vw;
+        width: available;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
     }
