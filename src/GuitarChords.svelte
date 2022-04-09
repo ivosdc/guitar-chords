@@ -177,9 +177,9 @@
     .notes-row {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: hidden;
+        overflow-x: auto;
         border: none;
-        max-width: 100vw;
+        width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
     }
