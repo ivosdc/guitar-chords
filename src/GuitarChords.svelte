@@ -25,15 +25,35 @@
             fontWeight: 'lighter',
             labelWeight: 'lighter',
         });
+        let barres = JSON.parse(JSON.stringify(fingering));
         chordbox.draw({
+            barres: getBarres(barres.reverse(), adjustedFrets),
             chord: getChord(fingering, adjustedFrets),
-            tuning,
             position: calculatedPosition,
+            tuning
         });
         const svgElement = chordElement.querySelector(`svg`);
         svgElement.setAttribute("viewBox", "0 10 100 100");
         svgElement.setAttribute("width", "100%");
         svgElement.setAttribute("height", "100%");
+    }
+
+    function getBarres(fingering, frets) {
+        let fret = JSON.parse(JSON.stringify(frets));
+        fret.reverse();
+        let barres = [];
+        fingering.forEach((finger, index)=>{
+            let sibling = getSibling(finger, index, fingering);
+            if (sibling !== -1) {
+                barres.push({ fromString: sibling, toString: index + 1, fret: fret[index] });
+            }
+        })
+
+        return barres;
+    }
+
+    function getSibling(finger, index, fingering) {
+        return isNaN(finger) ? -1 : fingering.lastIndexOf(finger) === index ? -1 : fingering.lastIndexOf(finger) + 1;
     }
 
     function adjustFrets(frets, position) {

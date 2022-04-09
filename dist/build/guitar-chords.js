@@ -9037,27 +9037,27 @@ var GuitarChords = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
+    	child_ctx[18] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[21] = list[i];
     	return child_ctx;
     }
 
-    // (110:8) {#each NOTES as base_note}
+    // (129:8) {#each NOTES as base_note}
     function create_each_block_1(ctx) {
     	let div;
-    	let t0_value = /*base_note*/ ctx[19] + "";
+    	let t0_value = /*base_note*/ ctx[21] + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[7](/*base_note*/ ctx[19]);
+    		return /*click_handler*/ ctx[7](/*base_note*/ ctx[21]);
     	}
 
     	return {
@@ -9066,7 +9066,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "note-button");
-    			toggle_class(div, "button-selected", /*base_note*/ ctx[19] === /*note*/ ctx[0]);
+    			toggle_class(div, "button-selected", /*base_note*/ ctx[21] === /*note*/ ctx[0]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9082,7 +9082,7 @@ var GuitarChords = (function () {
     			ctx = new_ctx;
 
     			if (dirty & /*NOTES, note*/ 17) {
-    				toggle_class(div, "button-selected", /*base_note*/ ctx[19] === /*note*/ ctx[0]);
+    				toggle_class(div, "button-selected", /*base_note*/ ctx[21] === /*note*/ ctx[0]);
     			}
     		},
     		d(detaching) {
@@ -9093,7 +9093,7 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (118:4) {#if getChordName(note_chords[0]) !== ''}
+    // (137:4) {#if getChordName(note_chords[0]) !== ''}
     function create_if_block(ctx) {
     	let div;
     	let each_value = /*note_chords*/ ctx[3];
@@ -9151,17 +9151,17 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (120:12) {#each note_chords as note_chord}
+    // (139:12) {#each note_chords as note_chord}
     function create_each_block(ctx) {
     	let div;
-    	let t0_value = getChordName(/*note_chord*/ ctx[16]) + "";
+    	let t0_value = getChordName(/*note_chord*/ ctx[18]) + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[8](/*note_chord*/ ctx[16]);
+    		return /*click_handler_1*/ ctx[8](/*note_chord*/ ctx[18]);
     	}
 
     	return {
@@ -9170,7 +9170,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "chord-button");
-    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[16]) === getChordName(/*chord*/ ctx[1]));
+    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[18]) === getChordName(/*chord*/ ctx[1]));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9184,10 +9184,10 @@ var GuitarChords = (function () {
     		},
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*note_chords*/ 8 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[16]) + "")) set_data(t0, t0_value);
+    			if (dirty & /*note_chords*/ 8 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[18]) + "")) set_data(t0, t0_value);
 
     			if (dirty & /*getChordName, note_chords, chord*/ 10) {
-    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[16]) === getChordName(/*chord*/ ctx[1]));
+    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[18]) === getChordName(/*chord*/ ctx[1]));
     			}
     		},
     		d(detaching) {
@@ -9352,26 +9352,56 @@ var GuitarChords = (function () {
     		{
     				defaultColor: '#666',
     				bgColor: '#666',
-    				strokeColor: '#DDD', // stroke color (overrides defaultColor)
-    				//            textColor: '#333', // text color (overrides defaultColor)
-    				stringColor: '#AAA', // string color (overrides defaultColor)
-    				fretColor: '#999', // fret color (overrides defaultColor)
+    				strokeColor: '#DDD',
+    				stringColor: '#AAA',
+    				fretColor: '#999',
     				labelColor: '#666',
     				fontFamily: 'Verdana, Arial, Helvetica, sans-serif',
     				fontWeight: 'lighter',
     				labelWeight: 'lighter'
     			});
 
+    		let barres = JSON.parse(JSON.stringify(fingering));
+
     		chordbox.draw({
+    			barres: getBarres(barres.reverse(), adjustedFrets),
     			chord: getChord(fingering, adjustedFrets),
-    			tuning,
-    			position: calculatedPosition
+    			position: calculatedPosition,
+    			tuning
     		});
 
     		const svgElement = chordElement.querySelector(`svg`);
     		svgElement.setAttribute("viewBox", "0 10 100 100");
     		svgElement.setAttribute("width", "100%");
     		svgElement.setAttribute("height", "100%");
+    	}
+
+    	function getBarres(fingering, frets) {
+    		let fret = JSON.parse(JSON.stringify(frets));
+    		fret.reverse();
+    		let barres = [];
+
+    		fingering.forEach((finger, index) => {
+    			let sibling = getSibling(finger, index, fingering);
+
+    			if (sibling !== -1) {
+    				barres.push({
+    					fromString: sibling,
+    					toString: index + 1,
+    					fret: fret[index]
+    				});
+    			}
+    		});
+
+    		return barres;
+    	}
+
+    	function getSibling(finger, index, fingering) {
+    		return isNaN(finger)
+    		? -1
+    		: fingering.lastIndexOf(finger) === index
+    			? -1
+    			: fingering.lastIndexOf(finger) + 1;
     	}
 
     	function getChord(fingering, frets) {
