@@ -157,7 +157,7 @@
     <div class="chord">
         <div bind:this={chordElement}></div>
     </div>
-    <p class="tones">{chord.tones}</p>
+    <span class="tones">{chord.tones}</span>
 </div>
 <style>
     .notes-menu {
@@ -170,15 +170,18 @@
 
     .tones {
         font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: large;
+        color: #333;
     }
 
     .notes-row {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
         border: none;
-        width: fit-content;
+        width: 100%;
         gap: 0.2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .chords-row {

@@ -9262,7 +9262,7 @@ var GuitarChords = (function () {
     	let div3;
     	let div2;
     	let t2;
-    	let p;
+    	let span;
     	let t3_value = /*chord*/ ctx[1].tones + "";
     	let t3;
     	let each_value_1 = /*NOTES*/ ctx[4];
@@ -9290,13 +9290,13 @@ var GuitarChords = (function () {
     			div3 = element("div");
     			div2 = element("div");
     			t2 = space();
-    			p = element("p");
+    			span = element("span");
     			t3 = text(t3_value);
     			this.c = noop;
     			attr(div0, "class", "notes-row");
     			attr(div1, "class", "chords-row");
     			attr(div3, "class", "chord");
-    			attr(p, "class", "tones");
+    			attr(span, "class", "tones");
     			attr(div4, "class", "notes-menu");
     		},
     		m(target, anchor) {
@@ -9315,8 +9315,8 @@ var GuitarChords = (function () {
     			append(div3, div2);
     			/*div2_binding*/ ctx[10](div2);
     			append(div4, t2);
-    			append(div4, p);
-    			append(p, t3);
+    			append(div4, span);
+    			append(span, t3);
     		},
     		p(ctx, [dirty]) {
     			if (dirty & /*NOTES, note, setBaseNote, getBaseNoteName*/ 177) {
@@ -9565,7 +9565,7 @@ var GuitarChords = (function () {
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100%;height:100%}.tones{font-family:Verdana, Arial, Helvetica, sans-serif}.notes-row{display:flex;flex-wrap:wrap;border:none;width:fit-content;gap:0.2rem;margin-bottom:1rem}.chords-row{display:grid;grid-template-columns:auto auto auto auto auto;border:none;width:fit-content;height:81px;gap:0.2rem}.chord{width:200px;display:flex;align-items:center}.note-button{border:1px solid #999;border-radius:5px;color:#999;width:fit-content;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.5rem;display:flex;flex-direction:column;justify-content:center;max-width:min-content}.chord-button{border:1px solid #999;border-radius:5px;color:#999;text-align:center;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.3rem;width:available;margin-bottom:auto;margin-top:auto}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100%;height:100%}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#333}.notes-row{display:flex;flex-wrap:nowrap;overflow-x:auto;border:none;width:100%;gap:0.2rem;margin-bottom:0.5rem}.chords-row{display:grid;grid-template-columns:auto auto auto auto auto;border:none;width:fit-content;height:81px;gap:0.2rem}.chord{width:200px;display:flex;align-items:center}.note-button{border:1px solid #999;border-radius:5px;color:#999;width:fit-content;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.5rem;display:flex;flex-direction:column;justify-content:center;max-width:min-content}.chord-button{border:1px solid #999;border-radius:5px;color:#999;text-align:center;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.3rem;width:available;margin-bottom:auto;margin-top:auto}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,
