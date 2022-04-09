@@ -1,4 +1,4 @@
-const CHORDS = {
+{
   C: [
     {
       strings: 'X 3 2 0 1 0',
@@ -984,5 +984,3 @@ const CHORDS = {
     }
   ]
 }
-
-export default CHORDS;

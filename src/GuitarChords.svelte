@@ -17,7 +17,10 @@
         let chordbox = new ChordBox(chordElement, {
             defaultColor: '#666',
             bgColor: '#666',
-            labelColor: '#1A1A1A',
+            strokeColor: '#DDD',
+            stringColor: '#AAA',
+            fretColor: '#999',
+            labelColor: '#666',
             fontFamily: 'Verdana, Arial, Helvetica, sans-serif',
             fontWeight: 'lighter',
             labelWeight: 'lighter',
@@ -40,13 +43,13 @@
             if (position > 0) {
                 first_fred = 1;
             }
-            return fret !== 'X' ? fretInt - position + first_fred : fret;
+            return fret !== 'X' ? fretInt - position + first_fred : fret.toLowerCase();
         });
     }
 
     function getChord(fingering, frets) {
         return frets.map((fret, i) => {
-            const fingerFormatted = isNaN(fingering[i]) || fret === 0 ? 'X' : fingering[i];
+            const fingerFormatted = isNaN(fingering[i]) || fret === 0 ? ' ' : fingering[i];
             return [frets.length - i, fret, fingerFormatted];
         });
     }
@@ -73,7 +76,7 @@
         return chords;
     }
 
-    let NOTES = ["C", "D", "E", "F", "G", "A", "B"];
+    let NOTES = ["C", "Db","D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
     let fingering;
     $: fingering = setFingering(chord);
     let strings;
@@ -105,7 +108,7 @@
     <div class="notes-row">
         {#each NOTES as base_note}
             <div class="note-button"
-                 class:button-selected={base_note === note.substring(0,1).toUpperCase()}
+                 class:button-selected={base_note === note}
                  on:click={()=>{setBaseNote(base_note)}}>
                 {base_note}
             </div>
@@ -140,7 +143,7 @@
         flex-wrap: wrap;
         border: none;
         width: fit-content;
-        gap: 0.5rem;
+        gap: 0.1rem;
         margin-bottom: 1rem;
     }
 
@@ -149,7 +152,7 @@
         grid-template-columns: auto auto auto auto auto;
         border: none;
         width: fit-content;
-        gap: 0.5rem;
+        gap: 0.2rem;
     }
 
     .chord {
@@ -164,10 +167,10 @@
         color: #999;
         width: fit-content;
         font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-weight: bolder;
-        font-size: large;
+        font-weight: normal;
+        font-size: small;
         cursor: pointer;
-        padding: 0 0.5rem;
+        padding: 0.2rem 0.3rem;
     }
 
     .chord-button {
@@ -180,7 +183,7 @@
         font-weight: normal;
         font-size: small;
         cursor: pointer;
-        padding: 0.2em 0.3rem;
+        padding: 0.2rem 0.3rem;
     }
 
     .button-selected {

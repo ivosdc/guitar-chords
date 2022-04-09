@@ -9,7 +9,6 @@ export let empty_chord = [{
 export function getChords(note) {
     let chords = empty_chord;
     if (note !== '') {
-        note = note.substring(0, 1);
         chords = CHORDS[note];
     }
     return chords;
