@@ -184,6 +184,7 @@
         width: 100vw;
         gap: 0.2rem;
         margin-bottom: 0.5rem;
+        padding: 0 5rem;
     }
 
     .chords-row {
