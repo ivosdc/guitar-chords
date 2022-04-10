@@ -133,13 +133,13 @@
 
     <div class="notes-scroll-row">
         <div class="notes-row">
-        {#each NOTES as base_note}
-            <div class="note-button"
-                 class:button-selected={base_note === note}
-                 on:click={()=>{setBaseNote(base_note)}}>
-                {getBaseNoteName(base_note)}
-            </div>
-        {/each}
+            {#each NOTES as base_note}
+                <div class="note-button"
+                     class:button-selected={base_note === note}
+                     on:click={()=>{setBaseNote(base_note)}}>
+                    {getBaseNoteName(base_note)}
+                </div>
+            {/each}
         </div>
     </div>
     <div class="chords-row">
@@ -157,10 +157,14 @@
             {/each}
         {/if}
     </div>
-    <div class="chord">
-        <div bind:this={chordElement}></div>
+    <div class="chord-visualized">
+        <div class="tones">
+            {chord.tones}
+        </div>
+        <div class="chord">
+            <div bind:this={chordElement}></div>
+        </div>
     </div>
-    <span class="tones">{chord.tones}</span>
 </div>
 <style>
 
@@ -172,25 +176,36 @@
         height: available;
     }
 
+    .chord-visualized {
+        width: fit-content;
+        display: flex;
+    }
+
     .tones {
         font-family: Verdana, Arial, Helvetica, sans-serif;
         font-size: large;
         color: #999;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .notes-scroll-row {
         display: flex;
         overflow: auto;
         border: none;
-        width: 100vw;
+        width: available;
+        width: -moz-available;
+        width: -webkit-fill-available;
     }
 
     .notes-row {
         display: flex;
         flex-wrap: nowrap;
         border: none;
-        width: 100vw;
-        margin: 0 1rem 0.5rem;
+        width: fit-content;
+        margin: 0 auto;
     }
 
     .chords-row {
@@ -203,7 +218,7 @@
     }
 
     .chord {
-        width: 200px;
+        width: 180px;
         display: flex;
         align-items: center;
     }

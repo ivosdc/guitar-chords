@@ -9052,7 +9052,7 @@ var GuitarChords = (function () {
     	return child_ctx;
     }
 
-    // (136:8) {#each NOTES as base_note}
+    // (136:12) {#each NOTES as base_note}
     function create_each_block_1(ctx) {
     	let div;
     	let t0_value = /*getBaseNoteName*/ ctx[7](/*base_note*/ ctx[22]) + "";
@@ -9253,19 +9253,20 @@ var GuitarChords = (function () {
     }
 
     function create_fragment(ctx) {
-    	let div5;
+    	let div7;
     	let div1;
     	let div0;
     	let t0;
     	let div2;
     	let show_if = getChordName(/*note_chords*/ ctx[3][0]) !== '';
     	let t1;
-    	let div4;
+    	let div6;
     	let div3;
+    	let t2_value = /*chord*/ ctx[1].tones + "";
     	let t2;
-    	let span;
-    	let t3_value = /*chord*/ ctx[1].tones + "";
     	let t3;
+    	let div5;
+    	let div4;
     	let each_value_1 = /*NOTES*/ ctx[4];
     	let each_blocks = [];
 
@@ -9277,7 +9278,7 @@ var GuitarChords = (function () {
 
     	return {
     		c() {
-    			div5 = element("div");
+    			div7 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -9289,38 +9290,41 @@ var GuitarChords = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			t1 = space();
-    			div4 = element("div");
+    			div6 = element("div");
     			div3 = element("div");
-    			t2 = space();
-    			span = element("span");
-    			t3 = text(t3_value);
+    			t2 = text(t2_value);
+    			t3 = space();
+    			div5 = element("div");
+    			div4 = element("div");
     			this.c = noop;
     			attr(div0, "class", "notes-row");
     			attr(div1, "class", "notes-scroll-row");
     			attr(div2, "class", "chords-row");
-    			attr(div4, "class", "chord");
-    			attr(span, "class", "tones");
-    			attr(div5, "class", "notes-menu");
+    			attr(div3, "class", "tones");
+    			attr(div5, "class", "chord");
+    			attr(div6, "class", "chord-visualized");
+    			attr(div7, "class", "notes-menu");
     		},
     		m(target, anchor) {
-    			insert(target, div5, anchor);
-    			append(div5, div1);
+    			insert(target, div7, anchor);
+    			append(div7, div1);
     			append(div1, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div0, null);
     			}
 
-    			append(div5, t0);
-    			append(div5, div2);
+    			append(div7, t0);
+    			append(div7, div2);
     			if (if_block) if_block.m(div2, null);
-    			append(div5, t1);
+    			append(div7, t1);
+    			append(div7, div6);
+    			append(div6, div3);
+    			append(div3, t2);
+    			append(div6, t3);
+    			append(div6, div5);
     			append(div5, div4);
-    			append(div4, div3);
-    			/*div3_binding*/ ctx[10](div3);
-    			append(div5, t2);
-    			append(div5, span);
-    			append(span, t3);
+    			/*div4_binding*/ ctx[10](div4);
     		},
     		p(ctx, [dirty]) {
     			if (dirty & /*NOTES, note, setBaseNote, getBaseNoteName*/ 177) {
@@ -9361,15 +9365,15 @@ var GuitarChords = (function () {
     				if_block = null;
     			}
 
-    			if (dirty & /*chord*/ 2 && t3_value !== (t3_value = /*chord*/ ctx[1].tones + "")) set_data(t3, t3_value);
+    			if (dirty & /*chord*/ 2 && t2_value !== (t2_value = /*chord*/ ctx[1].tones + "")) set_data(t2, t2_value);
     		},
     		i: noop,
     		o: noop,
     		d(detaching) {
-    			if (detaching) detach(div5);
+    			if (detaching) detach(div7);
     			destroy_each(each_blocks, detaching);
     			if (if_block) if_block.d();
-    			/*div3_binding*/ ctx[10](null);
+    			/*div4_binding*/ ctx[10](null);
     		}
     	};
     }
@@ -9526,7 +9530,7 @@ var GuitarChords = (function () {
     		setChord(note_chord);
     	};
 
-    	function div3_binding($$value) {
+    	function div4_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			chordElement = $$value;
     			$$invalidate(2, chordElement);
@@ -9562,14 +9566,14 @@ var GuitarChords = (function () {
     		getBaseNoteName,
     		click_handler,
     		click_handler_1,
-    		div3_binding
+    		div4_binding
     	];
     }
 
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999}.notes-scroll-row{display:flex;overflow:auto;border:none;width:100vw}.notes-row{display:flex;flex-wrap:nowrap;border:none;width:100vw;margin:0 1rem 0.5rem}.chords-row{display:grid;grid-template-columns:auto auto auto auto auto;border:none;width:fit-content;height:81px;gap:0.2rem}.chord{width:200px;display:flex;align-items:center}.note-button{border:1px solid #999;border-radius:5px;color:#999;width:fit-content;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.5rem;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content}.chord-button{border:1px solid #999;border-radius:5px;color:#999;text-align:center;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.3rem;width:available;margin-bottom:auto;margin-top:auto}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:flex;align-items:center;justify-content:center}.notes-scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available}.notes-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0 auto}.chords-row{display:grid;grid-template-columns:auto auto auto auto auto;border:none;width:fit-content;height:81px;gap:0.2rem}.chord{width:180px;display:flex;align-items:center}.note-button{border:1px solid #999;border-radius:5px;color:#999;width:fit-content;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.5rem;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content}.chord-button{border:1px solid #999;border-radius:5px;color:#999;text-align:center;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 0.3rem;width:available;margin-bottom:auto;margin-top:auto}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,
