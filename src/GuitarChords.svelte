@@ -62,18 +62,15 @@
                     <div class="chord-button"
                          class:button-selected={getChordName(note_chord) === getChordName(chord)}
                          on:click={()=>{setChord(note_chord)}}>
-                        {getChordName(note_chord).split(' ')[0]}
-                        {#if getChordName(note_chord).split(' ')[1] !== undefined}
-                            <br/>
-                            {getChordName(note_chord).split(' ')[1]}
-                        {/if}
+                        {getChordName(note_chord)}
                     </div>
                 {/each}
             {/if}
         </div>
     </div>
-    <div>
-        <p class="tuning">{tuning}</p>
+    <div class="chord-header">
+        <span class="chord-name">{getChordName(chord)}</span>
+        <span class="chord-tuning">{tuning.join(' ')}</span>
     </div>
     <div class="chord-visualized">
         <div class="tones">
@@ -86,10 +83,31 @@
 </div>
 <style>
 
-    .tuning {
+    .chord-header {
+        display: grid;
+        grid-template-columns: 100px 200px;
         font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: large;
         color: #999;
+        height: 2em;
+    }
+
+    .chord-name {
+        text-align: left;
+        align-items: flex-start;
+        font-weight: normal;
+        font-size: 1em;
+        border-bottom: 1px solid #999;
+    }
+
+    .chord-tuning {
+        text-align: center;
+        align-items: center;
+        font-family: monospace;
+        font-weight: bolder;
+        padding-left: 0.45em;
+        padding-top: 0.5em;
+        font-size: 1.8em;
+        letter-spacing: -0.05em;
     }
 
     .notes-menu {
