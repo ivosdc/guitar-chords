@@ -131,10 +131,10 @@
 
 <div class="notes-menu">
 
-    <div class="notes-scroll-row">
-        <div class="notes-row">
+    <div class="scroll-row">
+        <div class="content-row">
             {#each NOTES as base_note}
-                <div class="note-button"
+                <div class="button"
                      class:button-selected={base_note === note}
                      on:click={()=>{setBaseNote(base_note)}}>
                     {getBaseNoteName(base_note)}
@@ -142,20 +142,22 @@
             {/each}
         </div>
     </div>
-    <div class="chords-row">
-        {#if getChordName(note_chords[0]) !== ''}
-            {#each note_chords as note_chord}
-                <div class="chord-button"
-                     class:button-selected={getChordName(note_chord) === getChordName(chord)}
-                     on:click={()=>{setChord(note_chord)}}>
-                    {getChordName(note_chord).split(' ')[0]}
-                    {#if getChordName(note_chord).split(' ')[1] !== undefined}
-                        <br/>
-                        {getChordName(note_chord).split(' ')[1]}
-                    {/if}
-                </div>
-            {/each}
-        {/if}
+    <div class="scroll-row">
+        <div class="content-row">
+            {#if getChordName(note_chords[0]) !== ''}
+                {#each note_chords as note_chord}
+                    <div class="button"
+                         class:button-selected={getChordName(note_chord) === getChordName(chord)}
+                         on:click={()=>{setChord(note_chord)}}>
+                        {getChordName(note_chord).split(' ')[0]}
+                        {#if getChordName(note_chord).split(' ')[1] !== undefined}
+                            <br/>
+                            {getChordName(note_chord).split(' ')[1]}
+                        {/if}
+                    </div>
+                {/each}
+            {/if}
+        </div>
     </div>
     <div class="chord-visualized">
         <div class="tones">
@@ -174,6 +176,8 @@
         flex-direction: column;
         width: 100vw;
         height: available;
+        height: -moz-available;
+        height: -webkit-fill-available;
     }
 
     .chord-visualized {
@@ -191,30 +195,23 @@
         justify-content: center;
     }
 
-    .notes-scroll-row {
+    .scroll-row {
         display: flex;
         overflow: auto;
         border: none;
         width: available;
         width: -moz-available;
         width: -webkit-fill-available;
+        height: 70px;
+        border-top: 1px solid #999;
     }
 
-    .notes-row {
+    .content-row {
         display: flex;
         flex-wrap: nowrap;
         border: none;
         width: fit-content;
-        margin: 0 auto;
-    }
-
-    .chords-row {
-        display: grid;
-        grid-template-columns: auto auto auto auto auto;
-        border: none;
-        width: fit-content;
-        height: 81px;
-        gap: 0.2rem;
+        margin: 0.5em auto;
     }
 
     .chord {
@@ -223,36 +220,21 @@
         align-items: center;
     }
 
-    .note-button {
+    .button {
         border: 1px solid #999;
         border-radius: 5px;
         color: #999;
-        width: fit-content;
         font-family: Verdana, Arial, Helvetica, sans-serif;
         font-weight: normal;
         font-size: small;
         cursor: pointer;
-        padding: 0.2rem 0.5rem;
+        padding: 0.2rem 1em;
         margin: 0 2px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         max-width: min-content;
-    }
-
-    .chord-button {
-        border: 1px solid #999;
-        border-radius: 5px;
-        color: #999;
-        text-align: center;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-weight: normal;
-        font-size: small;
-        cursor: pointer;
-        padding: 0.2rem 0.3rem;
-        width: available;
-        margin-bottom: auto;
-        margin-top: auto;
+        height: 2.5em;
     }
 
     .button-selected {
@@ -260,6 +242,4 @@
         color: #1A1A1A;
         background-color: #999;
     }
-
-
 </style>
