@@ -1,31 +1,30 @@
 <script>
     import {
         drawChord,
-        setFingering,
-        setStrings,
         getChordName,
         getBaseNoteName,
         getChords,
+        NOTES,
+        tuning,
         empty_chord
     } from './GuitarChordsService';
     import {afterUpdate} from 'svelte';
 
     export let note = '';
     let chord = empty_chord[0];
-
-    let tuning = ["E", "A", "D", "G", "B", "E"];
-    let NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+    export let tune = tuning;
 
     let note_chords;
     $: note_chords = initChords(note);
     let fingering;
-    $: fingering = setFingering(chord);
+    $: fingering = chord.fingering.split(' ');
     let strings;
-    $: strings = setStrings(chord);
+    $: strings = chord.strings.split(' ');
+
     let chordElement;
 
     afterUpdate(() => {
-        drawChord(chordElement, strings, fingering, tuning)
+        drawChord(chordElement, strings, fingering, tune)
     })
 
     function setBaseNote(base_note) {
@@ -73,6 +72,9 @@
             {/if}
         </div>
     </div>
+    <div>
+        <p class="tuning">{tuning}</p>
+    </div>
     <div class="chord-visualized">
         <div class="tones">
             {chord.tones}
@@ -83,6 +85,12 @@
     </div>
 </div>
 <style>
+
+    .tuning {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: large;
+        color: #999;
+    }
 
     .notes-menu {
         display: flex;
@@ -129,7 +137,7 @@
     }
 
     .chord {
-        width: 180px;
+        width: 200px;
         display: flex;
         align-items: center;
     }
