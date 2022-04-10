@@ -15,6 +15,20 @@
     let chord = empty_chord[0];
     export let tune = tuning;
 
+    function setBaseNote(base_note) {
+        note = base_note;
+    }
+
+    function setChord(selected_chord) {
+        chord = selected_chord;
+    }
+
+    function initChords(note) {
+        let chords = getChords(note);
+        setChord(chords[0]);
+        return chords;
+    }
+
     let note_chords;
     $: note_chords = initChords(note);
     let fingering;
@@ -29,20 +43,6 @@
         drawChord(chordElement, strings, fingering, tune);
         drawChordTones(chord_canvas, chord.tones);
     })
-
-    function setBaseNote(base_note) {
-        note = base_note;
-    }
-
-    function setChord(selected_chord) {
-        chord = selected_chord;
-    }
-
-    function initChords(note) {
-        let chords = getChords(note);
-        setChord(chords[0]);
-        return chords;
-    }
 
 </script>
 
