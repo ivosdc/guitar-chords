@@ -134,7 +134,7 @@
     <div class="scroll-row">
         <div class="content-row">
             {#each NOTES as base_note}
-                <div class="button"
+                <div class="chord-button"
                      class:button-selected={base_note === note}
                      on:click={()=>{setBaseNote(base_note)}}>
                     {getBaseNoteName(base_note)}
@@ -146,7 +146,7 @@
         <div class="content-row">
             {#if getChordName(note_chords[0]) !== ''}
                 {#each note_chords as note_chord}
-                    <div class="button"
+                    <div class="chord-button"
                          class:button-selected={getChordName(note_chord) === getChordName(chord)}
                          on:click={()=>{setChord(note_chord)}}>
                         {getChordName(note_chord).split(' ')[0]}
@@ -220,7 +220,7 @@
         align-items: center;
     }
 
-    .button {
+    .chord-button {
         border: 1px solid #999;
         border-radius: 5px;
         color: #999;

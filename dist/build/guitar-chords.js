@@ -9070,7 +9070,7 @@ var GuitarChords = (function () {
     			div = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr(div, "class", "button");
+    			attr(div, "class", "chord-button");
     			toggle_class(div, "button-selected", /*base_note*/ ctx[22] === /*note*/ ctx[0]);
     		},
     		m(target, anchor) {
@@ -9206,7 +9206,7 @@ var GuitarChords = (function () {
     			t1 = space();
     			if (if_block) if_block.c();
     			t2 = space();
-    			attr(div, "class", "button");
+    			attr(div, "class", "chord-button");
     			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[19]) === getChordName(/*chord*/ ctx[1]));
     		},
     		m(target, anchor) {
@@ -9577,7 +9577,7 @@ var GuitarChords = (function () {
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:flex;align-items:center;justify-content:center}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:180px;display:flex;align-items:center}.button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:flex;align-items:center;justify-content:center}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:180px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,

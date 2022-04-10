@@ -1,6 +1,6 @@
 {
   "name": "guitar-chords-viewer",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "<guitar-chords> Web-component or svelte component",
   "svelte": "src/index.js",
   "module": "dist/build/guitar-chords.mjs",
