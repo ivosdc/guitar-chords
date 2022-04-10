@@ -9152,27 +9152,27 @@ var GuitarChords = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
+    	child_ctx[21] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
+    	child_ctx[24] = list[i];
     	return child_ctx;
     }
 
-    // (49:12) {#each NOTES as base_note}
+    // (114:12) {#each NOTES as base_note}
     function create_each_block_1(ctx) {
     	let div;
-    	let t0_value = getBaseNoteName(/*base_note*/ ctx[16]) + "";
+    	let t0_value = getBaseNoteName(/*base_note*/ ctx[24]) + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[7](/*base_note*/ ctx[16]);
+    		return /*click_handler*/ ctx[10](/*base_note*/ ctx[24]);
     	}
 
     	return {
@@ -9181,7 +9181,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "chord-button");
-    			toggle_class(div, "button-selected", /*base_note*/ ctx[16] === /*note*/ ctx[0]);
+    			toggle_class(div, "button-selected", /*base_note*/ ctx[24] === /*note*/ ctx[0]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9197,7 +9197,7 @@ var GuitarChords = (function () {
     			ctx = new_ctx;
 
     			if (dirty & /*NOTES, note*/ 1) {
-    				toggle_class(div, "button-selected", /*base_note*/ ctx[16] === /*note*/ ctx[0]);
+    				toggle_class(div, "button-selected", /*base_note*/ ctx[24] === /*note*/ ctx[0]);
     			}
     		},
     		d(detaching) {
@@ -9208,7 +9208,7 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (60:12) {#if getChordName(note_chords[0]) !== ''}
+    // (125:12) {#if getChordName(note_chords[0]) !== ''}
     function create_if_block(ctx) {
     	let each_1_anchor;
     	let each_value = /*note_chords*/ ctx[2];
@@ -9234,7 +9234,7 @@ var GuitarChords = (function () {
     			insert(target, each_1_anchor, anchor);
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*getChordName, note_chords, chord, setChord*/ 38) {
+    			if (dirty & /*getChordName, note_chords, chord, setChord*/ 70) {
     				each_value = /*note_chords*/ ctx[2];
     				let i;
 
@@ -9264,17 +9264,17 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (61:16) {#each note_chords as note_chord}
+    // (126:16) {#each note_chords as note_chord}
     function create_each_block(ctx) {
     	let div;
-    	let t0_value = getChordName(/*note_chord*/ ctx[13]) + "";
+    	let t0_value = getChordName(/*note_chord*/ ctx[21]) + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[8](/*note_chord*/ ctx[13]);
+    		return /*click_handler_1*/ ctx[11](/*note_chord*/ ctx[21]);
     	}
 
     	return {
@@ -9283,7 +9283,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "chord-button");
-    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[13]) === getChordName(/*chord*/ ctx[1]));
+    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[21]) === getChordName(/*chord*/ ctx[1]));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9297,10 +9297,10 @@ var GuitarChords = (function () {
     		},
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*note_chords*/ 4 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[13]) + "")) set_data(t0, t0_value);
+    			if (dirty & /*note_chords*/ 4 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[21]) + "")) set_data(t0, t0_value);
 
     			if (dirty & /*getChordName, note_chords, chord*/ 6) {
-    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[13]) === getChordName(/*chord*/ ctx[1]));
+    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[21]) === getChordName(/*chord*/ ctx[1]));
     			}
     		},
     		d(detaching) {
@@ -9312,7 +9312,7 @@ var GuitarChords = (function () {
     }
 
     function create_fragment(ctx) {
-    	let div9;
+    	let div11;
     	let div1;
     	let div0;
     	let t0;
@@ -9327,13 +9327,17 @@ var GuitarChords = (function () {
     	let t3;
     	let span1;
     	let t5;
-    	let div8;
-    	let div5;
-    	let t6_value = /*chord*/ ctx[1].tones + "";
-    	let t6;
-    	let t7;
+    	let div10;
     	let div7;
+    	let div5;
+    	let canvas;
+    	let t6;
     	let div6;
+    	let t7_value = /*chord*/ ctx[1].tones + "";
+    	let t7;
+    	let t8;
+    	let div9;
+    	let div8;
     	let each_value_1 = NOTES;
     	let each_blocks = [];
 
@@ -9345,7 +9349,7 @@ var GuitarChords = (function () {
 
     	return {
     		c() {
-    			div9 = element("div");
+    			div11 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -9365,12 +9369,16 @@ var GuitarChords = (function () {
     			span1 = element("span");
     			span1.textContent = `${tuning.join(' ')}`;
     			t5 = space();
-    			div8 = element("div");
-    			div5 = element("div");
-    			t6 = text(t6_value);
-    			t7 = space();
+    			div10 = element("div");
     			div7 = element("div");
+    			div5 = element("div");
+    			canvas = element("canvas");
+    			t6 = space();
     			div6 = element("div");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			div9 = element("div");
+    			div8 = element("div");
     			this.c = noop;
     			attr(div0, "class", "content-row");
     			attr(div1, "class", "scroll-row");
@@ -9379,41 +9387,50 @@ var GuitarChords = (function () {
     			attr(span0, "class", "chord-name");
     			attr(span1, "class", "chord-tuning");
     			attr(div4, "class", "chord-header");
-    			attr(div5, "class", "tones");
-    			attr(div7, "class", "chord");
-    			attr(div8, "class", "chord-visualized");
-    			attr(div9, "class", "notes-menu");
+    			attr(canvas, "width", /*width*/ ctx[7]);
+    			attr(canvas, "height", /*height*/ ctx[8]);
+    			attr(div5, "class", "tones-canvas");
+    			attr(div6, "class", "tones-name");
+    			attr(div7, "class", "tones");
+    			attr(div9, "class", "chord");
+    			attr(div10, "class", "chord-visualized");
+    			attr(div11, "class", "notes-menu");
     		},
     		m(target, anchor) {
-    			insert(target, div9, anchor);
-    			append(div9, div1);
+    			insert(target, div11, anchor);
+    			append(div11, div1);
     			append(div1, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div0, null);
     			}
 
-    			append(div9, t0);
-    			append(div9, div3);
+    			append(div11, t0);
+    			append(div11, div3);
     			append(div3, div2);
     			if (if_block) if_block.m(div2, null);
-    			append(div9, t1);
-    			append(div9, div4);
+    			append(div11, t1);
+    			append(div11, div4);
     			append(div4, span0);
     			append(span0, t2);
     			append(div4, t3);
     			append(div4, span1);
-    			append(div9, t5);
-    			append(div9, div8);
-    			append(div8, div5);
-    			append(div5, t6);
-    			append(div8, t7);
-    			append(div8, div7);
+    			append(div11, t5);
+    			append(div11, div10);
+    			append(div10, div7);
+    			append(div7, div5);
+    			append(div5, canvas);
+    			/*canvas_binding*/ ctx[12](canvas);
+    			append(div7, t6);
     			append(div7, div6);
-    			/*div6_binding*/ ctx[9](div6);
+    			append(div6, t7);
+    			append(div10, t8);
+    			append(div10, div9);
+    			append(div9, div8);
+    			/*div8_binding*/ ctx[13](div8);
     		},
     		p(ctx, [dirty]) {
-    			if (dirty & /*NOTES, note, setBaseNote, getBaseNoteName*/ 17) {
+    			if (dirty & /*NOTES, note, setBaseNote, getBaseNoteName*/ 33) {
     				each_value_1 = NOTES;
     				let i;
 
@@ -9452,18 +9469,21 @@ var GuitarChords = (function () {
     			}
 
     			if (dirty & /*chord*/ 2 && t2_value !== (t2_value = getChordName(/*chord*/ ctx[1]) + "")) set_data(t2, t2_value);
-    			if (dirty & /*chord*/ 2 && t6_value !== (t6_value = /*chord*/ ctx[1].tones + "")) set_data(t6, t6_value);
+    			if (dirty & /*chord*/ 2 && t7_value !== (t7_value = /*chord*/ ctx[1].tones + "")) set_data(t7, t7_value);
     		},
     		i: noop,
     		o: noop,
     		d(detaching) {
-    			if (detaching) detach(div9);
+    			if (detaching) detach(div11);
     			destroy_each(each_blocks, detaching);
     			if (if_block) if_block.d();
-    			/*div6_binding*/ ctx[9](null);
+    			/*canvas_binding*/ ctx[12](null);
+    			/*div8_binding*/ ctx[13](null);
     		}
     	};
     }
+
+    let steps = 5;
 
     function instance($$self, $$props, $$invalidate) {
     	let { note = '' } = $$props;
@@ -9476,6 +9496,7 @@ var GuitarChords = (function () {
 
     	afterUpdate(() => {
     		drawChord(chordElement, strings, fingering, tune);
+    		drawChordTones(chord.tones);
     	});
 
     	function setBaseNote(base_note) {
@@ -9492,6 +9513,77 @@ var GuitarChords = (function () {
     		return chords;
     	}
 
+    	let chord_canvas;
+    	let width = steps * (NOTES.length + 6);
+    	let height = steps * (NOTES.length + 6);
+
+    	function drawChordTones(tones) {
+    		clearCanvas();
+    		let ctx = chord_canvas.getContext("2d");
+    		ctx.fillStyle = "rgb(0, 0, 0)";
+    		ctx.beginPath();
+    		ctx.moveTo(0, height / 2 - 4 * steps);
+    		ctx.lineTo(steps, height / 2 - 4 * steps);
+    		ctx.lineTo(steps, height / 2 + 4 * steps);
+    		ctx.lineTo(0, height / 2 + 4 * steps);
+    		ctx.lineTo(0, height / 2 - 4 * steps);
+    		ctx.stroke();
+    		ctx.closePath();
+    		ctx.fill();
+    		drawLine(ctx, height / 2 - 4 * steps);
+    		drawLine(ctx, height / 2 - 2 * steps);
+    		drawLine(ctx, height / 2);
+    		drawLine(ctx, height / 2 + 2 * steps);
+    		drawLine(ctx, height / 2 + 4 * steps);
+
+    		if (tones !== '') {
+    			let tone = tones.split(',');
+
+    			tone.forEach((toneString, index) => {
+    				drawTone(ctx, toneString, index + 1);
+    			});
+    		}
+    	}
+
+    	function drawTone(ctx, tone, index) {
+    		let offset_left = 10;
+    		const sharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+    		let y = NOTES.indexOf(tone) === -1
+    		? sharp.indexOf(tone)
+    		: NOTES.indexOf(tone);
+
+    		let pos = height - (y + 3) * steps;
+
+    		if (tone.substring(0, 1) === 'C' && index > 1) {
+    			pos = pos - steps * NOTES.length;
+    		}
+
+    		if (tone.substring(0, 1) === 'B' && index <= 1) {
+    			pos = pos + steps * NOTES.length;
+    		}
+
+    		ctx.beginPath();
+    		ctx.ellipse(offset_left + index * steps * 3, pos, 6, 4, 0, 0, Math.PI * 2);
+    		ctx.stroke();
+    		ctx.closePath();
+    		ctx.fill();
+    	}
+
+    	function drawLine(ctx, y) {
+    		ctx.beginPath();
+    		ctx.moveTo(0, y);
+    		ctx.lineTo(width, y);
+    		ctx.stroke();
+    		ctx.closePath();
+    	}
+
+    	function clearCanvas() {
+    		let ctx = chord_canvas.getContext("2d");
+    		ctx.fillStyle = "rgb(255,255,255)";
+    		ctx.fillRect(0, 0, width, height);
+    	}
+
     	const click_handler = base_note => {
     		setBaseNote(base_note);
     	};
@@ -9500,7 +9592,14 @@ var GuitarChords = (function () {
     		setChord(note_chord);
     	};
 
-    	function div6_binding($$value) {
+    	function canvas_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			chord_canvas = $$value;
+    			$$invalidate(4, chord_canvas);
+    		});
+    	}
+
+    	function div8_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			chordElement = $$value;
     			$$invalidate(3, chordElement);
@@ -9509,7 +9608,7 @@ var GuitarChords = (function () {
 
     	$$self.$$set = $$props => {
     		if ('note' in $$props) $$invalidate(0, note = $$props.note);
-    		if ('tune' in $$props) $$invalidate(6, tune = $$props.tune);
+    		if ('tune' in $$props) $$invalidate(9, tune = $$props.tune);
     	};
 
     	$$self.$$.update = () => {
@@ -9531,19 +9630,23 @@ var GuitarChords = (function () {
     		chord,
     		note_chords,
     		chordElement,
+    		chord_canvas,
     		setBaseNote,
     		setChord,
+    		width,
+    		height,
     		tune,
     		click_handler,
     		click_handler_1,
-    		div6_binding
+    		canvas_binding,
+    		div8_binding
     	];
     }
 
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.chord-header{display:grid;grid-template-columns:100px 200px;font-family:Verdana, Arial, Helvetica, sans-serif;color:#999;height:2em}.chord-name{text-align:left;align-items:flex-start;font-weight:normal;font-size:1em;border-bottom:1px solid #999}.chord-tuning{text-align:center;align-items:center;font-family:monospace;font-weight:bolder;padding-left:0.45em;padding-top:0.5em;font-size:1.8em;letter-spacing:-0.05em}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:flex;align-items:center;justify-content:center}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:200px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:center;justify-content:center;height:60px}.tones-name{display:flex;align-items:center;justify-content:center;padding-top:1em}.chord-header{display:grid;grid-template-columns:100px 200px;font-family:Verdana, Arial, Helvetica, sans-serif;color:#999;height:2em}.chord-name{text-align:left;align-items:flex-start;font-weight:normal;font-size:1em;border-bottom:1px solid #999}.chord-tuning{text-align:center;align-items:center;font-family:monospace;font-weight:bolder;padding-left:0.45em;padding-top:0.5em;font-size:1.8em;letter-spacing:-0.05em}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:grid;grid-template-columns:auto;margin-top:2em;height:min-content}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:200px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,
@@ -9555,7 +9658,7 @@ var GuitarChords = (function () {
     			instance,
     			create_fragment,
     			safe_not_equal,
-    			{ note: 0, tune: 6 },
+    			{ note: 0, tune: 9 },
     			null
     		);
 
@@ -9585,7 +9688,7 @@ var GuitarChords = (function () {
     	}
 
     	get tune() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[9];
     	}
 
     	set tune(tune) {
