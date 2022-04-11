@@ -45,7 +45,7 @@ function getTunePositions(tuning) {
     return tuningPositions;
 }
 
-function getStringNotes(strings, tuning) {
+export function getStringNotes(strings, tuning) {
     const tunePosition = getTunePositions(tuning);
     let notes = [];
     strings.forEach((tune, index) =>{
@@ -78,7 +78,7 @@ export function drawGuitarChord(chordElement, strings, fingering, tuning) {
         barres: getBarres(fingering_reverse, adjustedFrets),
         chord: getChord(fingering, adjustedFrets),
         position: calculatedPosition,
-        tuning: getStringNotes(strings, tuning)
+        tuning
     });
     const svgElement = chordElement.querySelector(`svg`);
     svgElement.setAttribute("viewBox", "0 10 100 100");

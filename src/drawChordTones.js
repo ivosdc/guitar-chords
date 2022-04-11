@@ -2,7 +2,7 @@ import {NOTES, NOTES_SHARP} from './NoteService'
 
 let half_step = 5;
 export let width = 100;
-export let height = half_step * (NOTES.length * 2);
+export let height = half_step * ((NOTES.length + 1) * 2);
 let backgroundColor = "rgba(0, 0, 0, 0)";
 let color = "#999";
 

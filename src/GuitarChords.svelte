@@ -4,6 +4,7 @@
         getChordName,
         getBaseNoteName,
         getChords,
+        getStringNotes,
         empty_chord
     } from './drawGuitarChord';
     import {afterUpdate} from 'svelte';
@@ -53,7 +54,6 @@
 </script>
 
 <div class="notes-menu">
-
     <div class="scroll-row">
         <div class="content-row">
             {#each NOTES as base_note}
@@ -80,7 +80,7 @@
     </div>
     <div class="chord-header">
         <span class="chord-name">{getChordName(chord)}</span>
-        <span class="chord-tuning">{tuning.join(' ')}</span>
+        <span class="chord-tuning">{getStringNotes(strings, tune).join(' ')}</span>
     </div>
     <div class="chord-visualized">
         <div class="tones">
@@ -99,17 +99,17 @@
 
     .tones-canvas {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         cursor: pointer;
     }
 
     .tones-name {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         font-weight: normal;
         font-size: medium;
-        padding-bottom: 2px;
+        padding-top: 4px;
     }
 
     .chord-header {
@@ -117,13 +117,16 @@
         grid-template-columns: 100px 200px;
         color: #999;
         height: 2.5em;
+        border-top: 1px solid #999;
     }
 
     .chord-name {
         text-align: left;
         align-items: flex-start;
         font-weight: bold;
-        font-size: x-large;
+        font-size: 1.8em;
+        font-family: monospace;
+        padding-top: 0.5em;
         display: flex;
         flex-direction: column;
         max-width: min-content;
@@ -132,12 +135,10 @@
 
     .chord-tuning {
         text-align: center;
-        align-items: center;
-        font-family: monospace;
-        font-weight: bolder;
-        padding-left: 0.45em;
         padding-top: 0.5em;
-        font-size: 1.8em;
+        font-family: monospace;
+        padding-left: 0.45em;
+        font-size: x-large;
         letter-spacing: -0.05em;
     }
 
@@ -150,6 +151,7 @@
         height: -moz-available;
         height: -webkit-fill-available;
         font-family: Calibri, Candara, Arial, Helvetica, sans-serif;
+        border-top: 1px solid #999;
     }
 
     .chord-visualized {
@@ -158,7 +160,6 @@
     }
 
     .tones {
-        font-family: Verdana, Arial, Helvetica, sans-serif;
         font-size: large;
         color: #999;
         width: 100px;
@@ -176,7 +177,6 @@
         width: -moz-available;
         width: -webkit-fill-available;
         height: 70px;
-        border-top: 1px solid #999;
     }
 
     .content-row {
