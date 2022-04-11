@@ -3,25 +3,32 @@ import {NOTES, NOTES_SHARP} from './NoteService'
 let half_step = 5;
 export let width = 100;
 export let height = half_step * (NOTES.length * 2);
+export let backgroundColor = "rgba(255, 255, 255, 0)";
+export let color = "#333";
 
 export function drawChordTones(chord_canvas, tones, show_chord_stacked) {
-    clearCanvas(chord_canvas);
-    let ctx = chord_canvas.getContext("2d");
-    ctx.fillStyle = "rgb(0, 0, 0)";
-    drawBox(ctx, 0, height / 2 - 4 * half_step, half_step / 2, height / 2 + 4 * half_step);
-    drawLine(ctx, height / 2 - 4 * half_step, 0, width);
-    drawLine(ctx, height / 2 - 2 * half_step, 0, width);
-    drawLine(ctx, height / 2, 0, width);
-    drawLine(ctx, height / 2 + 2 * half_step, 0, width);
-    drawLine(ctx, height / 2 + 4 * half_step, 0, width);
-    if (tones !== '') {
-        let tone = tones.split(',');
-        let y = height;
-        tone.forEach((toneString, index) => {
-            y = getTonePos(toneString, index, y);
-            let pos = show_chord_stacked ? (width / 2) : (width / tone.length) * (index + 1) - ((width / tone.length) / 2);
-            drawTone(ctx, toneString, pos, y)
-        })
+    try {
+        clearCanvas(chord_canvas);
+        let ctx = chord_canvas.getContext("2d");
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        drawBox(ctx, 0, height / 2 - 4 * half_step, half_step / 2, height / 2 + 4 * half_step);
+        drawLine(ctx, height / 2 - 4 * half_step, 0, width);
+        drawLine(ctx, height / 2 - 2 * half_step, 0, width);
+        drawLine(ctx, height / 2, 0, width);
+        drawLine(ctx, height / 2 + 2 * half_step, 0, width);
+        drawLine(ctx, height / 2 + 4 * half_step, 0, width);
+        if (tones !== '') {
+            let tone = tones.split(',');
+            let y = height;
+            tone.forEach((toneString, index) => {
+                y = getTonePos(toneString, index, y);
+                let pos = show_chord_stacked ? (width / 2) : (width / tone.length) * (index + 1) - ((width / tone.length) / 2);
+                drawTone(ctx, toneString, pos, y)
+            })
+        }
+    } catch (err) {
+        console.log(err)
     }
 }
 
@@ -43,7 +50,7 @@ function getTonePos(tone, index, last_pos) {
     if (pos > last_pos) {
         pos = pos - (half_step * NOTES.length);
     }
-    if ((tone.substring(0,1) === 'B' || tone.substring(0,1) === 'A') && index === 0) {
+    if ((tone.substring(0, 1) === 'B' || tone.substring(0, 1) === 'A') && index === 0) {
         pos = pos + (half_step * NOTES.length);
     }
     return pos;
@@ -62,15 +69,19 @@ function setNoteLine(ctx, x, y) {
     let middle = height / 2 / half_step;
     let total_even = middle % 2 === 0;
     let y_even = (y / half_step) % 2 === 0;
+
     function isMiddleLine() {
         return (y_even === total_even) && (y / half_step < (middle - 5) || y / half_step > (middle + 5));
     }
+
     function isUpperLine() {
         return (y_even !== total_even) && (y / half_step < (middle - 5));
     }
+
     function isLowerLine() {
         return (y_even !== total_even) && (y / half_step > (middle + 5));
     }
+
     let line = (half_step + 1) * 2;
     ctx.beginPath();
     y = isMiddleLine() ? y : isUpperLine() ? y + half_step : isLowerLine() ? y - half_step : -1;
@@ -90,7 +101,13 @@ function drawLine(ctx, y, from, to) {
 }
 
 function clearCanvas(chord_canvas) {
-    let ctx = chord_canvas.getContext("2d");
-    ctx.fillStyle = "rgb(255,255,255)";
-    ctx.fillRect(0, 0, width, height);
+    try {
+        let ctx = chord_canvas.getContext("2d");
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(0, 0, width, height);
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, width, height);
+    } catch (err) {
+        console.log(err);
+    }
 }
