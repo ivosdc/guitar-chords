@@ -9148,58 +9148,93 @@ var GuitarChords = (function () {
         return getChordName(chords[0]);
     }
 
-    let steps = 5;
-    let width$3 = steps * (NOTES.length + 6);
-    let height$3 = steps * (NOTES.length + 6);
+    let half_step = 5;
+    let width$3 = 100;
+    let height$3 = half_step * (NOTES.length * 2);
 
     function drawChordTones(chord_canvas, tones) {
         clearCanvas(chord_canvas);
         let ctx = chord_canvas.getContext("2d");
         ctx.fillStyle = "rgb(0, 0, 0)";
         ctx.beginPath();
-        ctx.moveTo(0, height$3 / 2 - 4 * steps);
-        ctx.lineTo(steps, height$3 / 2 - 4 * steps);
-        ctx.lineTo(steps, height$3 / 2 + 4 * steps);
-        ctx.lineTo(0, height$3 / 2 + 4 * steps);
-        ctx.lineTo(0, height$3 / 2 - 4 * steps);
+        ctx.moveTo(0, height$3 / 2 - 4 * half_step);
+        ctx.lineTo(half_step / 2, height$3 / 2 - 4 * half_step);
+        ctx.lineTo(half_step / 2, height$3 / 2 + 4 * half_step);
+        ctx.lineTo(0, height$3 / 2 + 4 * half_step);
+        ctx.lineTo(0, height$3 / 2 - 4 * half_step);
         ctx.stroke();
         ctx.closePath();
         ctx.fill();
-        drawLine(ctx, height$3 / 2 - 4 * steps);
-        drawLine(ctx, height$3 / 2 - 2 * steps);
-        drawLine(ctx, height$3 / 2);
-        drawLine(ctx, height$3 / 2 + 2 * steps);
-        drawLine(ctx, height$3 / 2 + 4 * steps);
+        drawLine(ctx, height$3 / 2 - 4 * half_step, 0, width$3);
+        drawLine(ctx, height$3 / 2 - 2 * half_step, 0, width$3);
+        drawLine(ctx, height$3 / 2, 0, width$3);
+        drawLine(ctx, height$3 / 2 + 2 * half_step, 0, width$3);
+        drawLine(ctx, height$3 / 2 + 4 * half_step, 0, width$3);
         if (tones !== '') {
             let tone = tones.split(',');
+            let y = height$3;
             tone.forEach((toneString, index) => {
-                drawTone(ctx, toneString, index + 1);
+                y = getOffset(toneString, index, y);
+                let pos = width$3 / tone.length;
+                drawTone(ctx, toneString, pos * (index + 1) - (pos / 2), y);
             });
         }
     }
 
-    function drawTone(ctx, tone, index) {
-        let offset_left = 10;
+    function getOffset(tone, index, last_pos) {
         const sharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
         let y = NOTES.indexOf(tone) === -1 ? sharp.indexOf(tone) : NOTES.indexOf(tone);
-        let pos = height$3 - (y + 3) * steps;
-        if (tone.substring(0,1) === 'C' && index > 1) {
-            pos = pos - (steps * NOTES.length);
+        let pos = height$3 / 2 + (NOTES.length / 2 * half_step) - y * half_step;
+        console.log(pos + " - " + last_pos);
+        if (pos > last_pos) {
+            pos = pos - (half_step * NOTES.length);
         }
-        if (tone.substring(0,1) === 'B' && index <= 1) {
-            pos = pos + (steps * NOTES.length);
+        if ((tone.substring(0,1) === 'B' || tone.substring(0,1) === 'A') && index === 0) {
+            pos = pos + (half_step * NOTES.length);
         }
+        return pos;
+    }
+
+    function drawTone(ctx, tone, offset, pos) {
         ctx.beginPath();
-        ctx.ellipse(offset_left + index * steps * 3, pos, 6, 4, 0, 0, Math.PI * 2);
+        ctx.ellipse(offset, pos, half_step + 1, half_step - 1, 0, 0, Math.PI * 2);
         ctx.stroke();
         ctx.closePath();
         ctx.fill();
+        setNoteLine(ctx, offset, pos);
     }
 
-    function drawLine(ctx, y) {
+    function setNoteLine(ctx, x, y) {
+        let middle = height$3 / 2 / half_step;
+        let total_even = middle % 2 === 0;
+        let y_even = (y / half_step) % 2 === 0;
+
+        function isMiddleLine() {
+            return (y_even === total_even) && (y / half_step < (middle - 5) || y / half_step > (middle + 5));
+        }
+
+        function isUpperLine() {
+            return (y_even !== total_even) && (y / half_step < (middle - 5));
+        }
+
+        function isLowerLine() {
+            return (y_even !== total_even) && (y / half_step > (middle + 5));
+        }
+
+        let line = (half_step + 1) * 2;
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width$3, y);
+        y = isMiddleLine() ? y : isUpperLine() ? y + half_step : isLowerLine() ? y - half_step : -1;
+        if (y !== -1) {
+            drawLine(ctx, y, x - line, x + line);
+        }
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function drawLine(ctx, y, from, to) {
+        ctx.beginPath();
+        ctx.moveTo(from, y);
+        ctx.lineTo(to, y);
         ctx.stroke();
         ctx.closePath();
     }
@@ -9549,16 +9584,6 @@ var GuitarChords = (function () {
     	let { note = '' } = $$props;
     	let chord = empty_chord[0];
     	let { tune = tuning } = $$props;
-    	let note_chords;
-    	let fingering;
-    	let strings;
-    	let chordElement;
-    	let chord_canvas;
-
-    	afterUpdate(() => {
-    		drawChord(chordElement, strings, fingering, tune);
-    		drawChordTones(chord_canvas, chord.tones);
-    	});
 
     	function setBaseNote(base_note) {
     		$$invalidate(0, note = base_note);
@@ -9573,6 +9598,17 @@ var GuitarChords = (function () {
     		setChord(chords[0]);
     		return chords;
     	}
+
+    	let note_chords;
+    	let fingering;
+    	let strings;
+    	let chordElement;
+    	let chord_canvas;
+
+    	afterUpdate(() => {
+    		drawChord(chordElement, strings, fingering, tune);
+    		drawChordTones(chord_canvas, chord.tones);
+    	});
 
     	const click_handler = base_note => {
     		setBaseNote(base_note);
@@ -9634,7 +9670,7 @@ var GuitarChords = (function () {
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:center;justify-content:center;height:60px}.tones-name{display:flex;align-items:center;justify-content:center;padding-top:1em}.chord-header{display:grid;grid-template-columns:100px 200px;font-family:Verdana, Arial, Helvetica, sans-serif;color:#999;height:2em}.chord-name{text-align:left;align-items:flex-start;font-weight:normal;font-size:1em;border-bottom:1px solid #999}.chord-tuning{text-align:center;align-items:center;font-family:monospace;font-weight:bolder;padding-left:0.45em;padding-top:0.5em;font-size:1.8em;letter-spacing:-0.05em}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:grid;grid-template-columns:auto;margin-top:2em;height:min-content}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:200px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:center;justify-content:center}.tones-name{display:flex;align-items:center;justify-content:center;padding-top:1em}.chord-header{display:grid;grid-template-columns:100px 200px;font-family:Verdana, Arial, Helvetica, sans-serif;color:#999;height:2em}.chord-name{text-align:left;align-items:flex-start;font-weight:normal;font-size:1em;border-bottom:1px solid #999}.chord-tuning{text-align:center;align-items:center;font-family:monospace;font-weight:bolder;padding-left:0.45em;padding-top:0.5em;font-size:1.8em;letter-spacing:-0.05em}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available}.chord-visualized{width:fit-content;display:flex}.tones{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:large;color:#999;width:100px;display:grid;grid-template-columns:auto;margin-top:2em;height:min-content}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px;border-top:1px solid #999}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:200px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,
