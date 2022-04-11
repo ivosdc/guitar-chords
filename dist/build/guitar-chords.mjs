@@ -9150,7 +9150,7 @@ var GuitarChords = (function () {
     let half_step = 5;
     let width$3 = 100;
     let height$3 = half_step * (NOTES.length * 2);
-    let backgroundColor = "rgba(0, 0, 0, 0.5)";
+    let backgroundColor = "rgba(0, 0, 0, 0)";
     let color = "#333";
 
     function drawChordTones(chord_canvas, tones, show_chord_stacked) {
