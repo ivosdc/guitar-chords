@@ -9150,7 +9150,7 @@ var GuitarChords = (function () {
     let half_step = 5;
     let width$3 = 100;
     let height$3 = half_step * (NOTES.length * 2);
-    let backgroundColor = "rgba(255, 255, 255, 0)";
+    let backgroundColor = "rgba(0, 0, 0, 0.5)";
     let color = "#333";
 
     function drawChordTones(chord_canvas, tones, show_chord_stacked) {
@@ -9250,8 +9250,7 @@ var GuitarChords = (function () {
     function clearCanvas(chord_canvas) {
         try {
             let ctx = chord_canvas.getContext("2d");
-            ctx.fillStyle = '#FFF';
-            ctx.fillRect(0, 0, width$3, height$3);
+            ctx.clearRect(0, 0, width$3, height$3);
             ctx.fillStyle = backgroundColor;
             ctx.fillRect(0, 0, width$3, height$3);
         } catch (err) {

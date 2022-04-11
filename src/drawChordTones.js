@@ -3,7 +3,7 @@ import {NOTES, NOTES_SHARP} from './NoteService'
 let half_step = 5;
 export let width = 100;
 export let height = half_step * (NOTES.length * 2);
-export let backgroundColor = "rgba(255, 255, 255, 0)";
+export let backgroundColor = "rgba(0, 0, 0, 0)";
 export let color = "#333";
 
 export function drawChordTones(chord_canvas, tones, show_chord_stacked) {
@@ -103,8 +103,7 @@ function drawLine(ctx, y, from, to) {
 function clearCanvas(chord_canvas) {
     try {
         let ctx = chord_canvas.getContext("2d");
-        ctx.fillStyle = '#FFF';
-        ctx.fillRect(0, 0, width, height);
+        ctx.clearRect(0, 0, width, height);
         ctx.fillStyle = backgroundColor;
         ctx.fillRect(0, 0, width, height);
     } catch (err) {
