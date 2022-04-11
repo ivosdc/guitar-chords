@@ -9185,7 +9185,6 @@ var GuitarChords = (function () {
         const sharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
         let y = NOTES.indexOf(tone) === -1 ? sharp.indexOf(tone) : NOTES.indexOf(tone);
         let pos = height$3 / 2 + (NOTES.length / 2 * half_step) - y * half_step;
-        console.log(pos + " - " + last_pos);
         if (pos > last_pos) {
             pos = pos - (half_step * NOTES.length);
         }
