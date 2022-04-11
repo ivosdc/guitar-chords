@@ -9151,9 +9151,11 @@ var GuitarChords = (function () {
     let width$3 = 100;
     let height$3 = half_step * (NOTES.length * 2);
     let backgroundColor = "rgba(0, 0, 0, 0)";
-    let color = "#333";
+    let color = "#999";
 
-    function drawChordTones(chord_canvas, tones, show_chord_stacked) {
+    function drawChordTones(chord_canvas, tones, bgColor, paintColor, show_chord_stacked) {
+        backgroundColor = (bgColor === undefined) ? backgroundColor : bgColor;
+        color = (paintColor === undefined) ? color : paintColor;
         try {
             clearCanvas(chord_canvas);
             let ctx = chord_canvas.getContext("2d");
@@ -9272,7 +9274,7 @@ var GuitarChords = (function () {
     	return child_ctx;
     }
 
-    // (58:12) {#each NOTES as base_note}
+    // (59:12) {#each NOTES as base_note}
     function create_each_block_1(ctx) {
     	let div;
     	let t0_value = getBaseNoteName(/*base_note*/ ctx[20]) + "";
@@ -9318,7 +9320,7 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (69:12) {#if getChordName(note_chords[0]) !== ''}
+    // (70:12) {#if getChordName(note_chords[0]) !== ''}
     function create_if_block(ctx) {
     	let each_1_anchor;
     	let each_value = /*note_chords*/ ctx[2];
@@ -9374,7 +9376,7 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (70:16) {#each note_chords as note_chord}
+    // (71:16) {#each note_chords as note_chord}
     function create_each_block(ctx) {
     	let div;
     	let t0_value = getChordName(/*note_chord*/ ctx[17]) + "";
@@ -9630,12 +9632,12 @@ var GuitarChords = (function () {
 
     	afterUpdate(() => {
     		drawGuitarChord(chordElement, strings, fingering, tune);
-    		drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
+    		drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1', show_chord_stacked);
     	});
 
     	function toggleStackedView() {
     		show_chord_stacked = !show_chord_stacked;
-    		drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
+    		drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1', show_chord_stacked);
     	}
 
     	const click_handler = base_note => {

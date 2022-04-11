@@ -3,10 +3,12 @@ import {NOTES, NOTES_SHARP} from './NoteService'
 let half_step = 5;
 export let width = 100;
 export let height = half_step * (NOTES.length * 2);
-export let backgroundColor = "rgba(0, 0, 0, 0)";
-export let color = "#333";
+let backgroundColor = "rgba(0, 0, 0, 0)";
+let color = "#999";
 
-export function drawChordTones(chord_canvas, tones, show_chord_stacked) {
+export function drawChordTones(chord_canvas, tones, bgColor, paintColor, show_chord_stacked) {
+    backgroundColor = (bgColor === undefined) ? backgroundColor : bgColor;
+    color = (paintColor === undefined) ? color : paintColor;
     try {
         clearCanvas(chord_canvas);
         let ctx = chord_canvas.getContext("2d");

@@ -14,6 +14,7 @@
     let chord = empty_chord[0];
     export let tune = tuning;
 
+
     function setBaseNote(base_note) {
         note = base_note;
     }
@@ -41,12 +42,12 @@
 
     afterUpdate(() => {
         drawGuitarChord(chordElement, strings, fingering, tune);
-        drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
+        drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1', show_chord_stacked);
     })
 
     function toggleStackedView() {
         show_chord_stacked = !show_chord_stacked;
-        drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
+        drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1',  show_chord_stacked);
     }
 
 </script>
