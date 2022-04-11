@@ -1,9 +1,6 @@
 import CHORDS from './GuitarChordsJson';
 import {ChordBox} from "vexchords";
-
-export const NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
-export let tuning = ["E", "A", "D", "G", "B", "E"];
-
+import {NOTES} from './NoteService'
 
 
 export let empty_chord = [{
@@ -63,11 +60,11 @@ function getStringNotes(strings, tuning) {
     return notes;
 }
 
-export function drawChord(chordElement, strings, fingering, tuning) {
+export function drawGuitarChord(chordElement, strings, fingering, tuning) {
     chordElement.innerHTML = '';
     let calculatedPosition = 0 || getPositionFromFrets(strings);
     const adjustedFrets = adjustFrets(strings, calculatedPosition);
-    let chordbox = new ChordBox(chordElement, {
+    let chordBox = new ChordBox(chordElement, {
         defaultColor: '#666',
         bgColor: '#666',
         strokeColor: '#DDD',
@@ -76,9 +73,9 @@ export function drawChord(chordElement, strings, fingering, tuning) {
         labelColor: '#666',
         fontFamily: 'Calibri, Candara, Arial, Helvetica, sans-serif'
     });
-    let barres = JSON.parse(JSON.stringify(fingering));
-    chordbox.draw({
-        barres: getBarres(barres.reverse(), adjustedFrets),
+    let fingering_reverse = JSON.parse(JSON.stringify(fingering)).reverse();
+    chordBox.draw({
+        barres: getBarres(fingering_reverse, adjustedFrets),
         chord: getChord(fingering, adjustedFrets),
         position: calculatedPosition,
         tuning: getStringNotes(strings, tuning)

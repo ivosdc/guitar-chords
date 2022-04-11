@@ -1,15 +1,14 @@
 <script>
     import {
-        drawChord,
+        drawGuitarChord,
         getChordName,
         getBaseNoteName,
         getChords,
-        NOTES,
-        tuning,
         empty_chord
-    } from './GuitarChordsService';
+    } from './drawGuitarChord';
     import {afterUpdate} from 'svelte';
-    import {drawChordTones, width, height} from "./ToneService";
+    import {drawChordTones, width, height} from "./drawChordTones";
+    import {NOTES, tuning} from './NoteService'
 
     export let note = '';
     let chord = empty_chord[0];
@@ -29,6 +28,7 @@
         return chords;
     }
 
+    let show_chord_stacked = false;
     let note_chords;
     $: note_chords = initChords(note);
     let fingering;
@@ -40,9 +40,14 @@
     let chord_canvas;
 
     afterUpdate(() => {
-        drawChord(chordElement, strings, fingering, tune);
-        drawChordTones(chord_canvas, chord.tones);
+        drawGuitarChord(chordElement, strings, fingering, tune);
+        drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
     })
+
+    function toggleStackedView() {
+        show_chord_stacked = !show_chord_stacked;
+        drawChordTones(chord_canvas, chord.tones, show_chord_stacked);
+    }
 
 </script>
 
@@ -78,7 +83,7 @@
     </div>
     <div class="chord-visualized">
         <div class="tones">
-            <div class="tones-canvas">
+            <div class="tones-canvas" on:click={toggleStackedView}>
                 <canvas bind:this={chord_canvas} width={width} height={height}>
                 </canvas>
             </div>
@@ -94,30 +99,34 @@
     .tones-canvas {
         display: flex;
         align-items: center;
-        justify-content: center;
+        cursor: pointer;
     }
 
     .tones-name {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: 1em;
+        font-weight: normal;
+        font-size: medium;
+        padding-bottom: 2px;
     }
 
     .chord-header {
         display: grid;
         grid-template-columns: 100px 200px;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
         color: #999;
-        height: 2em;
+        height: 2.5em;
     }
 
     .chord-name {
         text-align: left;
         align-items: flex-start;
-        font-weight: normal;
-        font-size: 1em;
-        border-bottom: 1px solid #999;
+        font-weight: bold;
+        font-size: x-large;
+        display: flex;
+        flex-direction: column;
+        max-width: min-content;
+        height: 2.5em;
     }
 
     .chord-tuning {
@@ -139,6 +148,7 @@
         height: available;
         height: -moz-available;
         height: -webkit-fill-available;
+        font-family: Calibri, Candara, Arial, Helvetica, sans-serif;
     }
 
     .chord-visualized {
@@ -154,7 +164,7 @@
         display: grid;
         grid-template-columns: auto;
         margin-top: 2em;
-        height: min-content;
+        height: available;
     }
 
     .scroll-row {

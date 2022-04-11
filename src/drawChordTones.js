@@ -1,22 +1,14 @@
-import {NOTES} from "./GuitarChordsService";
+import {NOTES, NOTES_SHARP} from './NoteService'
 
 let half_step = 5;
 export let width = 100;
 export let height = half_step * (NOTES.length * 2);
 
-export function drawChordTones(chord_canvas, tones) {
+export function drawChordTones(chord_canvas, tones, show_chord_stacked) {
     clearCanvas(chord_canvas);
     let ctx = chord_canvas.getContext("2d");
     ctx.fillStyle = "rgb(0, 0, 0)";
-    ctx.beginPath();
-    ctx.moveTo(0, height / 2 - 4 * half_step);
-    ctx.lineTo(half_step / 2, height / 2 - 4 * half_step);
-    ctx.lineTo(half_step / 2, height / 2 + 4 * half_step);
-    ctx.lineTo(0, height / 2 + 4 * half_step);
-    ctx.lineTo(0, height / 2 - 4 * half_step);
-    ctx.stroke();
-    ctx.closePath();
-    ctx.fill();
+    drawBox(ctx, 0, height / 2 - 4 * half_step, half_step / 2, height / 2 + 4 * half_step);
     drawLine(ctx, height / 2 - 4 * half_step, 0, width);
     drawLine(ctx, height / 2 - 2 * half_step, 0, width);
     drawLine(ctx, height / 2, 0, width);
@@ -26,16 +18,27 @@ export function drawChordTones(chord_canvas, tones) {
         let tone = tones.split(',');
         let y = height;
         tone.forEach((toneString, index) => {
-            y = getOffset(toneString, index, y);
-            let pos = width / tone.length;
-            drawTone(ctx, toneString, pos * (index + 1) - (pos / 2), y)
+            y = getTonePos(toneString, index, y);
+            let pos = show_chord_stacked ? (width / 2) : (width / tone.length) * (index + 1) - ((width / tone.length) / 2);
+            drawTone(ctx, toneString, pos, y)
         })
     }
 }
 
-function getOffset(tone, index, last_pos) {
-    const sharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-    let y = NOTES.indexOf(tone) === -1 ? sharp.indexOf(tone) : NOTES.indexOf(tone);
+function drawBox(ctx, x1, y1, x2, y2) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineTo(x1, y2);
+    ctx.lineTo(x1, y1);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fill();
+}
+
+function getTonePos(tone, index, last_pos) {
+    let y = NOTES.indexOf(tone) === -1 ? NOTES_SHARP.indexOf(tone) : NOTES.indexOf(tone);
     let pos = height / 2 + (NOTES.length / 2 * half_step) - y * half_step;
     if (pos > last_pos) {
         pos = pos - (half_step * NOTES.length);
@@ -59,19 +62,15 @@ function setNoteLine(ctx, x, y) {
     let middle = height / 2 / half_step;
     let total_even = middle % 2 === 0;
     let y_even = (y / half_step) % 2 === 0;
-
     function isMiddleLine() {
         return (y_even === total_even) && (y / half_step < (middle - 5) || y / half_step > (middle + 5));
     }
-
     function isUpperLine() {
         return (y_even !== total_even) && (y / half_step < (middle - 5));
     }
-
     function isLowerLine() {
         return (y_even !== total_even) && (y / half_step > (middle + 5));
     }
-
     let line = (half_step + 1) * 2;
     ctx.beginPath();
     y = isMiddleLine() ? y : isUpperLine() ? y + half_step : isLowerLine() ? y - half_step : -1;
