@@ -12,14 +12,14 @@ and / or include into your website.
 
 <img src="./assets/guitar-chord-viewer.png" alt="guitar-chord-viewer" width="350" />
 
-- Stacked chord-notes: 
+- Stacked or spread chord-notes: 
  
 <img src="./assets/chord-notes-stacked.png" alt="chord-notes" width="80" />
 
 
 ### left handed view
 You can also change/mirror the view of the guitar-neck. Normally the views are made for right-handed guitars.
-Changing the view might be more easy for learners to transport the image to the guitar neck.
+Changing the view might be more easy for left-handed learners to transport the image to the guitar neck.
 
 - L/R view for left-handed users.
 - notes, fingerings, strings, tuning are mirrored.
