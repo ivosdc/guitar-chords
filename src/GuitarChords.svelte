@@ -79,8 +79,11 @@
         </div>
     </div>
     <div class="chord-header">
-        <span class="chord-name">{getChordName(chord)}</span>
-        <span class="chord-tuning">{getStringNotes(strings, tune).join(' ')}</span>
+        <div class="chord-name">{getChordName(chord)}</div>
+        <div class="chord-notes">
+            <div class="chord-guitar-notes">{getStringNotes(strings, tune, true).join(' ')}</div>
+            <div class="chord-guitar-notes">{getStringNotes(strings, tune, false).join(' ')}</div>
+        </div>
     </div>
     <div class="chord-visualized">
         <div class="tones">
@@ -100,6 +103,7 @@
     .tones-canvas {
         display: flex;
         align-items: flex-start;
+        justify-content: center;
         cursor: pointer;
     }
 
@@ -114,32 +118,43 @@
 
     .chord-header {
         display: grid;
-        grid-template-columns: 100px 200px;
+        grid-template-columns: 150px 200px;
         color: #999;
-        height: 2.5em;
         border-top: 1px solid #999;
+        width: 100vw;
+        justify-content: center;
+        padding-top: 0.5em;
+        height: 50px;
     }
 
     .chord-name {
-        text-align: left;
-        align-items: flex-start;
-        font-weight: bold;
-        font-size: 1.8em;
-        font-family: monospace;
-        padding-top: 0.5em;
+        text-align: center;
+        font-size: x-large;
+        font-weight: bolder;
         display: flex;
         flex-direction: column;
         max-width: min-content;
-        height: 2.5em;
     }
 
-    .chord-tuning {
+    .chord-notes {
+        padding-left: 10px;
+    }
+
+
+    .chord-guitar-notes {
         text-align: center;
-        padding-top: 0.5em;
-        font-family: monospace;
-        padding-left: 0.45em;
+        align-items: flex-start;
+        width: available;
         font-size: x-large;
-        letter-spacing: -0.05em;
+        font-weight: bolder;
+        font-family: monospace;
+    }
+
+    .chord-visualized {
+        display: grid;
+        grid-template-columns: 150px 200px;
+        width: 100vw;
+        justify-content: center;
     }
 
     .notes-menu {
@@ -154,19 +169,14 @@
         border-top: 1px solid #999;
     }
 
-    .chord-visualized {
-        width: fit-content;
-        display: flex;
-    }
-
     .tones {
         font-size: large;
         color: #999;
-        width: 100px;
         display: grid;
         grid-template-columns: auto;
         margin-top: 2em;
         height: available;
+        width: available;
     }
 
     .scroll-row {
@@ -188,9 +198,9 @@
     }
 
     .chord {
-        width: 200px;
+        width: available;
         display: flex;
-        align-items: center;
+        justify-content: flex-start;
     }
 
     .chord-button {

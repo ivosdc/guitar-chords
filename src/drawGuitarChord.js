@@ -1,6 +1,6 @@
 import CHORDS from './GuitarChordsJson';
 import {ChordBox} from "vexchords";
-import {NOTES} from './NoteService'
+import {NOTES, NOTES_SHARP} from './NoteService'
 
 
 export let empty_chord = [{
@@ -45,13 +45,13 @@ function getTunePositions(tuning) {
     return tuningPositions;
 }
 
-export function getStringNotes(strings, tuning) {
+export function getStringNotes(strings, tuning, sharp) {
     const tunePosition = getTunePositions(tuning);
     let notes = [];
     strings.forEach((tune, index) =>{
         if (tune !== 'X') {
             tune = (tunePosition[index] + parseInt(tune)) % NOTES.length - 1;
-            tune = NOTES[tune + 1];
+            tune = sharp ? NOTES_SHARP[tune + 1] : NOTES[tune + 1];
         } else {
             tune = '-';
         }

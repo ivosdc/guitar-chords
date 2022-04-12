@@ -9068,13 +9068,13 @@ var GuitarChords = (function () {
         return tuningPositions;
     }
 
-    function getStringNotes(strings, tuning) {
+    function getStringNotes(strings, tuning, sharp) {
         const tunePosition = getTunePositions(tuning);
         let notes = [];
         strings.forEach((tune, index) =>{
             if (tune !== 'X') {
                 tune = (tunePosition[index] + parseInt(tune)) % NOTES.length - 1;
-                tune = NOTES[tune + 1];
+                tune = sharp ? NOTES_SHARP[tune + 1] : NOTES[tune + 1];
             } else {
                 tune = '-';
             }
@@ -9424,7 +9424,7 @@ var GuitarChords = (function () {
     }
 
     function create_fragment(ctx) {
-    	let div11;
+    	let div15;
     	let div1;
     	let div0;
     	let t0;
@@ -9432,26 +9432,31 @@ var GuitarChords = (function () {
     	let div2;
     	let show_if = getChordName(/*note_chords*/ ctx[3][0]) !== '';
     	let t1;
+    	let div8;
     	let div4;
-    	let span0;
     	let t2_value = getChordName(/*chord*/ ctx[2]) + "";
     	let t2;
     	let t3;
-    	let span1;
-    	let t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1]).join(' ') + "";
-    	let t4;
-    	let t5;
-    	let div10;
     	let div7;
     	let div5;
-    	let canvas;
-    	let t6;
+    	let t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true).join(' ') + "";
+    	let t4;
+    	let t5;
     	let div6;
-    	let t7_value = /*chord*/ ctx[2].tones + "";
+    	let t6_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false).join(' ') + "";
+    	let t6;
     	let t7;
-    	let t8;
+    	let div14;
+    	let div11;
     	let div9;
-    	let div8;
+    	let canvas;
+    	let t8;
+    	let div10;
+    	let t9_value = /*chord*/ ctx[2].tones + "";
+    	let t9;
+    	let t10;
+    	let div13;
+    	let div12;
     	let mounted;
     	let dispose;
     	let each_value_1 = NOTES;
@@ -9465,7 +9470,7 @@ var GuitarChords = (function () {
 
     	return {
     		c() {
-    			div11 = element("div");
+    			div15 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -9478,76 +9483,86 @@ var GuitarChords = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			t1 = space();
+    			div8 = element("div");
     			div4 = element("div");
-    			span0 = element("span");
     			t2 = text(t2_value);
     			t3 = space();
-    			span1 = element("span");
-    			t4 = text(t4_value);
-    			t5 = space();
-    			div10 = element("div");
     			div7 = element("div");
     			div5 = element("div");
-    			canvas = element("canvas");
-    			t6 = space();
+    			t4 = text(t4_value);
+    			t5 = space();
     			div6 = element("div");
-    			t7 = text(t7_value);
-    			t8 = space();
+    			t6 = text(t6_value);
+    			t7 = space();
+    			div14 = element("div");
+    			div11 = element("div");
     			div9 = element("div");
-    			div8 = element("div");
+    			canvas = element("canvas");
+    			t8 = space();
+    			div10 = element("div");
+    			t9 = text(t9_value);
+    			t10 = space();
+    			div13 = element("div");
+    			div12 = element("div");
     			this.c = noop;
     			attr(div0, "class", "content-row");
     			attr(div1, "class", "scroll-row");
     			attr(div2, "class", "content-row");
     			attr(div3, "class", "scroll-row");
-    			attr(span0, "class", "chord-name");
-    			attr(span1, "class", "chord-tuning");
-    			attr(div4, "class", "chord-header");
+    			attr(div4, "class", "chord-name");
+    			attr(div5, "class", "chord-guitar-notes");
+    			attr(div6, "class", "chord-guitar-notes");
+    			attr(div7, "class", "chord-notes");
+    			attr(div8, "class", "chord-header");
     			attr(canvas, "width", width$3);
     			attr(canvas, "height", height$3);
-    			attr(div5, "class", "tones-canvas");
-    			attr(div6, "class", "tones-name");
-    			attr(div7, "class", "tones");
-    			attr(div9, "class", "chord");
-    			attr(div10, "class", "chord-visualized");
-    			attr(div11, "class", "notes-menu");
+    			attr(div9, "class", "tones-canvas");
+    			attr(div10, "class", "tones-name");
+    			attr(div11, "class", "tones");
+    			attr(div13, "class", "chord");
+    			attr(div14, "class", "chord-visualized");
+    			attr(div15, "class", "notes-menu");
     		},
     		m(target, anchor) {
-    			insert(target, div11, anchor);
-    			append(div11, div1);
+    			insert(target, div15, anchor);
+    			append(div15, div1);
     			append(div1, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div0, null);
     			}
 
-    			append(div11, t0);
-    			append(div11, div3);
+    			append(div15, t0);
+    			append(div15, div3);
     			append(div3, div2);
     			if (if_block) if_block.m(div2, null);
-    			append(div11, t1);
-    			append(div11, div4);
-    			append(div4, span0);
-    			append(span0, t2);
-    			append(div4, t3);
-    			append(div4, span1);
-    			append(span1, t4);
-    			append(div11, t5);
-    			append(div11, div10);
-    			append(div10, div7);
+    			append(div15, t1);
+    			append(div15, div8);
+    			append(div8, div4);
+    			append(div4, t2);
+    			append(div8, t3);
+    			append(div8, div7);
     			append(div7, div5);
-    			append(div5, canvas);
-    			/*canvas_binding*/ ctx[12](canvas);
-    			append(div7, t6);
+    			append(div5, t4);
+    			append(div7, t5);
     			append(div7, div6);
-    			append(div6, t7);
-    			append(div10, t8);
-    			append(div10, div9);
-    			append(div9, div8);
-    			/*div8_binding*/ ctx[13](div8);
+    			append(div6, t6);
+    			append(div15, t7);
+    			append(div15, div14);
+    			append(div14, div11);
+    			append(div11, div9);
+    			append(div9, canvas);
+    			/*canvas_binding*/ ctx[12](canvas);
+    			append(div11, t8);
+    			append(div11, div10);
+    			append(div10, t9);
+    			append(div14, t10);
+    			append(div14, div13);
+    			append(div13, div12);
+    			/*div12_binding*/ ctx[13](div12);
 
     			if (!mounted) {
-    				dispose = listen(div5, "click", /*toggleStackedView*/ ctx[9]);
+    				dispose = listen(div9, "click", /*toggleStackedView*/ ctx[9]);
     				mounted = true;
     			}
     		},
@@ -9591,17 +9606,18 @@ var GuitarChords = (function () {
     			}
 
     			if (dirty & /*chord*/ 4 && t2_value !== (t2_value = getChordName(/*chord*/ ctx[2]) + "")) set_data(t2, t2_value);
-    			if (dirty & /*strings, tune*/ 18 && t4_value !== (t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1]).join(' ') + "")) set_data(t4, t4_value);
-    			if (dirty & /*chord*/ 4 && t7_value !== (t7_value = /*chord*/ ctx[2].tones + "")) set_data(t7, t7_value);
+    			if (dirty & /*strings, tune*/ 18 && t4_value !== (t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true).join(' ') + "")) set_data(t4, t4_value);
+    			if (dirty & /*strings, tune*/ 18 && t6_value !== (t6_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false).join(' ') + "")) set_data(t6, t6_value);
+    			if (dirty & /*chord*/ 4 && t9_value !== (t9_value = /*chord*/ ctx[2].tones + "")) set_data(t9, t9_value);
     		},
     		i: noop,
     		o: noop,
     		d(detaching) {
-    			if (detaching) detach(div11);
+    			if (detaching) detach(div15);
     			destroy_each(each_blocks, detaching);
     			if (if_block) if_block.d();
     			/*canvas_binding*/ ctx[12](null);
-    			/*div8_binding*/ ctx[13](null);
+    			/*div12_binding*/ ctx[13](null);
     			mounted = false;
     			dispose();
     		}
@@ -9659,7 +9675,7 @@ var GuitarChords = (function () {
     		});
     	}
 
-    	function div8_binding($$value) {
+    	function div12_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			chordElement = $$value;
     			$$invalidate(5, chordElement);
@@ -9699,14 +9715,14 @@ var GuitarChords = (function () {
     		click_handler,
     		click_handler_1,
     		canvas_binding,
-    		div8_binding
+    		div12_binding
     	];
     }
 
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:flex-start;cursor:pointer}.tones-name{display:flex;align-items:flex-start;justify-content:center;font-weight:normal;font-size:medium;padding-top:4px}.chord-header{display:grid;grid-template-columns:100px 200px;color:#999;height:2.5em;border-top:1px solid #999}.chord-name{text-align:left;align-items:flex-start;font-weight:bold;font-size:1.8em;font-family:monospace;padding-top:0.5em;display:flex;flex-direction:column;max-width:min-content;height:2.5em}.chord-tuning{text-align:center;padding-top:0.5em;font-family:monospace;padding-left:0.45em;font-size:x-large;letter-spacing:-0.05em}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available;font-family:Calibri, Candara, Arial, Helvetica, sans-serif;border-top:1px solid #999}.chord-visualized{width:fit-content;display:flex}.tones{font-size:large;color:#999;width:100px;display:grid;grid-template-columns:auto;margin-top:2em;height:available}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:200px;display:flex;align-items:center}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:flex-start;justify-content:center;cursor:pointer}.tones-name{display:flex;align-items:flex-start;justify-content:center;font-weight:normal;font-size:medium;padding-top:4px}.chord-header{display:grid;grid-template-columns:150px 200px;color:#999;border-top:1px solid #999;width:100vw;justify-content:center;padding-top:0.5em;height:50px}.chord-name{text-align:center;font-size:x-large;font-weight:bolder;display:flex;flex-direction:column;max-width:min-content}.chord-notes{padding-left:10px}.chord-guitar-notes{text-align:center;align-items:flex-start;width:available;font-size:x-large;font-weight:bolder;font-family:monospace}.chord-visualized{display:grid;grid-template-columns:150px 200px;width:100vw;justify-content:center}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available;font-family:Calibri, Candara, Arial, Helvetica, sans-serif;border-top:1px solid #999}.tones{font-size:large;color:#999;display:grid;grid-template-columns:auto;margin-top:2em;height:available;width:available}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:available;display:flex;justify-content:flex-start}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,
