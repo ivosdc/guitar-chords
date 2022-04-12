@@ -2,7 +2,8 @@
     import {drawGuitarChord} from './drawGuitarChord';
     import {afterUpdate} from 'svelte';
     import {drawChordTones, width, height} from "./drawChordTones";
-    import {NOTES, tuning, empty_chord,
+    import {
+        NOTES, tuning, empty_chord,
         getChords,
         getStringNotes,
         setSharpNotes,
@@ -12,8 +13,6 @@
 
     export let note = '';
     let chord = empty_chord[0];
-    export let tune = tuning;
-
 
     function setBaseNote(base_note) {
         note = base_note;
@@ -32,10 +31,44 @@
     let show_chord_stacked = false;
     let note_chords;
     $: note_chords = initChords(note);
+
+    let left_hand = false;
+    let tune;
+    $: tune = setTune(left_hand);
+
+    function setTune(left_handed) {
+        let tuningDisplay = JSON.parse(JSON.stringify(tuning));
+        if (left_handed) {
+            tuningDisplay.reverse();
+        }
+        return tuningDisplay;
+    }
+
     let fingering;
-    $: fingering = chord.fingering.split(' ');
+    $: fingering = getFingering(chord, left_hand);
     let strings;
-    $: strings = chord.strings.split(' ');
+    $: strings = getStrings(chord, left_hand);
+
+    function reverse(str) {
+        return Array.from(str).reverse().join('');
+    }
+
+    function getFingering(chord, left_hand) {
+        let fingers = chord.fingering;
+        if (left_hand) {
+            fingers = reverse(fingers);
+        }
+        return fingers.split(' ')
+    }
+
+
+    function getStrings(chord, left_hand) {
+        let strings = chord.strings;
+        if (left_hand) {
+            strings = reverse(strings);
+        }
+        return strings.split(' ')
+    }
 
     let chordElement;
     let chord_canvas;
@@ -50,6 +83,9 @@
         drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1', show_chord_stacked);
     }
 
+    function toggleLeftRight() {
+        left_hand = !left_hand;
+    }
 </script>
 
 <div class="notes-menu">
@@ -106,8 +142,39 @@
             <div bind:this={chordElement}></div>
         </div>
     </div>
+    <div class="left-right-toggle">
+        <div class="left-right-bar">
+            <div class="dummy">
+            </div>
+            <div class="left-right-button" on:click={toggleLeftRight}>
+                {#if left_hand}
+                    &#10229; L-hand &#10229;
+                {:else}
+                    &#10230; R-hand &#10230;
+                {/if}
+            </div>
+        </div>
+    </div>
 </div>
 <style>
+
+    .left-right-toggle {
+        width: 100vw;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .left-right-bar {
+        display: grid;
+        grid-template-columns: 150px 200px;
+    }
+
+    .left-right-button {
+        text-align: center;
+        cursor: pointer;
+        color: #999999;
+    }
 
     .tones-canvas {
         display: flex;
@@ -232,11 +299,13 @@
         justify-content: center;
         max-width: min-content;
         height: 2.5em;
+        box-shadow: -1px 1px 4px -1px rgba(0, 0, 0, 0.4);
     }
 
     .button-selected {
         border: 1px solid #1A1A1A;
         color: #1A1A1A;
-        background-color: #999;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
     }
 </style>
