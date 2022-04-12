@@ -31,8 +31,6 @@
     "svelte": "^3.37.0"
   },
   "dependencies": {
-    "g": "^2.0.1",
-    "node-fetch": "^3.2.3",
     "vexchords": "^1.2.0"
   },
   "files": [
