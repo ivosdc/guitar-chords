@@ -323,993 +323,6 @@ var GuitarChords = (function () {
         };
     }
 
-    const CHORDS = {
-      C: [
-        {
-          strings: 'X 3 2 0 1 0',
-          fingering: 'X 3 2 X 1 X',
-          chordName: 'C,,,',
-          enharmonicChordName: 'C,,,',
-          voicingID: '9223372036855826559',
-          tones: 'C,E,G'
-        },
-        {
-          strings: 'X 3 5 5 4 3',
-          fingering: 'X 1 3 4 2 1',
-          chordName: 'C,m,,',
-          enharmonicChordName: 'C,m,,',
-          voicingID: '9223372036959802495',
-          tones: 'C,Eb,G'
-        },
-        {
-          strings: 'X 3 2 3 1 0',
-          fingering: 'X 3 2 4 1 X',
-          chordName: 'C,,7,',
-          enharmonicChordName: 'C,,7,',
-          voicingID: '9223372036855924863',
-          tones: 'C,E,G,Bb'
-        },
-        {
-          strings: 'X 3 5 4 5 3',
-          fingering: 'X 1 3 2 4 1',
-          chordName: 'C,maj,7,',
-          enharmonicChordName: 'C,maj,7,',
-          voicingID: '9223372036960818303',
-          tones: 'C,E,G,B'
-        },
-        {
-          strings: 'X 3 5 3 4 3',
-          fingering: 'X 1 3 1 2 1',
-          chordName: 'C,m,7,',
-          enharmonicChordName: 'C,m,7,',
-          voicingID: '9223372036959736959',
-          tones: 'C,Eb,G,Bb'
-        },
-        {
-          strings: 'X 3 5 X X X',
-          fingering: 'X 1 3 X X X',
-          chordName: 'C,,5,',
-          enharmonicChordName: 'C,,5,',
-          voicingID: '9223372037928490111',
-          tones: 'C,G'
-        },
-        {
-          strings: 'X 3 4 2 4 X',
-          fingering: 'X 2 3 1 4 X',
-          chordName: 'C,dim,7,',
-          enharmonicChordName: 'C,dim,7,',
-          voicingID: '9223372037899227263',
-          tones: 'C,Eb,Gb,A'
-        },
-        {
-          strings: 'X 3 4 3 4 X',
-          fingering: 'X 1 3 2 4 X',
-          chordName: 'C,m,7b5,',
-          enharmonicChordName: 'C,m,7b5,',
-          voicingID: '9223372037899260031',
-          tones: 'C,Eb,Gb,Bb'
-        },
-        {
-          strings: 'X 3 X 0 5 5',
-          fingering: 'X 1 X X 3 4',
-          chordName: 'C,,6,',
-          enharmonicChordName: 'C,,6,',
-          voicingID: '9223372037027822719',
-          tones: 'C,E,G,A'
-        },
-        {
-          strings: 'X 3 5 2 4 X',
-          fingering: 'X 2 4 1 3 X',
-          chordName: 'C,m,6,',
-          enharmonicChordName: 'C,m,6,',
-          voicingID: '9223372037899228287',
-          tones: 'C,Eb,G,A'
-        }
-      ],
-      Db: [
-        {
-          strings: 'X 4 3 1 2 1',
-          fingering: 'X 4 3 1 2 1',
-          chordName: 'Db,,,',
-          enharmonicChordName: 'C#,,,',
-          voicingID: '9223372036890463391',
-          tones: 'Db,F,Ab'
-        },
-        {
-          strings: 'X 4 6 6 5 4',
-          fingering: 'X 1 3 4 2 1',
-          chordName: 'Db,m,,',
-          enharmonicChordName: 'C#,m,,',
-          voicingID: '9223372036994439327',
-          tones: 'C#,E,G#'
-        },
-        {
-          strings: 'X 4 6 4 6 4',
-          fingering: 'X 1 3 1 4 1',
-          chordName: 'Db,,7,',
-          enharmonicChordName: 'C#,,7,',
-          voicingID: '9223372036995422367',
-          tones: 'Db,F,Ab,B'
-        },
-        {
-          strings: 'X 4 6 5 6 4',
-          fingering: 'X 1 3 2 4 1',
-          chordName: 'Db,maj,7,',
-          enharmonicChordName: 'C#,maj,7,',
-          voicingID: '9223372036995455135',
-          tones: 'Db,F,Ab,C'
-        },
-        {
-          strings: 'X 4 2 1 0 0',
-          fingering: 'X 4 2 1 X X',
-          chordName: 'Db,m,7,',
-          enharmonicChordName: 'C#,m,7,',
-          voicingID: '9223372036854810783',
-          tones: 'C#,E,G#,B'
-        },
-        {
-          strings: 'X 4 6 X X X',
-          fingering: 'X 1 3 X X X',
-          chordName: 'Db,,5,',
-          enharmonicChordName: 'C#,,5,',
-          voicingID: '9223372037928491167',
-          tones: 'C#,G#'
-        },
-        {
-          strings: 'X 4 5 3 5 X',
-          fingering: 'X 2 3 1 4 X',
-          chordName: 'Db,dim,7,',
-          enharmonicChordName: 'C#,dim,7,',
-          voicingID: '9223372037900309663',
-          tones: 'C#,E,G,A#'
-        },
-        {
-          strings: 'X 4 2 0 0 X',
-          fingering: 'X 4 2 X X X',
-          chordName: 'Db,m,7b5,',
-          enharmonicChordName: 'C#,m,7b5,',
-          voicingID: '9223372037894965407',
-          tones: 'C#,E,G,B'
-        },
-        {
-          strings: 'X 4 6 6 6 6',
-          fingering: 'X 1 3 3 3 3',
-          chordName: 'Db,,6,',
-          enharmonicChordName: 'C#,,6,',
-          voicingID: '9223372037062596767',
-          tones: 'Db,F,Ab,Bb'
-        },
-        {
-          strings: 'X 4 6 3 5 X',
-          fingering: 'X 2 4 1 3 X',
-          chordName: 'Db,m,6,',
-          enharmonicChordName: 'C#,m,6,',
-          voicingID: '9223372037900310687',
-          tones: 'C#,E,G#,A#'
-        }
-      ],
-      D: [
-        {
-          strings: 'X X 0 2 3 2',
-          fingering: 'X X X 1 3 2',
-          chordName: 'D,,,',
-          enharmonicChordName: 'D,,,',
-          voicingID: '9223372036925096959',
-          tones: 'D,F#,A'
-        },
-        {
-          strings: 'X X 0 2 3 1',
-          fingering: 'X X X 2 3 1',
-          chordName: 'D,m,,',
-          enharmonicChordName: 'D,m,,',
-          voicingID: '9223372036891542527',
-          tones: 'D,F,A'
-        },
-        {
-          strings: 'X X 0 2 1 2',
-          fingering: 'X X X 2 1 3',
-          chordName: 'D,,7,',
-          enharmonicChordName: 'D,,7,',
-          voicingID: '9223372036922999807',
-          tones: 'D,F#,A,C'
-        },
-        {
-          strings: 'X X 0 2 2 2',
-          fingering: 'X X X 2 3 4',
-          chordName: 'D,maj,7,',
-          enharmonicChordName: 'D,maj,7,',
-          voicingID: '9223372036924048383',
-          tones: 'D,F#,A,C#'
-        },
-        {
-          strings: 'X X 0 2 1 1',
-          fingering: 'X X X 2 1 1',
-          chordName: 'D,m,7,',
-          enharmonicChordName: 'D,m,7,',
-          voicingID: '9223372036889445375',
-          tones: 'D,F,A,C'
-        },
-        {
-          strings: 'X X 0 2 X X',
-          fingering: 'X X X 2 X X',
-          chordName: 'D,,5,',
-          enharmonicChordName: 'D,,5,',
-          voicingID: '9223372037927535615',
-          tones: 'D,A'
-        },
-        {
-          strings: 'X X 0 1 0 1',
-          fingering: 'X X X 1 X 2',
-          chordName: 'D,dim,7,',
-          enharmonicChordName: 'D,dim,7,',
-          voicingID: '9223372036888364031',
-          tones: 'D,F,Ab,B'
-        },
-        {
-          strings: 'X X 0 1 1 1',
-          fingering: 'X X X 1 1 1',
-          chordName: 'D,m,7b5,',
-          enharmonicChordName: 'D,m,7b5,',
-          voicingID: '9223372036889412607',
-          tones: 'D,F,Ab,C'
-        },
-        {
-          strings: 'X X 0 2 0 2',
-          fingering: 'X X X 2 X 3',
-          chordName: 'D,,6,',
-          enharmonicChordName: 'D,,6,',
-          voicingID: '9223372036921951231',
-          tones: 'D,F#,A,B'
-        },
-        {
-          strings: 'X X 0 2 0 1',
-          fingering: 'X X X 2 X 1',
-          chordName: 'D,m,6,',
-          enharmonicChordName: 'D,m,6,',
-          voicingID: '9223372036888396799',
-          tones: 'D,F,A,B'
-        }
-      ],
-      Eb: [
-        {
-          strings: 'X 6 5 3 4 3',
-          fingering: 'X 4 3 1 2 1',
-          chordName: 'Eb,,,',
-          enharmonicChordName: 'D#,,,',
-          voicingID: '9223372036959737055',
-          tones: 'Eb,G,Bb'
-        },
-        {
-          strings: 'X X 1 3 4 2',
-          fingering: 'X X 1 3 4 2',
-          chordName: 'Eb,m,,',
-          enharmonicChordName: 'D#,m,,',
-          voicingID: '9223372036926179327',
-          tones: 'Eb,Gb,Bb'
-        },
-        {
-          strings: 'X X 1 3 2 3',
-          fingering: 'X X 1 3 2 4',
-          chordName: 'Eb,,7,',
-          enharmonicChordName: 'D#,,7,',
-          voicingID: '9223372036957636607',
-          tones: 'Eb,G,Bb,Db'
-        },
-        {
-          strings: 'X X 1 3 3 3',
-          fingering: 'X X 1 2 3 4',
-          chordName: 'Eb,maj,7,',
-          enharmonicChordName: 'D#,maj,7,',
-          voicingID: '9223372036958685183',
-          tones: 'Eb,G,Bb,D'
-        },
-        {
-          strings: 'X X 1 3 2 2',
-          fingering: 'X X 1 4 2 3',
-          chordName: 'Eb,m,7,',
-          enharmonicChordName: 'D#,m,7,',
-          voicingID: '9223372036924082175',
-          tones: 'Eb,Gb,Bb,Db'
-        },
-        {
-          strings: 'X X 1 3 X X',
-          fingering: 'X X 1 3 X X',
-          chordName: 'Eb,,5,',
-          enharmonicChordName: 'D#,,5,',
-          voicingID: '9223372037927569407',
-          tones: 'Eb,Bb'
-        },
-        {
-          strings: 'X X 1 2 1 2',
-          fingering: 'X X 1 3 2 4',
-          chordName: 'Eb,dim,7,',
-          enharmonicChordName: 'D#,dim,7,',
-          voicingID: '9223372036923000831',
-          tones: 'Eb,Gb,A,C'
-        },
-        {
-          strings: 'X X 1 2 2 2',
-          fingering: 'X X 1 2 3 4',
-          chordName: 'Eb,m,7b5,',
-          enharmonicChordName: 'D#,m,7b5,',
-          voicingID: '9223372036924049407',
-          tones: 'Eb,Gb,A,Db'
-        },
-        {
-          strings: 'X X 1 3 1 3',
-          fingering: 'X X 1 3 1 4',
-          chordName: 'Eb,,6,',
-          enharmonicChordName: 'D#,,6,',
-          voicingID: '9223372036956588031',
-          tones: 'Eb,G,Bb,C'
-        },
-        {
-          strings: 'X X 1 3 1 2',
-          fingering: 'X X 1 3 1 2',
-          chordName: 'Eb,m,6,',
-          enharmonicChordName: 'D#,m,6,',
-          voicingID: '9223372036923033599',
-          tones: 'Eb,Gb,Bb,C'
-        }
-      ],
-      E: [
-        {
-          strings: '0 2 2 1 0 0',
-          fingering: 'X 2 3 1 X X',
-          chordName: 'E,,,',
-          enharmonicChordName: 'E,,,',
-          voicingID: '9223372036854810688',
-          tones: 'E,G#,B'
-        },
-        {
-          strings: '0 2 2 0 0 0',
-          fingering: 'X 2 3 X X X',
-          chordName: 'E,m,,',
-          enharmonicChordName: 'E,m,,',
-          voicingID: '9223372036854777920',
-          tones: 'E,G,B'
-        },
-        {
-          strings: '0 2 0 1 0 0',
-          fingering: 'X 2 X 1 X X',
-          chordName: 'E,,7,',
-          enharmonicChordName: 'E,,7,',
-          voicingID: '9223372036854808640',
-          tones: 'E,G#,B,D'
-        },
-        {
-          strings: '0 X 2 4 4 4',
-          fingering: 'X X 1 2 3 4',
-          chordName: 'E,maj,7,',
-          enharmonicChordName: 'E,maj,7,',
-          voicingID: '9223372036993321952',
-          tones: 'E,G#,B,D#'
-        },
-        {
-          strings: '0 2 0 0 0 0',
-          fingering: 'X 2 X X X X',
-          chordName: 'E,m,7,',
-          enharmonicChordName: 'E,m,7,',
-          voicingID: '9223372036854775872',
-          tones: 'E,G,B,D'
-        },
-        {
-          strings: '0 2 X X X X',
-          fingering: 'X 2 X X X X',
-          chordName: 'E,,5,',
-          enharmonicChordName: 'E,,5,',
-          voicingID: '9223372037928516672',
-          tones: 'E,B'
-        },
-        {
-          strings: '0 X 2 3 2 3',
-          fingering: 'X X 1 3 2 4',
-          chordName: 'E,dim,7,',
-          enharmonicChordName: 'E,dim,7,',
-          voicingID: '9223372036957637600',
-          tones: 'E,G,Bb,C#'
-        },
-        {
-          strings: '0 X 0 3 3 3',
-          fingering: 'X X X 2 3 4',
-          chordName: 'E,m,7b5,',
-          enharmonicChordName: 'E,m,7b5,',
-          voicingID: '9223372036958684128',
-          tones: 'E,G,Bb,D'
-        },
-        {
-          strings: '0 X 2 4 2 4',
-          fingering: 'X X 1 3 1 4',
-          chordName: 'E,,6,',
-          enharmonicChordName: 'E,,6,',
-          voicingID: '9223372036991224800',
-          tones: 'E,G#,B,C#'
-        },
-        {
-          strings: '0 2 2 0 2 X',
-          fingering: 'X 2 3 X 4 X',
-          chordName: 'E,m,6,',
-          enharmonicChordName: 'E,m,6,',
-          voicingID: '9223372037897062464',
-          tones: 'E,G,B,C#'
-        }
-      ],
-      F: [
-        {
-          strings: '1 3 3 2 1 1',
-          fingering: '1 3 4 2 1 1',
-          chordName: 'F,,,',
-          enharmonicChordName: 'F,,,',
-          voicingID: '9223372036889447521',
-          tones: 'F,A,C'
-        },
-        {
-          strings: '1 3 3 1 1 1',
-          fingering: '1 3 4 1 1 1',
-          chordName: 'F,m,,',
-          enharmonicChordName: 'F,m,,',
-          voicingID: '9223372036889414753',
-          tones: 'F,Ab,C'
-        },
-        {
-          strings: '1 3 1 2 4 1',
-          fingering: '1 3 1 2 4 1',
-          chordName: 'F,,7,',
-          enharmonicChordName: 'F,,7,',
-          voicingID: '9223372036892591201',
-          tones: 'F,A,C,Eb'
-        },
-        {
-          strings: '1 X 2 2 1 0',
-          fingering: '1 X 3 4 2 X',
-          chordName: 'F,maj,7,',
-          enharmonicChordName: 'F,maj,7,',
-          voicingID: '9223372036855892961',
-          tones: 'F,A,C,E'
-        },
-        {
-          strings: '1 3 1 1 1 1',
-          fingering: '1 3 1 1 1 1',
-          chordName: 'F,m,7,',
-          enharmonicChordName: 'F,m,7,',
-          voicingID: '9223372036889412705',
-          tones: 'F,Ab,C,Eb'
-        },
-        {
-          strings: '1 3 X X X X',
-          fingering: '1 3 X X X X',
-          chordName: 'F,,5,',
-          enharmonicChordName: 'F,,5,',
-          voicingID: '9223372037928516705',
-          tones: 'F,C'
-        },
-        {
-          strings: '1 X 0 1 0 X',
-          fingering: '1 X X 3 X X',
-          chordName: 'F,dim,7,',
-          enharmonicChordName: 'F,dim,7,',
-          voicingID: '9223372037894996961',
-          tones: 'F,Ab,B,D'
-        },
-        {
-          strings: '1 X 1 1 0 1',
-          fingering: '1 X 2 3 X 4',
-          chordName: 'F,m,7b5,',
-          enharmonicChordName: 'F,m,7b5,',
-          voicingID: '9223372036888365025',
-          tones: 'F,Ab,B,Eb'
-        },
-        {
-          strings: '1 X 0 2 1 X',
-          fingering: '1 X X 4 3 X',
-          chordName: 'F,,6,',
-          enharmonicChordName: 'F,,6,',
-          voicingID: '9223372037896078305',
-          tones: 'F,A,C,D'
-        },
-        {
-          strings: '1 X 0 1 1 X',
-          fingering: '1 X X 3 4 X',
-          chordName: 'F,m,6,',
-          enharmonicChordName: 'F,m,6,',
-          voicingID: '9223372037896045537',
-          tones: 'F,Ab,C,D'
-        }
-      ],
-      Gb: [
-        {
-          strings: '2 4 4 3 2 2',
-          fingering: '1 3 4 2 1 1',
-          chordName: 'Gb,,,',
-          enharmonicChordName: 'F#,,,',
-          voicingID: '9223372036924084354',
-          tones: 'Gb,Bb,Db'
-        },
-        {
-          strings: '2 4 4 2 2 2',
-          fingering: '1 3 4 1 1 1',
-          chordName: 'Gb,m,,',
-          enharmonicChordName: 'F#,m,,',
-          voicingID: '9223372036924051586',
-          tones: 'F#,A,C#'
-        },
-        {
-          strings: '2 4 2 3 5 2',
-          fingering: '1 3 1 2 4 1',
-          chordName: 'Gb,,7,',
-          enharmonicChordName: 'F#,,7,',
-          voicingID: '9223372036927228034',
-          tones: 'F#,A#,C#,E'
-        },
-        {
-          strings: '2 X 3 3 2 X',
-          fingering: '1 X 3 4 2 X',
-          chordName: 'Gb,maj,7,',
-          enharmonicChordName: 'F#,maj,7,',
-          voicingID: '9223372037897162722',
-          tones: 'Gb,Bb,Db,F'
-        },
-        {
-          strings: '2 4 2 2 2 2',
-          fingering: '1 3 1 1 1 1',
-          chordName: 'Gb,m,7,',
-          enharmonicChordName: 'F#,m,7,',
-          voicingID: '9223372036924049538',
-          tones: 'F#,A,C#,E'
-        },
-        {
-          strings: '2 4 X X X X',
-          fingering: '1 3 X X X X',
-          chordName: 'Gb,,5,',
-          enharmonicChordName: 'F#,,5,',
-          voicingID: '9223372037928516738',
-          tones: 'F#,C#'
-        },
-        {
-          strings: '2 X 1 2 1 X',
-          fingering: '2 X 1 4 1 X',
-          chordName: 'Gb,dim,7,',
-          enharmonicChordName: 'F#,dim,7,',
-          voicingID: '9223372037896079330',
-          tones: 'F#,A,C,D#'
-        },
-        {
-          strings: '2 X 2 2 1 0',
-          fingering: '2 X 3 4 1 X',
-          chordName: 'Gb,m,7b5,',
-          enharmonicChordName: 'F#,m,7b5,',
-          voicingID: '9223372036855892962',
-          tones: 'F#,A,C,E'
-        },
-        {
-          strings: '2 X 1 3 2 X',
-          fingering: '2 X 1 4 3 X',
-          chordName: 'Gb,,6,',
-          enharmonicChordName: 'F#,,6,',
-          voicingID: '9223372037897160674',
-          tones: 'Gb,Bb,Db,Eb'
-        },
-        {
-          strings: '2 X 1 2 2 X',
-          fingering: '2 X 1 3 4 X',
-          chordName: 'Gb,m,6,',
-          enharmonicChordName: 'F#,m,6,',
-          voicingID: '9223372037897127906',
-          tones: 'F#,A,C#,D#'
-        }
-      ],
-      G: [
-        {
-          strings: '3 2 0 0 3 3',
-          fingering: '2 1 X X 3 4',
-          chordName: 'G,,,',
-          enharmonicChordName: 'G,,,',
-          voicingID: '9223372036958584899',
-          tones: 'G,B,D'
-        },
-        {
-          strings: '3 5 5 3 3 3',
-          fingering: '1 3 4 1 1 1',
-          chordName: 'G,m,,',
-          enharmonicChordName: 'G,m,,',
-          voicingID: '9223372036958688419',
-          tones: 'G,Bb,D'
-        },
-        {
-          strings: '3 2 0 0 0 1',
-          fingering: '3 2 X X X 1',
-          chordName: 'G,,7,',
-          enharmonicChordName: 'G,,7,',
-          voicingID: '9223372036888330307',
-          tones: 'G,B,D,F'
-        },
-        {
-          strings: '3 X 4 4 3 X',
-          fingering: '1 X 3 4 2 X',
-          chordName: 'G,maj,7,',
-          enharmonicChordName: 'G,maj,7,',
-          voicingID: '9223372037898245091',
-          tones: 'G,B,D,F#'
-        },
-        {
-          strings: '3 5 3 3 3 3',
-          fingering: '1 3 1 1 1 1',
-          chordName: 'G,m,7,',
-          enharmonicChordName: 'G,m,7,',
-          voicingID: '9223372036958686371',
-          tones: 'G,Bb,D,F'
-        },
-        {
-          strings: '3 5 X X X X',
-          fingering: '1 3 X X X X',
-          chordName: 'G,,5,',
-          enharmonicChordName: 'G,,5,',
-          voicingID: '9223372037928516771',
-          tones: 'G,D'
-        },
-        {
-          strings: '3 X 2 3 2 X',
-          fingering: '2 X 1 4 1 X',
-          chordName: 'G,dim,7,',
-          enharmonicChordName: 'G,dim,7,',
-          voicingID: '9223372037897161699',
-          tones: 'G,Bb,Db,E'
-        },
-        {
-          strings: '3 X 3 3 2 X',
-          fingering: '2 X 3 4 1 X',
-          chordName: 'G,m,7b5,',
-          enharmonicChordName: 'G,m,7b5,',
-          voicingID: '9223372037897162723',
-          tones: 'G,Bb,Db,F'
-        },
-        {
-          strings: '3 X 0 0 0 0',
-          fingering: '3 X X X X X',
-          chordName: 'G,,6,',
-          enharmonicChordName: 'G,,6,',
-          voicingID: '9223372036854776803',
-          tones: 'G,B,D,E'
-        },
-        {
-          strings: '3 X 2 3 3 X',
-          fingering: '2 X 1 3 4 X',
-          chordName: 'G,m,6,',
-          enharmonicChordName: 'G,m,6,',
-          voicingID: '9223372037898210275',
-          tones: 'G,Bb,D,E'
-        }
-      ],
-      Ab: [
-        {
-          strings: '4 6 6 5 4 4',
-          fingering: '1 3 4 2 1 1',
-          chordName: 'Ab,,,',
-          enharmonicChordName: 'G#,,,',
-          voicingID: '9223372036993358020',
-          tones: 'Ab,C,Eb'
-        },
-        {
-          strings: '4 6 6 4 4 4',
-          fingering: '1 3 4 1 1 1',
-          chordName: 'Ab,m,,',
-          enharmonicChordName: 'G#,m,,',
-          voicingID: '9223372036993325252',
-          tones: 'G#,B,D#'
-        },
-        {
-          strings: '4 6 4 5 7 4',
-          fingering: '1 3 1 2 4 1',
-          chordName: 'Ab,,7,',
-          enharmonicChordName: 'G#,,7,',
-          voicingID: '9223372036996501700',
-          tones: 'Ab,C,Eb,Gb'
-        },
-        {
-          strings: '4 X 5 5 4 X',
-          fingering: '1 X 3 4 2 X',
-          chordName: 'Ab,maj,7,',
-          enharmonicChordName: 'G#,maj,7,',
-          voicingID: '9223372037899327460',
-          tones: 'Ab,C,Eb,G'
-        },
-        {
-          strings: '4 6 4 4 4 4',
-          fingering: '1 3 1 1 1 1',
-          chordName: 'Ab,m,7,',
-          enharmonicChordName: 'G#,m,7,',
-          voicingID: '9223372036993323204',
-          tones: 'G#,B,D#,F#'
-        },
-        {
-          strings: '4 6 X X X X',
-          fingering: '1 3 X X X X',
-          chordName: 'Ab,,5,',
-          enharmonicChordName: 'G#,,5,',
-          voicingID: '9223372037928516804',
-          tones: 'G#,D#'
-        },
-        {
-          strings: '4 X 3 4 3 X',
-          fingering: '2 X 1 4 1 X',
-          chordName: 'Ab,dim,7,',
-          enharmonicChordName: 'G#,dim,7,',
-          voicingID: '9223372037898244068',
-          tones: 'G#,B,D,F'
-        },
-        {
-          strings: '4 X 4 4 3 X',
-          fingering: '2 X 3 4 1 X',
-          chordName: 'Ab,m,7b5,',
-          enharmonicChordName: 'G#,m,7b5,',
-          voicingID: '9223372037898245092',
-          tones: 'G#,B,D,F#'
-        },
-        {
-          strings: '4 X 3 5 4 X',
-          fingering: '2 X 1 4 3 X',
-          chordName: 'Ab,,6,',
-          enharmonicChordName: 'G#,,6,',
-          voicingID: '9223372037899325412',
-          tones: 'Ab,C,Eb,F'
-        },
-        {
-          strings: '4 X 3 4 4 X',
-          fingering: '2 X 1 3 4 X',
-          chordName: 'Ab,m,6,',
-          enharmonicChordName: 'G#,m,6,',
-          voicingID: '9223372037899292644',
-          tones: 'G#,B,D#,F'
-        }
-      ],
-      A: [
-        {
-          strings: 'X 0 2 2 2 0',
-          fingering: 'X X 2 3 4 X',
-          chordName: 'A,,,',
-          enharmonicChordName: 'A,,,',
-          voicingID: '9223372036856940575',
-          tones: 'A,C#,E'
-        },
-        {
-          strings: 'X 0 2 2 1 0',
-          fingering: 'X X 2 3 1 X',
-          chordName: 'A,m,,',
-          enharmonicChordName: 'A,m,,',
-          voicingID: '9223372036855891999',
-          tones: 'A,C,E'
-        },
-        {
-          strings: 'X 0 2 0 2 0',
-          fingering: 'X X 2 X 3 X',
-          chordName: 'A,,7,',
-          enharmonicChordName: 'A,,7,',
-          voicingID: '9223372036856875039',
-          tones: 'A,C#,E,G'
-        },
-        {
-          strings: 'X 0 2 2 2 4',
-          fingering: 'X X 1 1 1 3',
-          chordName: 'A,maj,7,',
-          enharmonicChordName: 'A,maj,7,',
-          voicingID: '9223372036991158303',
-          tones: 'A,C#,E,G#'
-        },
-        {
-          strings: 'X 0 2 0 1 0',
-          fingering: 'X X 2 X 1 X',
-          chordName: 'A,m,7,',
-          enharmonicChordName: 'A,m,7,',
-          voicingID: '9223372036855826463',
-          tones: 'A,C,E,G'
-        },
-        {
-          strings: 'X 0 2 X X X',
-          fingering: 'X X 2 X X X',
-          chordName: 'A,,5,',
-          enharmonicChordName: 'A,,5,',
-          voicingID: '9223372037928486943',
-          tones: 'A,E'
-        },
-        {
-          strings: 'X 0 4 5 4 X',
-          fingering: 'X X 1 3 2 X',
-          chordName: 'A,dim,7,',
-          enharmonicChordName: 'A,dim,7,',
-          voicingID: '9223372037899325471',
-          tones: 'A,C,Eb,F#'
-        },
-        {
-          strings: 'X 0 1 0 1 X',
-          fingering: 'X X 1 X 2 X',
-          chordName: 'A,m,7b5,',
-          enharmonicChordName: 'A,m,7b5,',
-          voicingID: '9223372037896012831',
-          tones: 'A,C,Eb,G'
-        },
-        {
-          strings: 'X 0 2 2 2 2',
-          fingering: 'X X 1 1 1 1',
-          chordName: 'A,,6,',
-          enharmonicChordName: 'A,,6,',
-          voicingID: '9223372036924049439',
-          tones: 'A,C#,E,F#'
-        },
-        {
-          strings: 'X 0 4 5 5 X',
-          fingering: 'X X 1 2 3 X',
-          chordName: 'A,m,6,',
-          enharmonicChordName: 'A,m,6,',
-          voicingID: '9223372037900374047',
-          tones: 'A,C,E,F#'
-        }
-      ],
-      Bb: [
-        {
-          strings: 'X 1 3 3 3 1',
-          fingering: 'X 1 2 3 4 1',
-          chordName: 'Bb,,,',
-          enharmonicChordName: 'A#,,,',
-          voicingID: '9223372036891577407',
-          tones: 'Bb,D,F'
-        },
-        {
-          strings: 'X 1 3 3 2 1',
-          fingering: 'X 1 3 4 2 1',
-          chordName: 'Bb,m,,',
-          enharmonicChordName: 'A#,m,,',
-          voicingID: '9223372036890528831',
-          tones: 'Bb,Db,F'
-        },
-        {
-          strings: 'X 1 3 1 3 1',
-          fingering: 'X 1 3 1 4 1',
-          chordName: 'Bb,,7,',
-          enharmonicChordName: 'A#,,7,',
-          voicingID: '9223372036891511871',
-          tones: 'Bb,D,F,Ab'
-        },
-        {
-          strings: 'X 1 3 2 3 1',
-          fingering: 'X 1 3 2 4 1',
-          chordName: 'Bb,maj,7,',
-          enharmonicChordName: 'A#,maj,7,',
-          voicingID: '9223372036891544639',
-          tones: 'Bb,D,F,A'
-        },
-        {
-          strings: 'X 1 3 1 2 1',
-          fingering: 'X 1 3 1 2 1',
-          chordName: 'Bb,m,7,',
-          enharmonicChordName: 'A#,m,7,',
-          voicingID: '9223372036890463295',
-          tones: 'Bb,Db,F,Ab'
-        },
-        {
-          strings: 'X 1 3 X X X',
-          fingering: 'X 1 3 X X X',
-          chordName: 'Bb,,5,',
-          enharmonicChordName: 'A#,,5,',
-          voicingID: '9223372037928487999',
-          tones: 'Bb,F'
-        },
-        {
-          strings: 'X 1 2 0 2 X',
-          fingering: 'X 1 2 X 3 X',
-          chordName: 'Bb,dim,7,',
-          enharmonicChordName: 'A#,dim,7,',
-          voicingID: '9223372037897062463',
-          tones: 'Bb,Db,E,G'
-        },
-        {
-          strings: 'X 1 2 1 2 X',
-          fingering: 'X 1 3 2 4 X',
-          chordName: 'Bb,m,7b5,',
-          enharmonicChordName: 'A#,m,7b5,',
-          voicingID: '9223372037897095231',
-          tones: 'Bb,Db,E,Ab'
-        },
-        {
-          strings: 'X 1 3 0 3 X',
-          fingering: 'X 1 3 X 4 X',
-          chordName: 'Bb,,6,',
-          enharmonicChordName: 'A#,,6,',
-          voicingID: '9223372037898112063',
-          tones: 'Bb,D,F,G'
-        },
-        {
-          strings: 'X 1 3 0 2 X',
-          fingering: 'X 1 4 X 3 X',
-          chordName: 'Bb,m,6,',
-          enharmonicChordName: 'A#,m,6,',
-          voicingID: '9223372037897063487',
-          tones: 'Bb,Db,F,G'
-        }
-      ],
-      B: [
-        {
-          strings: 'X 2 4 4 4 2',
-          fingering: 'X 1 2 3 4 1',
-          chordName: 'B,,,',
-          enharmonicChordName: 'B,,,',
-          voicingID: '9223372036926214239',
-          tones: 'B,D#,F#'
-        },
-        {
-          strings: 'X 2 4 4 3 2',
-          fingering: 'X 1 3 4 2 1',
-          chordName: 'B,m,,',
-          enharmonicChordName: 'B,m,,',
-          voicingID: '9223372036925165663',
-          tones: 'B,D,F#'
-        },
-        {
-          strings: 'X 2 4 2 4 2',
-          fingering: 'X 1 3 1 4 1',
-          chordName: 'B,,7,',
-          enharmonicChordName: 'B,,7,',
-          voicingID: '9223372036926148703',
-          tones: 'B,D#,F#,A'
-        },
-        {
-          strings: 'X 2 4 3 4 2',
-          fingering: 'X 1 3 2 4 1',
-          chordName: 'B,maj,7,',
-          enharmonicChordName: 'B,maj,7,',
-          voicingID: '9223372036926181471',
-          tones: 'B,D#,F#,A#'
-        },
-        {
-          strings: 'X 2 0 2 0 2',
-          fingering: 'X 2 X 3 X 4',
-          chordName: 'B,m,7,',
-          enharmonicChordName: 'B,m,7,',
-          voicingID: '9223372036921950303',
-          tones: 'B,D,F#,A'
-        },
-        {
-          strings: 'X 2 4 X X X',
-          fingering: 'X 1 3 X X X',
-          chordName: 'B,,5,',
-          enharmonicChordName: 'B,,5,',
-          voicingID: '9223372037928489055',
-          tones: 'B,F#'
-        },
-        {
-          strings: 'X 2 3 1 3 X',
-          fingering: 'X 2 3 1 4 X',
-          chordName: 'B,dim,7,',
-          enharmonicChordName: 'B,dim,7,',
-          voicingID: '9223372037898144863',
-          tones: 'B,D,F,G#'
-        },
-        {
-          strings: 'X 2 3 2 3 X',
-          fingering: 'X 1 3 2 4 X',
-          chordName: 'B,m,7b5,',
-          enharmonicChordName: 'B,m,7b5,',
-          voicingID: '9223372037898177631',
-          tones: 'B,D,F,A'
-        },
-        {
-          strings: 'X 2 1 1 0 2',
-          fingering: 'X 3 1 2 X 4',
-          chordName: 'B,,6,',
-          enharmonicChordName: 'B,,6,',
-          voicingID: '9223372036921918559',
-          tones: 'B,D#,F#,G#'
-        },
-        {
-          strings: 'X 2 4 1 3 X',
-          fingering: 'X 2 4 1 3 X',
-          chordName: 'B,m,6,',
-          enharmonicChordName: 'B,m,6,',
-          voicingID: '9223372037898145887',
-          tones: 'B,D,F#,G#'
-        }
-      ]
-    };
-
     const methods = {};
     const names = [];
 
@@ -9022,67 +8035,6 @@ var GuitarChords = (function () {
       }
     }
 
-    const NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
-    const NOTES_SHARP = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-    const tuning = ["E", "A", "D", "G", "B", "E"];
-
-    let empty_chord = [{
-        chordName: '',
-        enharmonicChordName: '',
-        fingering: 'X X X X X X',
-        strings: 'X X X X X X',
-        tones: ''
-    }];
-
-    function getChords(note) {
-        let chords = empty_chord;
-        if (note !== '') {
-            chords = CHORDS[note];
-        }
-        return chords;
-    }
-
-    function getBarres(fingering, frets) {
-        let fret = JSON.parse(JSON.stringify(frets));
-        fret.reverse();
-        let barres = [];
-        fingering.forEach((finger, index) => {
-            let sibling = getSibling(finger, index, fingering);
-            if (sibling !== -1) {
-                barres.push({fromString: sibling, toString: index + 1, fret: fret[index]});
-            }
-        });
-
-        return barres;
-    }
-
-    function getSibling(finger, index, fingering) {
-        return isNaN(finger) ? -1 : fingering.lastIndexOf(finger) === index ? -1 : fingering.lastIndexOf(finger) + 1;
-    }
-
-    function getTunePositions(tuning) {
-        let tuningPositions = [];
-        tuning.forEach((note) => {
-            tuningPositions.push(NOTES.indexOf(note));
-        });
-        return tuningPositions;
-    }
-
-    function getStringNotes(strings, tuning, sharp) {
-        const tunePosition = getTunePositions(tuning);
-        let notes = [];
-        strings.forEach((tune, index) =>{
-            if (tune !== 'X') {
-                tune = (tunePosition[index] + parseInt(tune)) % NOTES.length - 1;
-                tune = sharp ? NOTES_SHARP[tune + 1] : NOTES[tune + 1];
-            } else {
-                tune = '-';
-            }
-            notes.push(tune);
-        });
-        return notes;
-    }
-
     function drawGuitarChord(chordElement, strings, fingering, tuning) {
         chordElement.innerHTML = '';
         let calculatedPosition =  getPositionFromFrets(strings);
@@ -9107,6 +8059,24 @@ var GuitarChords = (function () {
         svgElement.setAttribute("viewBox", "0 10 100 100");
         svgElement.setAttribute("width", "100%");
         svgElement.setAttribute("height", "100%");
+    }
+
+    function getBarres(fingering, frets) {
+        let fret = JSON.parse(JSON.stringify(frets));
+        fret.reverse();
+        let barres = [];
+        fingering.forEach((finger, index) => {
+            let sibling = getSibling(finger, index, fingering);
+            if (sibling !== -1) {
+                barres.push({fromString: sibling, toString: index + 1, fret: fret[index]});
+            }
+        });
+
+        return barres;
+    }
+
+    function getSibling(finger, index, fingering) {
+        return isNaN(finger) ? -1 : fingering.lastIndexOf(finger) === index ? -1 : fingering.lastIndexOf(finger) + 1;
     }
 
     function getChord(fingering, frets) {
@@ -9136,6 +8106,1026 @@ var GuitarChords = (function () {
         return Math.min(...filteredFrets) === Infinity ? 0 : Math.min(...filteredFrets);
     }
 
+    const CHORDS = {
+      C: [
+        {
+          strings: 'X 3 2 0 1 0',
+          fingering: 'X 3 2 X 1 X',
+          chordName: 'C,,,',
+          enharmonicChordName: 'C,,,',
+          voicingID: '9223372036855826559',
+          tones: 'C,E,G'
+        },
+        {
+          strings: 'X 3 5 5 4 3',
+          fingering: 'X 1 3 4 2 1',
+          chordName: 'C,m,,',
+          enharmonicChordName: 'C,m,,',
+          voicingID: '9223372036959802495',
+          tones: 'C,Eb,G'
+        },
+        {
+          strings: 'X 3 2 3 1 0',
+          fingering: 'X 3 2 4 1 X',
+          chordName: 'C,,7,',
+          enharmonicChordName: 'C,,7,',
+          voicingID: '9223372036855924863',
+          tones: 'C,E,G,Bb'
+        },
+        {
+          strings: 'X 3 5 4 5 3',
+          fingering: 'X 1 3 2 4 1',
+          chordName: 'C,maj,7,',
+          enharmonicChordName: 'C,maj,7,',
+          voicingID: '9223372036960818303',
+          tones: 'C,E,G,B'
+        },
+        {
+          strings: 'X 3 5 3 4 3',
+          fingering: 'X 1 3 1 2 1',
+          chordName: 'C,m,7,',
+          enharmonicChordName: 'C,m,7,',
+          voicingID: '9223372036959736959',
+          tones: 'C,Eb,G,Bb'
+        },
+        {
+          strings: 'X 3 5 X X X',
+          fingering: 'X 1 3 X X X',
+          chordName: 'C,,5,',
+          enharmonicChordName: 'C,,5,',
+          voicingID: '9223372037928490111',
+          tones: 'C,G'
+        },
+        {
+          strings: 'X 3 4 2 4 X',
+          fingering: 'X 2 3 1 4 X',
+          chordName: 'C,dim,7,',
+          enharmonicChordName: 'C,dim,7,',
+          voicingID: '9223372037899227263',
+          tones: 'C,Eb,Gb,A'
+        },
+        {
+          strings: 'X 3 4 3 4 X',
+          fingering: 'X 1 3 2 4 X',
+          chordName: 'C,m,7b5,',
+          enharmonicChordName: 'C,m,7b5,',
+          voicingID: '9223372037899260031',
+          tones: 'C,Eb,Gb,Bb'
+        },
+        {
+          strings: 'X 3 X 0 5 5',
+          fingering: 'X 1 X X 3 4',
+          chordName: 'C,,6,',
+          enharmonicChordName: 'C,,6,',
+          voicingID: '9223372037027822719',
+          tones: 'C,E,G,A'
+        },
+        {
+          strings: 'X 3 5 2 4 X',
+          fingering: 'X 2 4 1 3 X',
+          chordName: 'C,m,6,',
+          enharmonicChordName: 'C,m,6,',
+          voicingID: '9223372037899228287',
+          tones: 'C,Eb,G,A'
+        }
+      ],
+      Db: [
+        {
+          strings: 'X 4 3 1 2 1',
+          fingering: 'X 4 3 1 2 1',
+          chordName: 'Db,,,',
+          enharmonicChordName: 'C#,,,',
+          voicingID: '9223372036890463391',
+          tones: 'Db,F,Ab'
+        },
+        {
+          strings: 'X 4 6 6 5 4',
+          fingering: 'X 1 3 4 2 1',
+          chordName: 'Db,m,,',
+          enharmonicChordName: 'C#,m,,',
+          voicingID: '9223372036994439327',
+          tones: 'C#,E,G#'
+        },
+        {
+          strings: 'X 4 6 4 6 4',
+          fingering: 'X 1 3 1 4 1',
+          chordName: 'Db,,7,',
+          enharmonicChordName: 'C#,,7,',
+          voicingID: '9223372036995422367',
+          tones: 'Db,F,Ab,B'
+        },
+        {
+          strings: 'X 4 6 5 6 4',
+          fingering: 'X 1 3 2 4 1',
+          chordName: 'Db,maj,7,',
+          enharmonicChordName: 'C#,maj,7,',
+          voicingID: '9223372036995455135',
+          tones: 'Db,F,Ab,C'
+        },
+        {
+          strings: 'X 4 2 1 0 0',
+          fingering: 'X 4 2 1 X X',
+          chordName: 'Db,m,7,',
+          enharmonicChordName: 'C#,m,7,',
+          voicingID: '9223372036854810783',
+          tones: 'C#,E,G#,B'
+        },
+        {
+          strings: 'X 4 6 X X X',
+          fingering: 'X 1 3 X X X',
+          chordName: 'Db,,5,',
+          enharmonicChordName: 'C#,,5,',
+          voicingID: '9223372037928491167',
+          tones: 'C#,G#'
+        },
+        {
+          strings: 'X 4 5 3 5 X',
+          fingering: 'X 2 3 1 4 X',
+          chordName: 'Db,dim,7,',
+          enharmonicChordName: 'C#,dim,7,',
+          voicingID: '9223372037900309663',
+          tones: 'C#,E,G,A#'
+        },
+        {
+          strings: 'X 4 2 0 0 X',
+          fingering: 'X 4 2 X X X',
+          chordName: 'Db,m,7b5,',
+          enharmonicChordName: 'C#,m,7b5,',
+          voicingID: '9223372037894965407',
+          tones: 'C#,E,G,B'
+        },
+        {
+          strings: 'X 4 6 6 6 6',
+          fingering: 'X 1 3 3 3 3',
+          chordName: 'Db,,6,',
+          enharmonicChordName: 'C#,,6,',
+          voicingID: '9223372037062596767',
+          tones: 'Db,F,Ab,Bb'
+        },
+        {
+          strings: 'X 4 6 3 5 X',
+          fingering: 'X 2 4 1 3 X',
+          chordName: 'Db,m,6,',
+          enharmonicChordName: 'C#,m,6,',
+          voicingID: '9223372037900310687',
+          tones: 'C#,E,G#,A#'
+        }
+      ],
+      D: [
+        {
+          strings: 'X X 0 2 3 2',
+          fingering: 'X X X 1 3 2',
+          chordName: 'D,,,',
+          enharmonicChordName: 'D,,,',
+          voicingID: '9223372036925096959',
+          tones: 'D,F#,A'
+        },
+        {
+          strings: 'X X 0 2 3 1',
+          fingering: 'X X X 2 3 1',
+          chordName: 'D,m,,',
+          enharmonicChordName: 'D,m,,',
+          voicingID: '9223372036891542527',
+          tones: 'D,F,A'
+        },
+        {
+          strings: 'X X 0 2 1 2',
+          fingering: 'X X X 2 1 3',
+          chordName: 'D,,7,',
+          enharmonicChordName: 'D,,7,',
+          voicingID: '9223372036922999807',
+          tones: 'D,F#,A,C'
+        },
+        {
+          strings: 'X X 0 2 2 2',
+          fingering: 'X X X 2 3 4',
+          chordName: 'D,maj,7,',
+          enharmonicChordName: 'D,maj,7,',
+          voicingID: '9223372036924048383',
+          tones: 'D,F#,A,C#'
+        },
+        {
+          strings: 'X X 0 2 1 1',
+          fingering: 'X X X 2 1 1',
+          chordName: 'D,m,7,',
+          enharmonicChordName: 'D,m,7,',
+          voicingID: '9223372036889445375',
+          tones: 'D,F,A,C'
+        },
+        {
+          strings: 'X X 0 2 X X',
+          fingering: 'X X X 2 X X',
+          chordName: 'D,,5,',
+          enharmonicChordName: 'D,,5,',
+          voicingID: '9223372037927535615',
+          tones: 'D,A'
+        },
+        {
+          strings: 'X X 0 1 0 1',
+          fingering: 'X X X 1 X 2',
+          chordName: 'D,dim,7,',
+          enharmonicChordName: 'D,dim,7,',
+          voicingID: '9223372036888364031',
+          tones: 'D,F,Ab,B'
+        },
+        {
+          strings: 'X X 0 1 1 1',
+          fingering: 'X X X 1 1 1',
+          chordName: 'D,m,7b5,',
+          enharmonicChordName: 'D,m,7b5,',
+          voicingID: '9223372036889412607',
+          tones: 'D,F,Ab,C'
+        },
+        {
+          strings: 'X X 0 2 0 2',
+          fingering: 'X X X 2 X 3',
+          chordName: 'D,,6,',
+          enharmonicChordName: 'D,,6,',
+          voicingID: '9223372036921951231',
+          tones: 'D,F#,A,B'
+        },
+        {
+          strings: 'X X 0 2 0 1',
+          fingering: 'X X X 2 X 1',
+          chordName: 'D,m,6,',
+          enharmonicChordName: 'D,m,6,',
+          voicingID: '9223372036888396799',
+          tones: 'D,F,A,B'
+        }
+      ],
+      Eb: [
+        {
+          strings: 'X 6 5 3 4 3',
+          fingering: 'X 4 3 1 2 1',
+          chordName: 'Eb,,,',
+          enharmonicChordName: 'D#,,,',
+          voicingID: '9223372036959737055',
+          tones: 'Eb,G,Bb'
+        },
+        {
+          strings: 'X X 1 3 4 2',
+          fingering: 'X X 1 3 4 2',
+          chordName: 'Eb,m,,',
+          enharmonicChordName: 'D#,m,,',
+          voicingID: '9223372036926179327',
+          tones: 'Eb,Gb,Bb'
+        },
+        {
+          strings: 'X X 1 3 2 3',
+          fingering: 'X X 1 3 2 4',
+          chordName: 'Eb,,7,',
+          enharmonicChordName: 'D#,,7,',
+          voicingID: '9223372036957636607',
+          tones: 'Eb,G,Bb,Db'
+        },
+        {
+          strings: 'X X 1 3 3 3',
+          fingering: 'X X 1 2 3 4',
+          chordName: 'Eb,maj,7,',
+          enharmonicChordName: 'D#,maj,7,',
+          voicingID: '9223372036958685183',
+          tones: 'Eb,G,Bb,D'
+        },
+        {
+          strings: 'X X 1 3 2 2',
+          fingering: 'X X 1 4 2 3',
+          chordName: 'Eb,m,7,',
+          enharmonicChordName: 'D#,m,7,',
+          voicingID: '9223372036924082175',
+          tones: 'Eb,Gb,Bb,Db'
+        },
+        {
+          strings: 'X X 1 3 X X',
+          fingering: 'X X 1 3 X X',
+          chordName: 'Eb,,5,',
+          enharmonicChordName: 'D#,,5,',
+          voicingID: '9223372037927569407',
+          tones: 'Eb,Bb'
+        },
+        {
+          strings: 'X X 1 2 1 2',
+          fingering: 'X X 1 3 2 4',
+          chordName: 'Eb,dim,7,',
+          enharmonicChordName: 'D#,dim,7,',
+          voicingID: '9223372036923000831',
+          tones: 'Eb,Gb,A,C'
+        },
+        {
+          strings: 'X X 1 2 2 2',
+          fingering: 'X X 1 2 3 4',
+          chordName: 'Eb,m,7b5,',
+          enharmonicChordName: 'D#,m,7b5,',
+          voicingID: '9223372036924049407',
+          tones: 'Eb,Gb,A,Db'
+        },
+        {
+          strings: 'X X 1 3 1 3',
+          fingering: 'X X 1 3 1 4',
+          chordName: 'Eb,,6,',
+          enharmonicChordName: 'D#,,6,',
+          voicingID: '9223372036956588031',
+          tones: 'Eb,G,Bb,C'
+        },
+        {
+          strings: 'X X 1 3 1 2',
+          fingering: 'X X 1 3 1 2',
+          chordName: 'Eb,m,6,',
+          enharmonicChordName: 'D#,m,6,',
+          voicingID: '9223372036923033599',
+          tones: 'Eb,Gb,Bb,C'
+        }
+      ],
+      E: [
+        {
+          strings: '0 2 2 1 0 0',
+          fingering: 'X 2 3 1 X X',
+          chordName: 'E,,,',
+          enharmonicChordName: 'E,,,',
+          voicingID: '9223372036854810688',
+          tones: 'E,G#,B'
+        },
+        {
+          strings: '0 2 2 0 0 0',
+          fingering: 'X 2 3 X X X',
+          chordName: 'E,m,,',
+          enharmonicChordName: 'E,m,,',
+          voicingID: '9223372036854777920',
+          tones: 'E,G,B'
+        },
+        {
+          strings: '0 2 0 1 0 0',
+          fingering: 'X 2 X 1 X X',
+          chordName: 'E,,7,',
+          enharmonicChordName: 'E,,7,',
+          voicingID: '9223372036854808640',
+          tones: 'E,G#,B,D'
+        },
+        {
+          strings: '0 X 2 4 4 4',
+          fingering: 'X X 1 2 3 4',
+          chordName: 'E,maj,7,',
+          enharmonicChordName: 'E,maj,7,',
+          voicingID: '9223372036993321952',
+          tones: 'E,G#,B,D#'
+        },
+        {
+          strings: '0 2 0 0 0 0',
+          fingering: 'X 2 X X X X',
+          chordName: 'E,m,7,',
+          enharmonicChordName: 'E,m,7,',
+          voicingID: '9223372036854775872',
+          tones: 'E,G,B,D'
+        },
+        {
+          strings: '0 2 X X X X',
+          fingering: 'X 2 X X X X',
+          chordName: 'E,,5,',
+          enharmonicChordName: 'E,,5,',
+          voicingID: '9223372037928516672',
+          tones: 'E,B'
+        },
+        {
+          strings: '0 X 2 3 2 3',
+          fingering: 'X X 1 3 2 4',
+          chordName: 'E,dim,7,',
+          enharmonicChordName: 'E,dim,7,',
+          voicingID: '9223372036957637600',
+          tones: 'E,G,Bb,C#'
+        },
+        {
+          strings: '0 X 0 3 3 3',
+          fingering: 'X X X 2 3 4',
+          chordName: 'E,m,7b5,',
+          enharmonicChordName: 'E,m,7b5,',
+          voicingID: '9223372036958684128',
+          tones: 'E,G,Bb,D'
+        },
+        {
+          strings: '0 X 2 4 2 4',
+          fingering: 'X X 1 3 1 4',
+          chordName: 'E,,6,',
+          enharmonicChordName: 'E,,6,',
+          voicingID: '9223372036991224800',
+          tones: 'E,G#,B,C#'
+        },
+        {
+          strings: '0 2 2 0 2 X',
+          fingering: 'X 2 3 X 4 X',
+          chordName: 'E,m,6,',
+          enharmonicChordName: 'E,m,6,',
+          voicingID: '9223372037897062464',
+          tones: 'E,G,B,C#'
+        }
+      ],
+      F: [
+        {
+          strings: '1 3 3 2 1 1',
+          fingering: '1 3 4 2 1 1',
+          chordName: 'F,,,',
+          enharmonicChordName: 'F,,,',
+          voicingID: '9223372036889447521',
+          tones: 'F,A,C'
+        },
+        {
+          strings: '1 3 3 1 1 1',
+          fingering: '1 3 4 1 1 1',
+          chordName: 'F,m,,',
+          enharmonicChordName: 'F,m,,',
+          voicingID: '9223372036889414753',
+          tones: 'F,Ab,C'
+        },
+        {
+          strings: '1 3 1 2 4 1',
+          fingering: '1 3 1 2 4 1',
+          chordName: 'F,,7,',
+          enharmonicChordName: 'F,,7,',
+          voicingID: '9223372036892591201',
+          tones: 'F,A,C,Eb'
+        },
+        {
+          strings: '1 X 2 2 1 0',
+          fingering: '1 X 3 4 2 X',
+          chordName: 'F,maj,7,',
+          enharmonicChordName: 'F,maj,7,',
+          voicingID: '9223372036855892961',
+          tones: 'F,A,C,E'
+        },
+        {
+          strings: '1 3 1 1 1 1',
+          fingering: '1 3 1 1 1 1',
+          chordName: 'F,m,7,',
+          enharmonicChordName: 'F,m,7,',
+          voicingID: '9223372036889412705',
+          tones: 'F,Ab,C,Eb'
+        },
+        {
+          strings: '1 3 X X X X',
+          fingering: '1 3 X X X X',
+          chordName: 'F,,5,',
+          enharmonicChordName: 'F,,5,',
+          voicingID: '9223372037928516705',
+          tones: 'F,C'
+        },
+        {
+          strings: '1 X 0 1 0 X',
+          fingering: '1 X X 3 X X',
+          chordName: 'F,dim,7,',
+          enharmonicChordName: 'F,dim,7,',
+          voicingID: '9223372037894996961',
+          tones: 'F,Ab,B,D'
+        },
+        {
+          strings: '1 X 1 1 0 1',
+          fingering: '1 X 2 3 X 4',
+          chordName: 'F,m,7b5,',
+          enharmonicChordName: 'F,m,7b5,',
+          voicingID: '9223372036888365025',
+          tones: 'F,Ab,B,Eb'
+        },
+        {
+          strings: '1 X 0 2 1 X',
+          fingering: '1 X X 4 3 X',
+          chordName: 'F,,6,',
+          enharmonicChordName: 'F,,6,',
+          voicingID: '9223372037896078305',
+          tones: 'F,A,C,D'
+        },
+        {
+          strings: '1 X 0 1 1 X',
+          fingering: '1 X X 3 4 X',
+          chordName: 'F,m,6,',
+          enharmonicChordName: 'F,m,6,',
+          voicingID: '9223372037896045537',
+          tones: 'F,Ab,C,D'
+        }
+      ],
+      Gb: [
+        {
+          strings: '2 4 4 3 2 2',
+          fingering: '1 3 4 2 1 1',
+          chordName: 'Gb,,,',
+          enharmonicChordName: 'F#,,,',
+          voicingID: '9223372036924084354',
+          tones: 'Gb,Bb,Db'
+        },
+        {
+          strings: '2 4 4 2 2 2',
+          fingering: '1 3 4 1 1 1',
+          chordName: 'Gb,m,,',
+          enharmonicChordName: 'F#,m,,',
+          voicingID: '9223372036924051586',
+          tones: 'F#,A,C#'
+        },
+        {
+          strings: '2 4 2 3 5 2',
+          fingering: '1 3 1 2 4 1',
+          chordName: 'Gb,,7,',
+          enharmonicChordName: 'F#,,7,',
+          voicingID: '9223372036927228034',
+          tones: 'F#,A#,C#,E'
+        },
+        {
+          strings: '2 X 3 3 2 X',
+          fingering: '1 X 3 4 2 X',
+          chordName: 'Gb,maj,7,',
+          enharmonicChordName: 'F#,maj,7,',
+          voicingID: '9223372037897162722',
+          tones: 'Gb,Bb,Db,F'
+        },
+        {
+          strings: '2 4 2 2 2 2',
+          fingering: '1 3 1 1 1 1',
+          chordName: 'Gb,m,7,',
+          enharmonicChordName: 'F#,m,7,',
+          voicingID: '9223372036924049538',
+          tones: 'F#,A,C#,E'
+        },
+        {
+          strings: '2 4 X X X X',
+          fingering: '1 3 X X X X',
+          chordName: 'Gb,,5,',
+          enharmonicChordName: 'F#,,5,',
+          voicingID: '9223372037928516738',
+          tones: 'F#,C#'
+        },
+        {
+          strings: '2 X 1 2 1 X',
+          fingering: '2 X 1 4 1 X',
+          chordName: 'Gb,dim,7,',
+          enharmonicChordName: 'F#,dim,7,',
+          voicingID: '9223372037896079330',
+          tones: 'F#,A,C,D#'
+        },
+        {
+          strings: '2 X 2 2 1 0',
+          fingering: '2 X 3 4 1 X',
+          chordName: 'Gb,m,7b5,',
+          enharmonicChordName: 'F#,m,7b5,',
+          voicingID: '9223372036855892962',
+          tones: 'F#,A,C,E'
+        },
+        {
+          strings: '2 X 1 3 2 X',
+          fingering: '2 X 1 4 3 X',
+          chordName: 'Gb,,6,',
+          enharmonicChordName: 'F#,,6,',
+          voicingID: '9223372037897160674',
+          tones: 'Gb,Bb,Db,Eb'
+        },
+        {
+          strings: '2 X 1 2 2 X',
+          fingering: '2 X 1 3 4 X',
+          chordName: 'Gb,m,6,',
+          enharmonicChordName: 'F#,m,6,',
+          voicingID: '9223372037897127906',
+          tones: 'F#,A,C#,D#'
+        }
+      ],
+      G: [
+        {
+          strings: '3 2 0 0 3 3',
+          fingering: '2 1 X X 3 4',
+          chordName: 'G,,,',
+          enharmonicChordName: 'G,,,',
+          voicingID: '9223372036958584899',
+          tones: 'G,B,D'
+        },
+        {
+          strings: '3 5 5 3 3 3',
+          fingering: '1 3 4 1 1 1',
+          chordName: 'G,m,,',
+          enharmonicChordName: 'G,m,,',
+          voicingID: '9223372036958688419',
+          tones: 'G,Bb,D'
+        },
+        {
+          strings: '3 2 0 0 0 1',
+          fingering: '3 2 X X X 1',
+          chordName: 'G,,7,',
+          enharmonicChordName: 'G,,7,',
+          voicingID: '9223372036888330307',
+          tones: 'G,B,D,F'
+        },
+        {
+          strings: '3 X 4 4 3 X',
+          fingering: '1 X 3 4 2 X',
+          chordName: 'G,maj,7,',
+          enharmonicChordName: 'G,maj,7,',
+          voicingID: '9223372037898245091',
+          tones: 'G,B,D,F#'
+        },
+        {
+          strings: '3 5 3 3 3 3',
+          fingering: '1 3 1 1 1 1',
+          chordName: 'G,m,7,',
+          enharmonicChordName: 'G,m,7,',
+          voicingID: '9223372036958686371',
+          tones: 'G,Bb,D,F'
+        },
+        {
+          strings: '3 5 X X X X',
+          fingering: '1 3 X X X X',
+          chordName: 'G,,5,',
+          enharmonicChordName: 'G,,5,',
+          voicingID: '9223372037928516771',
+          tones: 'G,D'
+        },
+        {
+          strings: '3 X 2 3 2 X',
+          fingering: '2 X 1 4 1 X',
+          chordName: 'G,dim,7,',
+          enharmonicChordName: 'G,dim,7,',
+          voicingID: '9223372037897161699',
+          tones: 'G,Bb,Db,E'
+        },
+        {
+          strings: '3 X 3 3 2 X',
+          fingering: '2 X 3 4 1 X',
+          chordName: 'G,m,7b5,',
+          enharmonicChordName: 'G,m,7b5,',
+          voicingID: '9223372037897162723',
+          tones: 'G,Bb,Db,F'
+        },
+        {
+          strings: '3 X 0 0 0 0',
+          fingering: '3 X X X X X',
+          chordName: 'G,,6,',
+          enharmonicChordName: 'G,,6,',
+          voicingID: '9223372036854776803',
+          tones: 'G,B,D,E'
+        },
+        {
+          strings: '3 X 2 3 3 X',
+          fingering: '2 X 1 3 4 X',
+          chordName: 'G,m,6,',
+          enharmonicChordName: 'G,m,6,',
+          voicingID: '9223372037898210275',
+          tones: 'G,Bb,D,E'
+        }
+      ],
+      Ab: [
+        {
+          strings: '4 6 6 5 4 4',
+          fingering: '1 3 4 2 1 1',
+          chordName: 'Ab,,,',
+          enharmonicChordName: 'G#,,,',
+          voicingID: '9223372036993358020',
+          tones: 'Ab,C,Eb'
+        },
+        {
+          strings: '4 6 6 4 4 4',
+          fingering: '1 3 4 1 1 1',
+          chordName: 'Ab,m,,',
+          enharmonicChordName: 'G#,m,,',
+          voicingID: '9223372036993325252',
+          tones: 'G#,B,D#'
+        },
+        {
+          strings: '4 6 4 5 7 4',
+          fingering: '1 3 1 2 4 1',
+          chordName: 'Ab,,7,',
+          enharmonicChordName: 'G#,,7,',
+          voicingID: '9223372036996501700',
+          tones: 'Ab,C,Eb,Gb'
+        },
+        {
+          strings: '4 X 5 5 4 X',
+          fingering: '1 X 3 4 2 X',
+          chordName: 'Ab,maj,7,',
+          enharmonicChordName: 'G#,maj,7,',
+          voicingID: '9223372037899327460',
+          tones: 'Ab,C,Eb,G'
+        },
+        {
+          strings: '4 6 4 4 4 4',
+          fingering: '1 3 1 1 1 1',
+          chordName: 'Ab,m,7,',
+          enharmonicChordName: 'G#,m,7,',
+          voicingID: '9223372036993323204',
+          tones: 'G#,B,D#,F#'
+        },
+        {
+          strings: '4 6 X X X X',
+          fingering: '1 3 X X X X',
+          chordName: 'Ab,,5,',
+          enharmonicChordName: 'G#,,5,',
+          voicingID: '9223372037928516804',
+          tones: 'G#,D#'
+        },
+        {
+          strings: '4 X 3 4 3 X',
+          fingering: '2 X 1 4 1 X',
+          chordName: 'Ab,dim,7,',
+          enharmonicChordName: 'G#,dim,7,',
+          voicingID: '9223372037898244068',
+          tones: 'G#,B,D,F'
+        },
+        {
+          strings: '4 X 4 4 3 X',
+          fingering: '2 X 3 4 1 X',
+          chordName: 'Ab,m,7b5,',
+          enharmonicChordName: 'G#,m,7b5,',
+          voicingID: '9223372037898245092',
+          tones: 'G#,B,D,F#'
+        },
+        {
+          strings: '4 X 3 5 4 X',
+          fingering: '2 X 1 4 3 X',
+          chordName: 'Ab,,6,',
+          enharmonicChordName: 'G#,,6,',
+          voicingID: '9223372037899325412',
+          tones: 'Ab,C,Eb,F'
+        },
+        {
+          strings: '4 X 3 4 4 X',
+          fingering: '2 X 1 3 4 X',
+          chordName: 'Ab,m,6,',
+          enharmonicChordName: 'G#,m,6,',
+          voicingID: '9223372037899292644',
+          tones: 'G#,B,D#,F'
+        }
+      ],
+      A: [
+        {
+          strings: 'X 0 2 2 2 0',
+          fingering: 'X X 2 3 4 X',
+          chordName: 'A,,,',
+          enharmonicChordName: 'A,,,',
+          voicingID: '9223372036856940575',
+          tones: 'A,C#,E'
+        },
+        {
+          strings: 'X 0 2 2 1 0',
+          fingering: 'X X 2 3 1 X',
+          chordName: 'A,m,,',
+          enharmonicChordName: 'A,m,,',
+          voicingID: '9223372036855891999',
+          tones: 'A,C,E'
+        },
+        {
+          strings: 'X 0 2 0 2 0',
+          fingering: 'X X 2 X 3 X',
+          chordName: 'A,,7,',
+          enharmonicChordName: 'A,,7,',
+          voicingID: '9223372036856875039',
+          tones: 'A,C#,E,G'
+        },
+        {
+          strings: 'X 0 2 2 2 4',
+          fingering: 'X X 1 1 1 3',
+          chordName: 'A,maj,7,',
+          enharmonicChordName: 'A,maj,7,',
+          voicingID: '9223372036991158303',
+          tones: 'A,C#,E,G#'
+        },
+        {
+          strings: 'X 0 2 0 1 0',
+          fingering: 'X X 2 X 1 X',
+          chordName: 'A,m,7,',
+          enharmonicChordName: 'A,m,7,',
+          voicingID: '9223372036855826463',
+          tones: 'A,C,E,G'
+        },
+        {
+          strings: 'X 0 2 X X X',
+          fingering: 'X X 2 X X X',
+          chordName: 'A,,5,',
+          enharmonicChordName: 'A,,5,',
+          voicingID: '9223372037928486943',
+          tones: 'A,E'
+        },
+        {
+          strings: 'X 0 4 5 4 X',
+          fingering: 'X X 1 3 2 X',
+          chordName: 'A,dim,7,',
+          enharmonicChordName: 'A,dim,7,',
+          voicingID: '9223372037899325471',
+          tones: 'A,C,Eb,F#'
+        },
+        {
+          strings: 'X 0 1 0 1 X',
+          fingering: 'X X 1 X 2 X',
+          chordName: 'A,m,7b5,',
+          enharmonicChordName: 'A,m,7b5,',
+          voicingID: '9223372037896012831',
+          tones: 'A,C,Eb,G'
+        },
+        {
+          strings: 'X 0 2 2 2 2',
+          fingering: 'X X 1 1 1 1',
+          chordName: 'A,,6,',
+          enharmonicChordName: 'A,,6,',
+          voicingID: '9223372036924049439',
+          tones: 'A,C#,E,F#'
+        },
+        {
+          strings: 'X 0 4 5 5 X',
+          fingering: 'X X 1 2 3 X',
+          chordName: 'A,m,6,',
+          enharmonicChordName: 'A,m,6,',
+          voicingID: '9223372037900374047',
+          tones: 'A,C,E,F#'
+        }
+      ],
+      Bb: [
+        {
+          strings: 'X 1 3 3 3 1',
+          fingering: 'X 1 2 3 4 1',
+          chordName: 'Bb,,,',
+          enharmonicChordName: 'A#,,,',
+          voicingID: '9223372036891577407',
+          tones: 'Bb,D,F'
+        },
+        {
+          strings: 'X 1 3 3 2 1',
+          fingering: 'X 1 3 4 2 1',
+          chordName: 'Bb,m,,',
+          enharmonicChordName: 'A#,m,,',
+          voicingID: '9223372036890528831',
+          tones: 'Bb,Db,F'
+        },
+        {
+          strings: 'X 1 3 1 3 1',
+          fingering: 'X 1 3 1 4 1',
+          chordName: 'Bb,,7,',
+          enharmonicChordName: 'A#,,7,',
+          voicingID: '9223372036891511871',
+          tones: 'Bb,D,F,Ab'
+        },
+        {
+          strings: 'X 1 3 2 3 1',
+          fingering: 'X 1 3 2 4 1',
+          chordName: 'Bb,maj,7,',
+          enharmonicChordName: 'A#,maj,7,',
+          voicingID: '9223372036891544639',
+          tones: 'Bb,D,F,A'
+        },
+        {
+          strings: 'X 1 3 1 2 1',
+          fingering: 'X 1 3 1 2 1',
+          chordName: 'Bb,m,7,',
+          enharmonicChordName: 'A#,m,7,',
+          voicingID: '9223372036890463295',
+          tones: 'Bb,Db,F,Ab'
+        },
+        {
+          strings: 'X 1 3 X X X',
+          fingering: 'X 1 3 X X X',
+          chordName: 'Bb,,5,',
+          enharmonicChordName: 'A#,,5,',
+          voicingID: '9223372037928487999',
+          tones: 'Bb,F'
+        },
+        {
+          strings: 'X 1 2 0 2 X',
+          fingering: 'X 1 2 X 3 X',
+          chordName: 'Bb,dim,7,',
+          enharmonicChordName: 'A#,dim,7,',
+          voicingID: '9223372037897062463',
+          tones: 'Bb,Db,E,G'
+        },
+        {
+          strings: 'X 1 2 1 2 X',
+          fingering: 'X 1 3 2 4 X',
+          chordName: 'Bb,m,7b5,',
+          enharmonicChordName: 'A#,m,7b5,',
+          voicingID: '9223372037897095231',
+          tones: 'Bb,Db,E,Ab'
+        },
+        {
+          strings: 'X 1 3 0 3 X',
+          fingering: 'X 1 3 X 4 X',
+          chordName: 'Bb,,6,',
+          enharmonicChordName: 'A#,,6,',
+          voicingID: '9223372037898112063',
+          tones: 'Bb,D,F,G'
+        },
+        {
+          strings: 'X 1 3 0 2 X',
+          fingering: 'X 1 4 X 3 X',
+          chordName: 'Bb,m,6,',
+          enharmonicChordName: 'A#,m,6,',
+          voicingID: '9223372037897063487',
+          tones: 'Bb,Db,F,G'
+        }
+      ],
+      B: [
+        {
+          strings: 'X 2 4 4 4 2',
+          fingering: 'X 1 2 3 4 1',
+          chordName: 'B,,,',
+          enharmonicChordName: 'B,,,',
+          voicingID: '9223372036926214239',
+          tones: 'B,D#,F#'
+        },
+        {
+          strings: 'X 2 4 4 3 2',
+          fingering: 'X 1 3 4 2 1',
+          chordName: 'B,m,,',
+          enharmonicChordName: 'B,m,,',
+          voicingID: '9223372036925165663',
+          tones: 'B,D,F#'
+        },
+        {
+          strings: 'X 2 4 2 4 2',
+          fingering: 'X 1 3 1 4 1',
+          chordName: 'B,,7,',
+          enharmonicChordName: 'B,,7,',
+          voicingID: '9223372036926148703',
+          tones: 'B,D#,F#,A'
+        },
+        {
+          strings: 'X 2 4 3 4 2',
+          fingering: 'X 1 3 2 4 1',
+          chordName: 'B,maj,7,',
+          enharmonicChordName: 'B,maj,7,',
+          voicingID: '9223372036926181471',
+          tones: 'B,D#,F#,A#'
+        },
+        {
+          strings: 'X 2 0 2 0 2',
+          fingering: 'X 2 X 3 X 4',
+          chordName: 'B,m,7,',
+          enharmonicChordName: 'B,m,7,',
+          voicingID: '9223372036921950303',
+          tones: 'B,D,F#,A'
+        },
+        {
+          strings: 'X 2 4 X X X',
+          fingering: 'X 1 3 X X X',
+          chordName: 'B,,5,',
+          enharmonicChordName: 'B,,5,',
+          voicingID: '9223372037928489055',
+          tones: 'B,F#'
+        },
+        {
+          strings: 'X 2 3 1 3 X',
+          fingering: 'X 2 3 1 4 X',
+          chordName: 'B,dim,7,',
+          enharmonicChordName: 'B,dim,7,',
+          voicingID: '9223372037898144863',
+          tones: 'B,D,F,G#'
+        },
+        {
+          strings: 'X 2 3 2 3 X',
+          fingering: 'X 1 3 2 4 X',
+          chordName: 'B,m,7b5,',
+          enharmonicChordName: 'B,m,7b5,',
+          voicingID: '9223372037898177631',
+          tones: 'B,D,F,A'
+        },
+        {
+          strings: 'X 2 1 1 0 2',
+          fingering: 'X 3 1 2 X 4',
+          chordName: 'B,,6,',
+          enharmonicChordName: 'B,,6,',
+          voicingID: '9223372036921918559',
+          tones: 'B,D#,F#,G#'
+        },
+        {
+          strings: 'X 2 4 1 3 X',
+          fingering: 'X 2 4 1 3 X',
+          chordName: 'B,m,6,',
+          enharmonicChordName: 'B,m,6,',
+          voicingID: '9223372037898145887',
+          tones: 'B,D,F#,G#'
+        }
+      ]
+    };
+
+    const NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+    const NOTES_SHARP = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+    const tuning = ["E", "A", "D", "G", "B", "E"];
+
+
+    let empty_chord = [{
+        chordName: '',
+        enharmonicChordName: '',
+        fingering: 'X X X X X X',
+        strings: 'X X X X X X',
+        tones: ''
+    }];
+
+    function getChords(note) {
+        let chords = empty_chord;
+        if (note !== '') {
+            chords = CHORDS[note];
+        }
+        return chords;
+    }
+
+    function setSharpNotes(notes) {
+        let sharps = [];
+        notes.split(',').forEach((noteName)=>{
+            let pos = NOTES.indexOf(noteName);
+            if (pos === -1) {
+                pos = NOTES_SHARP.indexOf(noteName);
+            }
+            sharps.push(NOTES_SHARP[pos]);
+        });
+        return sharps.join(',');
+    }
+
     function getChordName(chord) {
         let enharmonicChordName = chord.enharmonicChordName.split(',').join('');
         let chordName = chord.chordName.split(',').join('');
@@ -9145,6 +9135,29 @@ var GuitarChords = (function () {
     function getBaseNoteName(base_note) {
         let chords = getChords(base_note);
         return getChordName(chords[0]);
+    }
+
+    function getStringNotes(strings, tuning, sharp) {
+        const tunePosition = getTunePositions(tuning);
+        let notes = [];
+        strings.forEach((tune, index) =>{
+            if (tune !== 'X') {
+                tune = (tunePosition[index] + parseInt(tune)) % NOTES.length - 1;
+                tune = sharp ? NOTES_SHARP[tune + 1] : NOTES[tune + 1];
+            } else {
+                tune = '-';
+            }
+            notes.push(tune);
+        });
+        return notes;
+    }
+
+    function getTunePositions(tuning) {
+        let tuningPositions = [];
+        tuning.forEach((note) => {
+            tuningPositions.push(NOTES.indexOf(note));
+        });
+        return tuningPositions;
     }
 
     let half_step = 5;
@@ -9270,21 +9283,33 @@ var GuitarChords = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[20] = list[i];
+    	child_ctx[17] = list[i];
     	return child_ctx;
     }
 
-    // (59:12) {#each NOTES as base_note}
-    function create_each_block_1(ctx) {
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[22] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[25] = list[i];
+    	return child_ctx;
+    }
+
+    // (58:12) {#each NOTES as base_note}
+    function create_each_block_3(ctx) {
     	let div;
-    	let t0_value = getBaseNoteName(/*base_note*/ ctx[20]) + "";
+    	let t0_value = getBaseNoteName(/*base_note*/ ctx[25]) + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[10](/*base_note*/ ctx[20]);
+    		return /*click_handler*/ ctx[10](/*base_note*/ ctx[25]);
     	}
 
     	return {
@@ -9293,7 +9318,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "chord-button");
-    			toggle_class(div, "button-selected", /*base_note*/ ctx[20] === /*note*/ ctx[0]);
+    			toggle_class(div, "button-selected", /*base_note*/ ctx[25] === /*note*/ ctx[0]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9309,7 +9334,7 @@ var GuitarChords = (function () {
     			ctx = new_ctx;
 
     			if (dirty & /*NOTES, note*/ 1) {
-    				toggle_class(div, "button-selected", /*base_note*/ ctx[20] === /*note*/ ctx[0]);
+    				toggle_class(div, "button-selected", /*base_note*/ ctx[25] === /*note*/ ctx[0]);
     			}
     		},
     		d(detaching) {
@@ -9320,14 +9345,14 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (70:12) {#if getChordName(note_chords[0]) !== ''}
-    function create_if_block(ctx) {
+    // (69:12) {#if getChordName(note_chords[0]) !== ''}
+    function create_if_block_1(ctx) {
     	let each_1_anchor;
-    	let each_value = /*note_chords*/ ctx[3];
+    	let each_value_2 = /*note_chords*/ ctx[3];
     	let each_blocks = [];
 
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
     	}
 
     	return {
@@ -9347,16 +9372,16 @@ var GuitarChords = (function () {
     		},
     		p(ctx, dirty) {
     			if (dirty & /*getChordName, note_chords, chord, setChord*/ 268) {
-    				each_value = /*note_chords*/ ctx[3];
+    				each_value_2 = /*note_chords*/ ctx[3];
     				let i;
 
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i] = create_each_block_2(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -9366,7 +9391,7 @@ var GuitarChords = (function () {
     					each_blocks[i].d(1);
     				}
 
-    				each_blocks.length = each_value.length;
+    				each_blocks.length = each_value_2.length;
     			}
     		},
     		d(detaching) {
@@ -9376,17 +9401,17 @@ var GuitarChords = (function () {
     	};
     }
 
-    // (71:16) {#each note_chords as note_chord}
-    function create_each_block(ctx) {
+    // (70:16) {#each note_chords as note_chord}
+    function create_each_block_2(ctx) {
     	let div;
-    	let t0_value = getChordName(/*note_chord*/ ctx[17]) + "";
+    	let t0_value = getChordName(/*note_chord*/ ctx[22]) + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[11](/*note_chord*/ ctx[17]);
+    		return /*click_handler_1*/ ctx[11](/*note_chord*/ ctx[22]);
     	}
 
     	return {
@@ -9395,7 +9420,7 @@ var GuitarChords = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr(div, "class", "chord-button");
-    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[17]) === getChordName(/*chord*/ ctx[2]));
+    			toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[22]) === getChordName(/*chord*/ ctx[2]));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -9409,10 +9434,10 @@ var GuitarChords = (function () {
     		},
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*note_chords*/ 8 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[17]) + "")) set_data(t0, t0_value);
+    			if (dirty & /*note_chords*/ 8 && t0_value !== (t0_value = getChordName(/*note_chord*/ ctx[22]) + "")) set_data(t0, t0_value);
 
     			if (dirty & /*getChordName, note_chords, chord*/ 12) {
-    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[17]) === getChordName(/*chord*/ ctx[2]));
+    				toggle_class(div, "button-selected", getChordName(/*note_chord*/ ctx[22]) === getChordName(/*chord*/ ctx[2]));
     			}
     		},
     		d(detaching) {
@@ -9423,87 +9448,202 @@ var GuitarChords = (function () {
     	};
     }
 
+    // (84:16) {#each getStringNotes(strings, tune, true) as tone}
+    function create_each_block_1(ctx) {
+    	let div;
+    	let t_value = /*tone*/ ctx[17] + "";
+    	let t;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr(div, "class", "chord-guitar-note");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*strings, tune*/ 18 && t_value !== (t_value = /*tone*/ ctx[17] + "")) set_data(t, t_value);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    		}
+    	};
+    }
+
+    // (88:12) {#if JSON.stringify(getStringNotes(strings, tune, true)) !== JSON.stringify(getStringNotes(strings, tune, false))}
+    function create_if_block(ctx) {
+    	let div;
+    	let each_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr(div, "class", "chord-guitar-notes");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*getStringNotes, strings, tune*/ 18) {
+    				each_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+    }
+
+    // (90:20) {#each getStringNotes(strings, tune, false) as tone}
+    function create_each_block(ctx) {
+    	let div;
+    	let t_value = /*tone*/ ctx[17] + "";
+    	let t;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr(div, "class", "chord-guitar-note");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*strings, tune*/ 18 && t_value !== (t_value = /*tone*/ ctx[17] + "")) set_data(t, t_value);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    		}
+    	};
+    }
+
     function create_fragment(ctx) {
-    	let div15;
+    	let div14;
     	let div1;
     	let div0;
     	let t0;
     	let div3;
     	let div2;
-    	let show_if = getChordName(/*note_chords*/ ctx[3][0]) !== '';
+    	let show_if_1 = getChordName(/*note_chords*/ ctx[3][0]) !== '';
     	let t1;
-    	let div8;
+    	let div7;
     	let div4;
     	let t2_value = getChordName(/*chord*/ ctx[2]) + "";
     	let t2;
     	let t3;
-    	let div7;
-    	let div5;
-    	let t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true).join(' ') + "";
-    	let t4;
-    	let t5;
     	let div6;
-    	let t6_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false).join(' ') + "";
-    	let t6;
-    	let t7;
-    	let div14;
-    	let div11;
-    	let div9;
-    	let canvas;
-    	let t8;
-    	let div10;
-    	let t9_value = /*chord*/ ctx[2].tones + "";
-    	let t9;
-    	let t10;
+    	let div5;
+    	let t4;
+    	let show_if = JSON.stringify(getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true)) !== JSON.stringify(getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false));
+    	let t5;
     	let div13;
+    	let div10;
+    	let div8;
+    	let canvas;
+    	let t6;
+    	let div9;
+    	let t7_value = setSharpNotes(/*chord*/ ctx[2].tones) + "";
+    	let t7;
+    	let t8;
     	let div12;
+    	let div11;
     	let mounted;
     	let dispose;
-    	let each_value_1 = NOTES;
+    	let each_value_3 = NOTES;
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	let if_block0 = show_if_1 && create_if_block_1(ctx);
+    	let each_value_1 = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
     		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let if_block = show_if && create_if_block(ctx);
+    	let if_block1 = show_if && create_if_block(ctx);
 
     	return {
     		c() {
-    			div15 = element("div");
+    			div14 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
     			}
 
     			t0 = space();
     			div3 = element("div");
     			div2 = element("div");
-    			if (if_block) if_block.c();
+    			if (if_block0) if_block0.c();
     			t1 = space();
-    			div8 = element("div");
+    			div7 = element("div");
     			div4 = element("div");
     			t2 = text(t2_value);
     			t3 = space();
-    			div7 = element("div");
-    			div5 = element("div");
-    			t4 = text(t4_value);
-    			t5 = space();
     			div6 = element("div");
-    			t6 = text(t6_value);
-    			t7 = space();
-    			div14 = element("div");
-    			div11 = element("div");
-    			div9 = element("div");
-    			canvas = element("canvas");
-    			t8 = space();
-    			div10 = element("div");
-    			t9 = text(t9_value);
-    			t10 = space();
+    			div5 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t4 = space();
+    			if (if_block1) if_block1.c();
+    			t5 = space();
     			div13 = element("div");
+    			div10 = element("div");
+    			div8 = element("div");
+    			canvas = element("canvas");
+    			t6 = space();
+    			div9 = element("div");
+    			t7 = text(t7_value);
+    			t8 = space();
     			div12 = element("div");
+    			div11 = element("div");
     			this.c = noop;
     			attr(div0, "class", "content-row");
     			attr(div1, "class", "scroll-row");
@@ -9511,64 +9651,106 @@ var GuitarChords = (function () {
     			attr(div3, "class", "scroll-row");
     			attr(div4, "class", "chord-name");
     			attr(div5, "class", "chord-guitar-notes");
-    			attr(div6, "class", "chord-guitar-notes");
-    			attr(div7, "class", "chord-notes");
-    			attr(div8, "class", "chord-header");
+    			attr(div6, "class", "chord-notes");
+    			attr(div7, "class", "chord-header");
     			attr(canvas, "width", width$3);
     			attr(canvas, "height", height$3);
-    			attr(div9, "class", "tones-canvas");
-    			attr(div10, "class", "tones-name");
-    			attr(div11, "class", "tones");
-    			attr(div13, "class", "chord");
-    			attr(div14, "class", "chord-visualized");
-    			attr(div15, "class", "notes-menu");
+    			attr(div8, "class", "tones-canvas");
+    			attr(div9, "class", "tones-name");
+    			attr(div10, "class", "tones");
+    			attr(div12, "class", "chord");
+    			attr(div13, "class", "chord-visualized");
+    			attr(div14, "class", "notes-menu");
     		},
     		m(target, anchor) {
-    			insert(target, div15, anchor);
-    			append(div15, div1);
+    			insert(target, div14, anchor);
+    			append(div14, div1);
     			append(div1, div0);
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div0, null);
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div0, null);
     			}
 
-    			append(div15, t0);
-    			append(div15, div3);
+    			append(div14, t0);
+    			append(div14, div3);
     			append(div3, div2);
-    			if (if_block) if_block.m(div2, null);
-    			append(div15, t1);
-    			append(div15, div8);
-    			append(div8, div4);
+    			if (if_block0) if_block0.m(div2, null);
+    			append(div14, t1);
+    			append(div14, div7);
+    			append(div7, div4);
     			append(div4, t2);
-    			append(div8, t3);
-    			append(div8, div7);
-    			append(div7, div5);
-    			append(div5, t4);
-    			append(div7, t5);
+    			append(div7, t3);
     			append(div7, div6);
-    			append(div6, t6);
-    			append(div15, t7);
-    			append(div15, div14);
-    			append(div14, div11);
-    			append(div11, div9);
-    			append(div9, canvas);
-    			/*canvas_binding*/ ctx[12](canvas);
-    			append(div11, t8);
-    			append(div11, div10);
-    			append(div10, t9);
-    			append(div14, t10);
+    			append(div6, div5);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div5, null);
+    			}
+
+    			append(div6, t4);
+    			if (if_block1) if_block1.m(div6, null);
+    			append(div14, t5);
     			append(div14, div13);
+    			append(div13, div10);
+    			append(div10, div8);
+    			append(div8, canvas);
+    			/*canvas_binding*/ ctx[12](canvas);
+    			append(div10, t6);
+    			append(div10, div9);
+    			append(div9, t7);
+    			append(div13, t8);
     			append(div13, div12);
-    			/*div12_binding*/ ctx[13](div12);
+    			append(div12, div11);
+    			/*div11_binding*/ ctx[13](div11);
 
     			if (!mounted) {
-    				dispose = listen(div9, "click", /*toggleStackedView*/ ctx[9]);
+    				dispose = listen(div8, "click", /*toggleStackedView*/ ctx[9]);
     				mounted = true;
     			}
     		},
     		p(ctx, [dirty]) {
     			if (dirty & /*NOTES, note, setBaseNote, getBaseNoteName*/ 129) {
-    				each_value_1 = NOTES;
+    				each_value_3 = NOTES;
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_3(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_3.length;
+    			}
+
+    			if (dirty & /*note_chords*/ 8) show_if_1 = getChordName(/*note_chords*/ ctx[3][0]) !== '';
+
+    			if (show_if_1) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_1(ctx);
+    					if_block0.c();
+    					if_block0.m(div2, null);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (dirty & /*chord*/ 4 && t2_value !== (t2_value = getChordName(/*chord*/ ctx[2]) + "")) set_data(t2, t2_value);
+
+    			if (dirty & /*getStringNotes, strings, tune*/ 18) {
+    				each_value_1 = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true);
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
@@ -9579,7 +9761,7 @@ var GuitarChords = (function () {
     					} else {
     						each_blocks[i] = create_each_block_1(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div0, null);
+    						each_blocks[i].m(div5, null);
     					}
     				}
 
@@ -9590,34 +9772,33 @@ var GuitarChords = (function () {
     				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty & /*note_chords*/ 8) show_if = getChordName(/*note_chords*/ ctx[3][0]) !== '';
+    			if (dirty & /*strings, tune*/ 18) show_if = JSON.stringify(getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true)) !== JSON.stringify(getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false));
 
     			if (show_if) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block(ctx);
-    					if_block.c();
-    					if_block.m(div2, null);
+    					if_block1 = create_if_block(ctx);
+    					if_block1.c();
+    					if_block1.m(div6, null);
     				}
-    			} else if (if_block) {
-    				if_block.d(1);
-    				if_block = null;
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
     			}
 
-    			if (dirty & /*chord*/ 4 && t2_value !== (t2_value = getChordName(/*chord*/ ctx[2]) + "")) set_data(t2, t2_value);
-    			if (dirty & /*strings, tune*/ 18 && t4_value !== (t4_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], true).join(' ') + "")) set_data(t4, t4_value);
-    			if (dirty & /*strings, tune*/ 18 && t6_value !== (t6_value = getStringNotes(/*strings*/ ctx[4], /*tune*/ ctx[1], false).join(' ') + "")) set_data(t6, t6_value);
-    			if (dirty & /*chord*/ 4 && t9_value !== (t9_value = /*chord*/ ctx[2].tones + "")) set_data(t9, t9_value);
+    			if (dirty & /*chord*/ 4 && t7_value !== (t7_value = setSharpNotes(/*chord*/ ctx[2].tones) + "")) set_data(t7, t7_value);
     		},
     		i: noop,
     		o: noop,
     		d(detaching) {
-    			if (detaching) detach(div15);
+    			if (detaching) detach(div14);
+    			destroy_each(each_blocks_1, detaching);
+    			if (if_block0) if_block0.d();
     			destroy_each(each_blocks, detaching);
-    			if (if_block) if_block.d();
+    			if (if_block1) if_block1.d();
     			/*canvas_binding*/ ctx[12](null);
-    			/*div12_binding*/ ctx[13](null);
+    			/*div11_binding*/ ctx[13](null);
     			mounted = false;
     			dispose();
     		}
@@ -9675,7 +9856,7 @@ var GuitarChords = (function () {
     		});
     	}
 
-    	function div12_binding($$value) {
+    	function div11_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			chordElement = $$value;
     			$$invalidate(5, chordElement);
@@ -9715,14 +9896,14 @@ var GuitarChords = (function () {
     		click_handler,
     		click_handler_1,
     		canvas_binding,
-    		div12_binding
+    		div11_binding
     	];
     }
 
     class GuitarChords extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:flex-start;justify-content:center;cursor:pointer}.tones-name{display:flex;align-items:flex-start;justify-content:center;font-weight:normal;font-size:medium;padding-top:4px}.chord-header{display:grid;grid-template-columns:150px 200px;color:#999;border-top:1px solid #999;width:100vw;justify-content:center;padding-top:0.5em;height:50px}.chord-name{text-align:center;font-size:x-large;font-weight:bolder;display:flex;flex-direction:column;max-width:min-content}.chord-notes{padding-left:10px}.chord-guitar-notes{text-align:center;align-items:flex-start;width:available;font-size:x-large;font-weight:bolder;font-family:monospace}.chord-visualized{display:grid;grid-template-columns:150px 200px;width:100vw;justify-content:center}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available;font-family:Calibri, Candara, Arial, Helvetica, sans-serif;border-top:1px solid #999}.tones{font-size:large;color:#999;display:grid;grid-template-columns:auto;margin-top:2em;height:available;width:available}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:available;display:flex;justify-content:flex-start}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
+    		this.shadowRoot.innerHTML = `<style>.tones-canvas{display:flex;align-items:flex-start;justify-content:center;cursor:pointer}.tones-name{display:flex;align-items:flex-start;justify-content:center;font-weight:normal;font-size:medium;padding-top:4px}.chord-header{display:grid;grid-template-columns:150px 200px;color:#999;border-top:1px solid #999;width:100vw;justify-content:center;padding-top:0.5em;height:50px}.chord-name{text-align:center;font-size:x-large;font-weight:bolder;display:flex;flex-direction:column;max-width:min-content}.chord-notes{padding-left:10px}.chord-guitar-notes{display:grid;grid-template-columns:25px 25px 25px 25px 25px 25px;padding-left:20px;align-items:center}.chord-guitar-note{text-align:center;width:available;font-size:x-large;font-weight:normal;font-family:monospace}.chord-visualized{display:grid;grid-template-columns:150px 200px;width:100vw;justify-content:center}.notes-menu{display:flex;align-items:center;flex-direction:column;width:100vw;height:available;height:-moz-available;height:-webkit-fill-available;font-family:Calibri, Candara, Arial, Helvetica, sans-serif;border-top:1px solid #999}.tones{font-size:large;color:#999;display:grid;grid-template-columns:auto;margin-top:2em;height:available;width:available}.scroll-row{display:flex;overflow:auto;border:none;width:available;width:-moz-available;width:-webkit-fill-available;height:70px}.content-row{display:flex;flex-wrap:nowrap;border:none;width:fit-content;margin:0.5em auto}.chord{width:available;display:flex;justify-content:flex-start}.chord-button{border:1px solid #999;border-radius:5px;color:#999;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:normal;font-size:small;cursor:pointer;padding:0.2rem 1em;margin:0 2px;display:flex;flex-direction:column;justify-content:center;max-width:min-content;height:2.5em}.button-selected{border:1px solid #1A1A1A;color:#1A1A1A;background-color:#999}</style>`;
 
     		init(
     			this,

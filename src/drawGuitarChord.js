@@ -1,64 +1,4 @@
-import CHORDS from './GuitarChordsJson';
 import {ChordBox} from "vexchords";
-import {NOTES, NOTES_SHARP} from './NoteService'
-
-
-export let empty_chord = [{
-    chordName: '',
-    enharmonicChordName: '',
-    fingering: 'X X X X X X',
-    strings: 'X X X X X X',
-    tones: ''
-}];
-
-export function getChords(note) {
-    let chords = empty_chord;
-    if (note !== '') {
-        chords = CHORDS[note];
-    }
-    return chords;
-}
-
-function getBarres(fingering, frets) {
-    let fret = JSON.parse(JSON.stringify(frets));
-    fret.reverse();
-    let barres = [];
-    fingering.forEach((finger, index) => {
-        let sibling = getSibling(finger, index, fingering);
-        if (sibling !== -1) {
-            barres.push({fromString: sibling, toString: index + 1, fret: fret[index]});
-        }
-    })
-
-    return barres;
-}
-
-function getSibling(finger, index, fingering) {
-    return isNaN(finger) ? -1 : fingering.lastIndexOf(finger) === index ? -1 : fingering.lastIndexOf(finger) + 1;
-}
-
-function getTunePositions(tuning) {
-    let tuningPositions = [];
-    tuning.forEach((note) => {
-        tuningPositions.push(NOTES.indexOf(note))
-    })
-    return tuningPositions;
-}
-
-export function getStringNotes(strings, tuning, sharp) {
-    const tunePosition = getTunePositions(tuning);
-    let notes = [];
-    strings.forEach((tune, index) =>{
-        if (tune !== 'X') {
-            tune = (tunePosition[index] + parseInt(tune)) % NOTES.length - 1;
-            tune = sharp ? NOTES_SHARP[tune + 1] : NOTES[tune + 1];
-        } else {
-            tune = '-';
-        }
-        notes.push(tune);
-    })
-    return notes;
-}
 
 export function drawGuitarChord(chordElement, strings, fingering, tuning) {
     chordElement.innerHTML = '';
@@ -84,6 +24,24 @@ export function drawGuitarChord(chordElement, strings, fingering, tuning) {
     svgElement.setAttribute("viewBox", "0 10 100 100");
     svgElement.setAttribute("width", "100%");
     svgElement.setAttribute("height", "100%");
+}
+
+function getBarres(fingering, frets) {
+    let fret = JSON.parse(JSON.stringify(frets));
+    fret.reverse();
+    let barres = [];
+    fingering.forEach((finger, index) => {
+        let sibling = getSibling(finger, index, fingering);
+        if (sibling !== -1) {
+            barres.push({fromString: sibling, toString: index + 1, fret: fret[index]});
+        }
+    })
+
+    return barres;
+}
+
+function getSibling(finger, index, fingering) {
+    return isNaN(finger) ? -1 : fingering.lastIndexOf(finger) === index ? -1 : fingering.lastIndexOf(finger) + 1;
 }
 
 function getChord(fingering, frets) {
@@ -112,17 +70,3 @@ function getPositionFromFrets(frets) {
     }).filter(Boolean);
     return Math.min(...filteredFrets) === Infinity ? 0 : Math.min(...filteredFrets);
 }
-
-export function getChordName(chord) {
-    let enharmonicChordName = chord.enharmonicChordName.split(',').join('');
-    let chordName = chord.chordName.split(',').join('');
-    return enharmonicChordName === chordName ? chordName : enharmonicChordName + ' ' + chordName;
-}
-
-export function getBaseNoteName(base_note) {
-    let chords = getChords(base_note);
-    return getChordName(chords[0]);
-}
-
-
-

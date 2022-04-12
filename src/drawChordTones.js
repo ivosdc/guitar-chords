@@ -1,4 +1,4 @@
-import {NOTES, NOTES_SHARP} from './NoteService'
+import {NOTES, NOTES_SHARP} from './ChordsNotesService'
 
 let half_step = 5;
 export let width = 100;

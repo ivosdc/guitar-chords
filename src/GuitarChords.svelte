@@ -1,15 +1,14 @@
 <script>
-    import {
-        drawGuitarChord,
-        getChordName,
-        getBaseNoteName,
-        getChords,
-        getStringNotes,
-        empty_chord
-    } from './drawGuitarChord';
+    import {drawGuitarChord} from './drawGuitarChord';
     import {afterUpdate} from 'svelte';
     import {drawChordTones, width, height} from "./drawChordTones";
-    import {NOTES, tuning} from './NoteService'
+    import {NOTES, tuning, empty_chord,
+        getChords,
+        getStringNotes,
+        setSharpNotes,
+        getChordName,
+        getBaseNoteName
+    } from './ChordsNotesService'
 
     export let note = '';
     let chord = empty_chord[0];
@@ -48,7 +47,7 @@
 
     function toggleStackedView() {
         show_chord_stacked = !show_chord_stacked;
-        drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1',  show_chord_stacked);
+        drawChordTones(chord_canvas, chord.tones, 'rgba(0, 0, 0, 0)', '#A1A1A1', show_chord_stacked);
     }
 
 </script>
@@ -81,8 +80,18 @@
     <div class="chord-header">
         <div class="chord-name">{getChordName(chord)}</div>
         <div class="chord-notes">
-            <div class="chord-guitar-notes">{getStringNotes(strings, tune, true).join(' ')}</div>
-            <div class="chord-guitar-notes">{getStringNotes(strings, tune, false).join(' ')}</div>
+            <div class="chord-guitar-notes">
+                {#each getStringNotes(strings, tune, true) as tone}
+                    <div class="chord-guitar-note">{tone}</div>
+                {/each}
+            </div>
+            {#if JSON.stringify(getStringNotes(strings, tune, true)) !== JSON.stringify(getStringNotes(strings, tune, false))}
+                <div class="chord-guitar-notes">
+                    {#each getStringNotes(strings, tune, false) as tone}
+                        <div class="chord-guitar-note">{tone}</div>
+                    {/each}
+                </div>
+            {/if}
         </div>
     </div>
     <div class="chord-visualized">
@@ -91,7 +100,7 @@
                 <canvas bind:this={chord_canvas} width={width} height={height}>
                 </canvas>
             </div>
-            <div class="tones-name">{chord.tones}</div>
+            <div class="tones-name">{setSharpNotes(chord.tones)}</div>
         </div>
         <div class="chord">
             <div bind:this={chordElement}></div>
@@ -140,13 +149,18 @@
         padding-left: 10px;
     }
 
-
     .chord-guitar-notes {
+        display: grid;
+        grid-template-columns: 25px 25px 25px 25px 25px 25px;
+        padding-left: 20px;
+        align-items: center;
+    }
+
+    .chord-guitar-note {
         text-align: center;
-        align-items: flex-start;
         width: available;
         font-size: x-large;
-        font-weight: bolder;
+        font-weight: normal;
         font-family: monospace;
     }
 
