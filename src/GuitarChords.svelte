@@ -12,7 +12,8 @@
     } from './ChordsNotesService'
 
     export let note = '';
-    let chord = empty_chord[0];
+    export let chord = empty_chord[0];
+    $: chord = typeof chord === 'string' ? JSON.parse(chord) : chord;
 
     function setBaseNote(base_note) {
         note = base_note;
