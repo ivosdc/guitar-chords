@@ -80,3 +80,7 @@ import GuitarChords from 'guitar-chords-viewer/src/GuitarChords.svelte';
 
 <GuitarChords />
 ```
+
+### Parameter
+- chord; A chord-json; The chord to display.
+- show_chord_selector; default = true; Display the chord-buttons or hide.

@@ -11,9 +11,11 @@
         getBaseNoteName
     } from './ChordsNotesService'
 
-    export let note = '';
+    let note = '';
     export let chord = empty_chord[0];
     $: chord = typeof chord === 'string' ? JSON.parse(chord) : chord;
+    export let show_chord_selector = true;
+    $: show_chord_selector = typeof show_chord_selector === 'string' ? JSON.parse(show_chord_selector) : show_chord_selector;
 
     function setBaseNote(base_note) {
         note = base_note;
@@ -90,30 +92,32 @@
 </script>
 
 <div class="notes-menu">
-    <div class="scroll-row">
-        <div class="content-row">
-            {#each NOTES as base_note}
-                <div class="chord-button"
-                     class:button-selected={base_note === note}
-                     on:click={()=>{setBaseNote(base_note)}}>
-                    {getBaseNoteName(base_note)}
-                </div>
-            {/each}
-        </div>
-    </div>
-    <div class="scroll-row">
-        <div class="content-row">
-            {#if getChordName(note_chords[0]) !== ''}
-                {#each note_chords as note_chord}
+    {#if show_chord_selector}
+        <div class="scroll-row">
+            <div class="content-row">
+                {#each NOTES as base_note}
                     <div class="chord-button"
-                         class:button-selected={getChordName(note_chord) === getChordName(chord)}
-                         on:click={()=>{setChord(note_chord)}}>
-                        {getChordName(note_chord)}
+                         class:button-selected={base_note === note}
+                         on:click={()=>{setBaseNote(base_note)}}>
+                        {getBaseNoteName(base_note)}
                     </div>
                 {/each}
-            {/if}
+            </div>
         </div>
-    </div>
+        <div class="scroll-row">
+            <div class="content-row">
+                {#if getChordName(note_chords[0]) !== ''}
+                    {#each note_chords as note_chord}
+                        <div class="chord-button"
+                             class:button-selected={getChordName(note_chord) === getChordName(chord)}
+                             on:click={()=>{setChord(note_chord)}}>
+                            {getChordName(note_chord)}
+                        </div>
+                    {/each}
+                {/if}
+            </div>
+        </div>
+    {/if}
     <div class="chord-header">
         <div class="chord-name">{getChordName(chord)}</div>
         <div class="chord-notes">
@@ -305,8 +309,8 @@
 
     .button-selected {
         border: 1px solid #1A1A1A;
-        color: #1A1A1A;
-        background-color: rgba(0, 0, 0, 0.1);
+        color: #fff;
+        background-color: #999;
         box-shadow: none;
     }
 </style>
