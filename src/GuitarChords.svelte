@@ -19,6 +19,24 @@
     $: chord = typeof chord === 'string' ? JSON.parse(chord) : chord;
     export let show_chord_selector = true;
     $: show_chord_selector = typeof show_chord_selector === 'string' ? JSON.parse(show_chord_selector) : show_chord_selector;
+    export let chamber_tone = 440;
+
+    function getFrequenz(note) {
+        const max_octaves = 5;
+        const octave = Math.pow(2, max_octaves - (parseInt(note.slice(-1)) + 1));
+        const offset_half_tone = Math.pow(2, 1 / NOTES.length);
+        let halfTonesFromA = getHalfTonesFromA(note);
+        return chamber_tone / (octave * Math.pow(offset_half_tone, halfTonesFromA));
+    }
+
+    function getHalfTonesFromA(note) {
+        const A = 9;
+        let indexNote = NOTES.indexOf(note.substring(0, note.length - 1));
+        if (indexNote === -1) {
+            indexNote = NOTES_SHARP.indexOf(note.substring(0, note.length - 1));
+        }
+        return (A - indexNote);
+    }
 
     function setBaseNote(base_note) {
         note = base_note;
@@ -121,7 +139,7 @@
             }
             const synth = new Tone.Synth().toDestination();
             const now = Tone.now();
-            synth.triggerAttackRelease(tone + octave, 0.3, now + delay);
+            synth.triggerAttackRelease(getFrequenz(tone + octave), 0.3, now + delay);
             lasttone = tone;
             index++;
         }

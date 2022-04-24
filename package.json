@@ -1,7 +1,7 @@
 {
   "name": "guitar-chords-viewer",
-  "version": "0.1.4",
-  "description": "<guitar-chords> Web-component or svelte component",
+  "version": "0.1.5",
+  "description": "<guitar-chords> Shows and plays guitar-chords. Web-component or svelte component",
   "svelte": "src/index.js",
   "module": "dist/build/guitar-chords.mjs",
   "main": "dist/build/guitar-chords.js",

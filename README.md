@@ -13,10 +13,13 @@ and / or include into your website.
 
 <img src="./assets/guitar-chord-viewer.png" alt="guitar-chord-viewer" width="350" />
 
+### and you can play chords
+
 - Stacked or spread chord-notes: 
  
 <img src="./assets/chord-notes-stacked.png" alt="chord-notes" width="80" />
 
+The frequenz of the notes is calculated based on a settable chamber note. Default is set to 440 Hz.
 
 ### Left-handed view
 You can also change/mirror the view of the guitar-neck. Normally the views are made for right-handed guitars.
@@ -84,3 +87,4 @@ import GuitarChords from 'guitar-chords-viewer/src/GuitarChords.svelte';
 ### Parameter
 - chord; A chord-json; The chord to display.
 - show_chord_selector; default = true; Display the chord-buttons or hide.
+- chamber_tone; default = 440; The chamber tone for sound generation.
