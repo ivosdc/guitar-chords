@@ -2,8 +2,11 @@
     import {drawGuitarChord} from './drawGuitarChord';
     import {afterUpdate} from 'svelte';
     import {drawChordTones, width, height} from "./drawChordTones";
+    import {icon_play, icon_music} from './AssetService';
+    import * as Tone from 'tone';
+
     import {
-        NOTES, tuning, empty_chord,
+        NOTES, NOTES_SHARP, tuning, empty_chord,
         getChords,
         getStringNotes,
         setSharpNotes,
@@ -28,6 +31,9 @@
     function initChords(note) {
         let chords = getChords(note);
         setChord(chords[0]);
+        if (chords[0].chordName !== '') {
+            icon_play_music = icon_play;
+        }
         return chords;
     }
 
@@ -89,6 +95,40 @@
     function toggleLeftRight() {
         left_hand = !left_hand;
     }
+
+
+    let icon_play_music = '';
+
+    function playChord() {
+        icon_play_music = icon_music;
+        let tones = setSharpNotes(chord.tones).split(',');
+        let delay = 0;
+        let octave = 3;
+        let index = 0;
+        let lasttone = '';
+        for (let tone of tones) {
+            if (!show_chord_stacked) {
+                delay += 0.3
+            }
+            if (index === 1 && octave === 2 && NOTES_SHARP.indexOf(tone) > 6) {
+                octave++;
+            }
+            if (index > 0 && NOTES_SHARP.indexOf(tone) < NOTES_SHARP.indexOf(lasttone)) {
+                octave++;
+            }
+            if (index === 0 && NOTES_SHARP.indexOf(tone) > 6) {
+                octave--;
+            }
+            const synth = new Tone.Synth().toDestination();
+            const now = Tone.now();
+            synth.triggerAttackRelease(tone + octave, 0.3, now + delay);
+            lasttone = tone;
+            index++;
+        }
+        setTimeout(() => {
+            icon_play_music = icon_play;
+        }, 1500)
+    }
 </script>
 
 <div class="notes-menu">
@@ -141,6 +181,7 @@
                 <canvas bind:this={chord_canvas} width={width} height={height}>
                 </canvas>
             </div>
+            <div class="play-chord" on:click={playChord}>{@html icon_play_music}</div>
             <div class="tones-name">{setSharpNotes(chord.tones)}</div>
         </div>
         <div class="chord">
@@ -162,6 +203,11 @@
     </div>
 </div>
 <style>
+    .play-chord {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
 
     .left-right-toggle {
         width: 100vw;
